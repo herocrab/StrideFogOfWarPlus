@@ -7,6 +7,9 @@ Cameras:
     de2e75c3b2b23e54162686363f3f138e:
         Id: fded8758-ffcb-4f35-8792-e5b6ccaba376
         Name: Main
+    50083e925f3f8dffe206056315592ba2*:
+        Id: d41597f1-791f-401e-a8a0-6822b081715f
+        Name: FogOfWar
 RenderStages:
     47116750c1a5d449b4ad3625f71439b3:
         Id: cf1007af-f354-44b3-8525-155f90a4f2c5
@@ -168,7 +171,7 @@ SharedRenderers:
             Enabled: false
             DOFAreas: {X: 0.5, Y: 6.0, Z: 50.0, W: 200.0}
         BrightFilter:
-            Enabled*: false
+            Enabled*: true
             Color: {R: 1.0, G: 1.0, B: 1.0}
         Bloom:
             Enabled*: true
@@ -178,8 +181,10 @@ SharedRenderers:
         LightStreak:
             Enabled*: true
             Attenuation: 0.7
-        LensFlare: {}
+        LensFlare:
+            Enabled*: true
         ColorTransforms:
+            Enabled*: false
             Transforms:
                 1e06f805f8b2e949a06c30d45fe413ef: !ToneMap
                     Operator: !ToneMapHejl2Operator {}
