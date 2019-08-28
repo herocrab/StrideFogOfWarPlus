@@ -93,7 +93,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -119,7 +118,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -145,7 +143,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -316,7 +313,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -342,7 +338,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -368,7 +363,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -430,7 +424,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -470,7 +463,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -496,7 +488,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -522,7 +513,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -636,7 +626,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -662,7 +651,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -688,7 +676,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -739,7 +726,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1021,7 +1007,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1047,7 +1032,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1073,7 +1057,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1110,7 +1093,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1193,7 +1175,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1244,7 +1225,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1284,7 +1264,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1310,7 +1289,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1336,7 +1314,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1376,7 +1353,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1416,7 +1392,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1442,7 +1417,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1507,7 +1481,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1533,7 +1506,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1573,7 +1545,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1610,7 +1581,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1636,7 +1606,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1698,7 +1667,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1768,7 +1736,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1794,7 +1761,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1856,7 +1822,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
@@ -1882,7 +1847,6 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
             Base:
                 BasePartAsset: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab

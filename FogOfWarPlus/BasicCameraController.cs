@@ -272,10 +272,10 @@ namespace FogOfWarPlus
             finalTranslation = Vector3.TransformCoordinate(finalTranslation, rotation);
             
             // Move in local coordinates
-            Entity.Transform.Position += finalTranslation;
+            Entity.GetParent().Transform.Position += finalTranslation;
 
             // Yaw around global up-vector, pitch and roll in local space
-            Entity.Transform.Rotation *= Quaternion.RotationAxis(right, pitch) * Quaternion.RotationAxis(upVector, yaw);
+            Entity.GetParent().Transform.Rotation *= Quaternion.RotationAxis(right, pitch) * Quaternion.RotationAxis(upVector, yaw);
         }
     }
 }

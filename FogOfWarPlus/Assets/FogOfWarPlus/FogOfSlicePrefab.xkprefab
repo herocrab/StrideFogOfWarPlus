@@ -36,5 +36,4 @@ Hierarchy:
                         Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
-                        Sampler: AnisotropicClamp
                         RenderGroup: Group31

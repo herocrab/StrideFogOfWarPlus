@@ -22,7 +22,7 @@ Hierarchy:
                             Texture: b47384c6-7bb3-46e8-b596-bc6526bfa0d0:FogOfWarPlus/FogOfWarCircleTexture
                             Center: {X: 0.0, Y: 0.0}
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 12.0
+                        Intensity: 200.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
                         RenderGroup: Group31

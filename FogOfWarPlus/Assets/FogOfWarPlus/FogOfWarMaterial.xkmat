@@ -1,0 +1,17 @@
+!MaterialAsset
+Id: 667c795a-f62e-439a-9249-141bb7656f75
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Attributes:
+    Diffuse: !MaterialDiffuseMapFeature
+        DiffuseMap: !ComputeTextureColor
+            Texture: 796ef2ca-426e-46a1-86a6-232d72c4cf66:FogOfWarPlus/FogOfWarRenderTexture
+            FallbackValue:
+                Value: {R: 1.0, G: 0.8392157, B: 0.435294122, A: 1.0}
+            Scale: {X: 1.0, Y: 1.0}
+            Offset: {X: 0.0, Y: 0.0}
+            Swizzle: null
+    DiffuseModel: !MaterialDiffuseLambertModelFeature {}
+    Overrides:
+        UVScale: {X: 1.0, Y: 1.0}
+Layers: {}
