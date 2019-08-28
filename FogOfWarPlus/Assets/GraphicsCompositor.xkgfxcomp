@@ -168,12 +168,15 @@ SharedRenderers:
             Enabled: false
             DOFAreas: {X: 0.5, Y: 6.0, Z: 50.0, W: 200.0}
         BrightFilter:
+            Enabled*: false
             Color: {R: 1.0, G: 1.0, B: 1.0}
         Bloom:
+            Enabled*: true
             Distortion: {X: 1.0, Y: 1.0}
             Afterimage:
                 Enabled: false
         LightStreak:
+            Enabled*: true
             Attenuation: 0.7
         LensFlare: {}
         ColorTransforms:

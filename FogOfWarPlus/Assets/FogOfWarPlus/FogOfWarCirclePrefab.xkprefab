@@ -1,0 +1,28 @@
+!PrefabAsset
+Id: fc104e77-4a75-4d81-bfa7-dd33a63a1fa4
+SerializedVersion: {Xenko: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! e2af0282-36ef-4a13-9700-ff7cd542e873
+    Parts:
+        -   Entity:
+                Id: e2af0282-36ef-4a13-9700-ff7cd542e873
+                Name: FogOfWarCircle
+                Components:
+                    de9bf9b9e37edd6ea6de1fc6cc2ce27d: !TransformComponent
+                        Id: 0f66a45c-d389-443f-9053-aa65ab4c937d
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    f3d18ad20d9fdffdb4ab07ca2b84c78d: !SpriteComponent
+                        Id: 41d111b5-a313-467b-ab0b-77f6257ea820
+                        SpriteProvider: !SpriteFromTexture
+                            Texture: b47384c6-7bb3-46e8-b596-bc6526bfa0d0:FogOfWarPlus/FogOfWarCircleTexture
+                            Center: {X: 0.0, Y: 0.0}
+                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                        Intensity: 12.0
+                        IgnoreDepth: true
+                        IsAlphaCutoff: true
+                        RenderGroup: Group31

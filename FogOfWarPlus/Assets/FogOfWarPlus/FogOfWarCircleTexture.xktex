@@ -1,0 +1,7 @@
+!Texture
+Id: b47384c6-7bb3-46e8-b596-bc6526bfa0d0
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: !file FogOfWarCircle.png
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
