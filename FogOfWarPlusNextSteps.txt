@@ -1,7 +1,8 @@
+[DONE] 4) Write a script for FogOfWarDirectionalRenderer.
 1) Hide all of the render group 31 renderings in game studio.
-2) Enable them in the startup script.
+	- Need to update script first to enable the sprite components in startup.
 3) Write a script for moving an entity around.
-4) Write a script for FogOfWarDirectionalRenderer.
+	- Test
 5) Attach to the Wedge prefab and the Circle prefab for Directional.
 6) Test.
 *** Research ***

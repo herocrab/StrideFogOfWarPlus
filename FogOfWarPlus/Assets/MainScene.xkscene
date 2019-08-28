@@ -14,6 +14,8 @@ Hierarchy:
         - ref!! fafd9a97-2ea4-47b8-8233-195bb1381220
         - ref!! 9665292b-d6f4-4aef-ad57-e921e5919a4f
         - ref!! 9eca8c4e-87e2-4344-86b0-fda26ab9ba36
+        - ref!! ab8e0af9-880e-4571-8d1a-4371771d5e05
+        - ref!! f61f69c9-6383-470c-9f00-dcd4f9bf70a9
     Parts:
         -   Entity:
                 Id: 016df622-3b7a-463b-89da-e2aaf5bf5eec
@@ -1490,6 +1492,28 @@ Hierarchy:
                             6f4a4f327f016746d29215e9e99838a5: ref!! 981faffc-e0e5-4bc8-8f4b-91527ca19a93
                             d816fe20076033f28ba4402b10b2b729: ref!! 1ce5465f-f1aa-4268-a057-e48ec1744db1
                             ba1bbfd9e904f314347e2325774cfec0: ref!! 7ebcfb2e-7c88-4170-a2e7-6fc6689ff244
+                    6a60c655da0cac9579cd4e5fc28dad66: !FogOfWarPlus.FogOfWarVisionDetection,FogOfWarPlus
+                        Id: 8a574ed1-27fa-4200-8ed4-470204f75a22
+                    734da1d68e97c5a988fc189ce630ae74: !RigidbodyComponent
+                        Id: 4c5e975e-1673-4794-b664-11acc2aa63ee
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: true
+                        IsKinematic: true
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            29a683e6509218c4356b27d8f99a7ae6: !SphereColliderShapeDesc
+                                Is2D: true
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
             Base:
                 BasePartAsset: 663ee6c8-ff31-4491-b40b-37e7ef7847ab:FogOfWarPlus/FogOfWarCircleDirectionalPrefab
                 BasePartId: a45291c7-76b2-4f2f-9daa-874279780556
@@ -1693,7 +1717,7 @@ Hierarchy:
                         Id: c632a24a-3de3-4f7c-99db-97ec64d735fd
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Scale*: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             16bf10a23d57e9b84f1e7577d821bd17: ref!! 70eff484-b858-43b2-a8ed-cd35d3ca2dc0
                     3fc20304194abfad8fe50e43b9b41ae5: !SpriteComponent
@@ -1710,6 +1734,37 @@ Hierarchy:
                 BasePartAsset: 663ee6c8-ff31-4491-b40b-37e7ef7847ab:FogOfWarPlus/FogOfWarCircleDirectionalPrefab
                 BasePartId: f99e2402-47b1-47df-8868-ca2900cf9e39
                 InstanceId: fb8e0b3d-a798-4bf4-b5f1-c80f9100283c
+        -   Entity:
+                Id: ab8e0af9-880e-4571-8d1a-4371771d5e05
+                Name: Cube
+                Components:
+                    d941c572302dcdb21b2196ca96f51578: !TransformComponent
+                        Id: fc22b4cd-0d10-4561-8794-bc99d560981a
+                        Position: {X: 12.0, Y: 1.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 2.0, Y: 2.0, Z: 2.0}
+                        Children: {}
+                    34d5372def84053140bafbc5236fed89: !ModelComponent
+                        Id: 1462666d-f6f4-47d3-8069-a222b2aa01a7
+                        Model: 1ed9a35f-cc30-49d6-8080-045e85698879:Cube
+                        Materials:
+                            39d211d750a9d285e7a1a3db2a04488c~0: f11dc310-3e6e-4ef1-9743-3a1175d1a300:Ground Material
+                    e82833f66138c35728c9762c915b526e: !StaticColliderComponent
+                        Id: 880092c2-a93f-48fd-8460-abf1635d6ef6
+                        CollisionGroup: StaticFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            664633d4d563858d8c77423d65a5f9b2: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 1.0, Y: 1.0, Z: 1.0}
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
         -   Entity:
                 Id: ac3cf0d3-f228-42df-83b7-2b9ad0161f39
                 Name: FogOfWarWedge
@@ -2041,6 +2096,28 @@ Hierarchy:
                             e0ba0d2f4c6184d0ddb5d75c0638108f: ref!! 97cc6058-9f76-497f-a6c8-f279f431e739
                             02e93dbb7c7b5fc4a156ed166dfe84a2: ref!! a40bced2-f8d3-43c6-8f8f-9827608ff3fd
                             ad09069881aa4e164378fbb53bded73e: ref!! 59751245-5ad9-4a5e-bccd-492436fea490
+                    d2952fa90103acf16f3df4cc79e1488f: !FogOfWarPlus.FogOfWarVisionDetection,FogOfWarPlus
+                        Id: d32c63ce-09e0-40d3-b4a8-5a8def4e7113
+                    3ae14f09a5513bf7964d30d6bfbbe561: !RigidbodyComponent
+                        Id: c034c773-e8fc-4fb6-b841-53b6d9c88f62
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: true
+                        IsKinematic: true
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            0c0948eac39e30a9f788cfbedd8f47ec: !SphereColliderShapeDesc
+                                Is2D: true
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
             Base:
                 BasePartAsset: 3f200ed3-01cf-40b5-b2c5-3f552040ff77:FogOfWarPlus/FogOfWarWedgeDirectionalPrefab
                 BasePartId: 916d3d3c-efe5-4639-906d-037b5b3554b3
@@ -2695,6 +2772,38 @@ Hierarchy:
                 BasePartAsset: 663ee6c8-ff31-4491-b40b-37e7ef7847ab:FogOfWarPlus/FogOfWarCircleDirectionalPrefab
                 BasePartId: b71688df-d6c6-4099-a8b8-85fc93ea0f9b
                 InstanceId: fb8e0b3d-a798-4bf4-b5f1-c80f9100283c
+        -   Folder: null
+            Entity:
+                Id: f61f69c9-6383-470c-9f00-dcd4f9bf70a9
+                Name: Cube
+                Components:
+                    d941c572302dcdb21b2196ca96f51578: !TransformComponent
+                        Id: 053de0d9-0c35-439c-8823-2d1ddcde92a6
+                        Position: {X: 9.720173, Y: 1.0, Z: 3.562231}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 2.0, Y: 2.0, Z: 2.0}
+                        Children: {}
+                    34d5372def84053140bafbc5236fed89: !ModelComponent
+                        Id: e8172949-91e7-4f0f-91a1-e6d8806795cf
+                        Model: 1ed9a35f-cc30-49d6-8080-045e85698879:Cube
+                        Materials:
+                            39d211d750a9d285e7a1a3db2a04488c~0: f11dc310-3e6e-4ef1-9743-3a1175d1a300:Ground Material
+                    e82833f66138c35728c9762c915b526e: !StaticColliderComponent
+                        Id: 2243c072-0953-434b-8389-835fe8387f1c
+                        CollisionGroup: StaticFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            664633d4d563858d8c77423d65a5f9b2: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 1.0, Y: 1.0, Z: 1.0}
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
         -   Entity:
                 Id: f6b891d3-6a67-4d06-88b7-be3b2b1a5930
                 Name: FogOfSlicePrefab

@@ -230,13 +230,13 @@ SharedRenderers:
             DOFAreas: {X: 0.5, Y: 6.0, Z: 50.0, W: 200.0}
         BrightFilter:
             Threshold: 0.1
-            Steepness: 20.0
+            Steepness: 10.0
             Color: {R: 1.0, G: 1.0, B: 1.0}
         Bloom:
-            Amount: 0.2
+            Radius: 4.0
+            Amount: 0.15
             Distortion: {X: 1.0, Y: 1.0}
-            Afterimage:
-                Enabled: false
+            Afterimage: {}
         LightStreak:
             Enabled: false
             Attenuation: 0.7

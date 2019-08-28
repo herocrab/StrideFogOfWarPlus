@@ -1155,6 +1155,28 @@ Hierarchy:
                             6f4a4f327f016746d29215e9e99838a5: ref!! 7cbbfd00-f379-45e1-8adc-896b50a73c77
                             d816fe20076033f28ba4402b10b2b729: ref!! acab06e7-d5cb-49fd-b1bc-c25c0c5f5f79
                             ba1bbfd9e904f314347e2325774cfec0: ref!! fe264d6f-64af-4cb1-9ae7-9aa1eeb1b0d4
+                    6a60c655da0cac9579cd4e5fc28dad66: !FogOfWarPlus.FogOfWarVisionDetection,FogOfWarPlus
+                        Id: 650fa9e6-7be9-4fb9-95d6-34618c1a02cd
+                    734da1d68e97c5a988fc189ce630ae74: !RigidbodyComponent
+                        Id: c20014a8-0b20-4b62-8988-7689cb960c3d
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: true
+                        IsKinematic: true
+                        Mass: 1.0
+                        LinearDamping: 0.0
+                        AngularDamping: 0.0
+                        OverrideGravity: false
+                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
+                        NodeName: null
+                        ColliderShapes:
+                            29a683e6509218c4356b27d8f99a7ae6: !SphereColliderShapeDesc
+                                Is2D: true
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
         -   Entity:
                 Id: a975aaa6-d3ef-4726-a5b0-5bec94d3abab
                 Name: FogOfWarWedge
