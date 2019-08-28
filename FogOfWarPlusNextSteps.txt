@@ -1,0 +1,9 @@
+1) Hide all of the render group 31 renderings in game studio.
+2) Enable them in the startup script.
+3) Write a script for moving an entity around.
+4) Write a script for FogOfWarDirectionalRenderer.
+5) Attach to the Wedge prefab and the Circle prefab for Directional.
+6) Test.
+*** Research ***
+7) Begin writing shader.
+8) Turn back on post effects for the normal camera, for nice looking spheres.
