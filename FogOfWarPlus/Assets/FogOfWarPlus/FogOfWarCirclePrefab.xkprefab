@@ -18,6 +18,7 @@ Hierarchy:
                         Children: {}
                     f3d18ad20d9fdffdb4ab07ca2b84c78d: !SpriteComponent
                         Id: 41d111b5-a313-467b-ab0b-77f6257ea820
+                        Enabled: false
                         SpriteProvider: !SpriteFromTexture
                             Texture: b47384c6-7bb3-46e8-b596-bc6526bfa0d0:FogOfWarPlus/FogOfWarCircleTexture
                             Center: {X: 0.0, Y: 0.0}
@@ -26,3 +27,5 @@ Hierarchy:
                         IgnoreDepth: true
                         IsAlphaCutoff: true
                         RenderGroup: Group31
+                    42c69eafb40e99ce8d004d4d0b7d0d31: !FogOfWarPlus.FogOfWarVisionCircle,FogOfWarPlus
+                        Id: a3771083-71e7-428e-8785-074f405a6a2e

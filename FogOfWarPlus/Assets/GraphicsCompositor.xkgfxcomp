@@ -233,8 +233,7 @@ SharedRenderers:
             Steepness: 10.0
             Color: {R: 1.0, G: 1.0, B: 1.0}
         Bloom:
-            Radius: 4.0
-            Amount: 0.15
+            Amount: 0.25
             Distortion: {X: 1.0, Y: 1.0}
             Afterimage: {}
         LightStreak:
@@ -245,9 +244,7 @@ SharedRenderers:
         ColorTransforms:
             Enabled: false
             Transforms: {}
-        Antialiasing: !FXAAEffect
-            Dither: Medium
-            Quality: 5
+        Antialiasing: null
 Game*: !Xenko.Rendering.Compositing.SceneRendererCollection,Xenko.Rendering
     Id: 3ade4b7f-a733-4000-8e61-57713fbb52ea
     Children:

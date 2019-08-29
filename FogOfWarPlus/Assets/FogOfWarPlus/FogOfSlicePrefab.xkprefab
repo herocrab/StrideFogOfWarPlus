@@ -17,18 +17,11 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
         -   Entity:
-                Id: adac358e-08e1-48de-998d-a63a2e94ad26
-                Name: FogOfWarWedge
+                Id: 907c5d60-b5e1-4509-be72-32da36e152b7
+                Name: StartPoint
                 Components:
-                    537fd72d92e47fc49c24345565bf0e5d: !TransformComponent
-                        Id: 99fc8a99-fe12-4840-9105-a4d8d22d791f
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            16bf10a23d57e9b84f1e7577d821bd17: ref!! a6ff1178-1116-490f-8fef-813a1fdade59
-                    3fc20304194abfad8fe50e43b9b41ae5: !SpriteComponent
-                        Id: f3a182bd-19d5-4673-898e-1480e675d98e
+                    d3fe1e915b715eddda45e3485f3bc25b: !SpriteComponent
+                        Id: 7256b88c-06b7-41e6-8d7f-8c6cc0481a11
                         SpriteProvider: !SpriteFromTexture
                             Texture: bb9988b7-a31f-4ed6-bcf1-25194894039c:FogOfWarPlus/FogOfWarSlice
                             Center: {X: 0.0, Y: 0.0}
@@ -37,3 +30,21 @@ Hierarchy:
                         IgnoreDepth: true
                         IsAlphaCutoff: true
                         RenderGroup: Group31
+                    8d33b6cd26a62dcaecb459124ccec3ee: !TransformComponent
+                        Id: 674e8f17-3e3b-4887-91e1-963a208c3bdd
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+        -   Entity:
+                Id: adac358e-08e1-48de-998d-a63a2e94ad26
+                Name: Slice
+                Components:
+                    537fd72d92e47fc49c24345565bf0e5d: !TransformComponent
+                        Id: 99fc8a99-fe12-4840-9105-a4d8d22d791f
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.7069847, Y: 0.0, Z: 0.0, W: 0.707228839}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            a3d4c909b321bdf1e31d618541c170dc: ref!! 674e8f17-3e3b-4887-91e1-963a208c3bdd
+                            16bf10a23d57e9b84f1e7577d821bd17: ref!! a6ff1178-1116-490f-8fef-813a1fdade59

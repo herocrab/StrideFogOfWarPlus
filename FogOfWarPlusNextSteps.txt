@@ -1,10 +1,7 @@
-[DONE] 4) Write a script for FogOfWarDirectionalRenderer.
-1) Hide all of the render group 31 renderings in game studio.
-	- Need to update script first to enable the sprite components in startup.
-3) Write a script for moving an entity around.
-	- Test
-5) Attach to the Wedge prefab and the Circle prefab for Directional.
-6) Test.
 *** Research ***
+0) Create a new camera to render the default terrain.
+6) Remove the material from the current fog of war.
 7) Begin writing shader.
+8) Can I interpolate between shader values to smooth everything out? If there is any green, interpolate from the last value.
+	- Test this.
 8) Turn back on post effects for the normal camera, for nice looking spheres.
