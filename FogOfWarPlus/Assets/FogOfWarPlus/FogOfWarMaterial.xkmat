@@ -4,13 +4,24 @@ SerializedVersion: {Xenko: 2.0.0.0}
 Tags: []
 Attributes:
     Diffuse: !MaterialDiffuseMapFeature
-        DiffuseMap: !ComputeTextureColor
-            Texture: 796ef2ca-426e-46a1-86a6-232d72c4cf66:FogOfWarPlus/FogOfWarRenderTexture
-            FallbackValue:
-                Value: {R: 1.0, G: 0.8392157, B: 0.435294122, A: 1.0}
-            Scale: {X: 1.0, Y: 1.0}
-            Offset: {X: 0.0, Y: 0.0}
-            Swizzle: null
+        DiffuseMap: !ComputeShaderClassColor
+            MixinReference: FogOfWarPlusShader
+            Generics: {}
+            CompositionNodes:
+                2c97dec55e66af6fc4bf94f4d307082e~Terrain: !ComputeTextureColor
+                    Texture: d308025e-6674-4182-a93b-cc426c32d1ea:FogOfWarPlus/TerrainRenderTexture
+                    FallbackValue:
+                        Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                    Scale: {X: 1.0, Y: 1.0}
+                    Offset: {X: 0.0, Y: 0.0}
+                    Swizzle: null
+                1f50c27f6aee8f9dd6e0335b140506ef~Fog: !ComputeTextureColor
+                    Texture: 796ef2ca-426e-46a1-86a6-232d72c4cf66:FogOfWarPlus/FogOfWarRenderTexture
+                    FallbackValue:
+                        Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                    Scale: {X: 1.0, Y: 1.0}
+                    Offset: {X: 0.0, Y: 0.0}
+                    Swizzle: null
     DiffuseModel: !MaterialDiffuseLambertModelFeature {}
     Overrides:
         UVScale: {X: 1.0, Y: 1.0}

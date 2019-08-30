@@ -17,45 +17,32 @@ Hierarchy:
         - ref!! f61f69c9-6383-470c-9f00-dcd4f9bf70a9
     Parts:
         -   Entity:
-                Id: 22ba61b3-9bec-43f4-a80c-4ad7a7956227
-                Name: FogOfWarWedge
+                Id: 09ca7ed2-4e12-4abf-8752-05e137ab25db
+                Name: FogOfWarCircle
                 Components:
-                    c7a6549fd830270a1f4549a2fc2eb936: !TransformComponent
-                        Id: 0831fda9-ca24-4876-8045-93e4e67eccc8
+                    de9bf9b9e37edd6ea6de1fc6cc2ce27d: !TransformComponent
+                        Id: 5e191380-2827-4c80-9d07-bda2c8d6b13f
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            d3241de26bf3bc889e75062682d61343: ref!! 131483c7-db67-43df-831d-2f11a76f0ca5
-                    3ae14f09a5513bf7964d30d6bfbbe561: !RigidbodyComponent
-                        Id: d2928ec7-77f2-4778-8676-63fc95d3ff54
-                        CanSleep: false
-                        Restitution: 0.0
-                        Friction: 0.5
-                        RollingFriction: 0.0
-                        CcdMotionThreshold: 0.0
-                        CcdSweptSphereRadius: 0.0
-                        IsTrigger: true
-                        IsKinematic: true
-                        Mass: 1.0
-                        LinearDamping: 0.0
-                        AngularDamping: 0.0
-                        OverrideGravity: false
-                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
-                        NodeName: null
-                        ColliderShapes:
-                            0c0948eac39e30a9f788cfbedd8f47ec: !SphereColliderShapeDesc
-                                Is2D: true
-                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
-                    7a12e43a0b5d5e8c951dfce497d9461f: !FogOfWarPlus.FogOfWarVisionDetection,FogOfWarPlus
-                        Id: 1814282d-4519-427b-aca9-dad85b523d15
-                        Slice: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab
-                        StartDegree: -50
-                        StopDegree: 50
+                        Children: {}
+                    f3d18ad20d9fdffdb4ab07ca2b84c78d: !SpriteComponent
+                        Id: beb1f71b-3cd5-4d38-b9a8-945cec42e9a1
+                        Enabled: false
+                        SpriteProvider: !SpriteFromTexture
+                            Texture: b47384c6-7bb3-46e8-b596-bc6526bfa0d0:FogOfWarPlus/FogOfWarCircleTexture
+                            Center: {X: 0.0, Y: 0.0}
+                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                        Intensity: 200.0
+                        IgnoreDepth: true
+                        IsAlphaCutoff: true
+                        RenderGroup: Group31
+                    42c69eafb40e99ce8d004d4d0b7d0d31: !FogOfWarPlus.FogOfWarVisionCircle,FogOfWarPlus
+                        Id: 743f67ff-a65f-44b7-9e55-c76217a455da
             Base:
-                BasePartAsset: 3f200ed3-01cf-40b5-b2c5-3f552040ff77:FogOfWarPlus/FogOfWarWedgeDirectionalPrefab
-                BasePartId: 916d3d3c-efe5-4639-906d-037b5b3554b3
-                InstanceId: 1028180b-cb2b-40e9-9b86-472a7fc87841
+                BasePartAsset: fc104e77-4a75-4d81-bfa7-dd33a63a1fa4:FogOfWarPlus/FogOfWarCirclePrefab
+                BasePartId: e2af0282-36ef-4a13-9700-ff7cd542e873
+                InstanceId: 77d6febb-8dcc-4e5d-8666-6c3242141516
         -   Entity:
                 Id: 24ff4f09-e2f6-4ba4-8971-ae6e33d133e1
                 Name: FogOfWarCirclePrefab
@@ -81,17 +68,19 @@ Hierarchy:
                         Id: a20898c2-b84b-4219-a308-d1394236edbc
                         Type: !LightDirectional
                             Color: !ColorRgbProvider
-                                Value: {R: 1.0, G: 1.0, B: 1.0}
+                                Value: {R: 0.97525, G: 0.963059366, B: 0.8533437}
                             Shadow:
                                 Enabled: true
                                 Filter: !LightShadowMapFilterTypePcf
                                     FilterSize: Filter5x5
-                                Size: Large
+                                Size: XLarge
                                 DepthRange: {}
                                 PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
                                 ComputeTransmittance: false
-                                BiasParameters: {}
-                        Intensity: 20.0
+                                BiasParameters:
+                                    DepthBias: 0.0001
+                                    NormalOffsetScale: 5.0
+                        Intensity: 1.25
         -   Entity:
                 Id: 4354b0ae-5e74-4361-ad39-6f26a229a8d9
                 Name: FogOfWarSystem
@@ -103,7 +92,6 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             e840e778f46e4b1c9f2ead9f366c1beb: ref!! f7edd4a0-312e-4849-94e5-ddd6e9d937e2
-                            0854fa3d8d5e4e1a65944cc0bf334e0a: ref!! b26409f2-40f9-4c3d-bb70-376bcb4580f3
                             4a9c93e69b885f8ff69f18a6cbb6cac7: ref!! e692d739-c682-46e4-bd48-df3a169296a5
                     e16b4648b67f1fd8d4c7262aec04c257: !FogOfWarPlus.GameProfiler,FogOfWarPlus
                         Id: 7d8dab37-a67a-46dd-af23-7054f8be8a71
@@ -113,6 +101,9 @@ Hierarchy:
                         SortingMode: ByTime
                         FilteringMode: Fps
                         ResultPage: 1
+                    61035fbc1becaf51844aaa2ceb56e914: !FogOfWarPlus.FogOfWarSystem,FogOfWarPlus
+                        Id: 7ae07f03-889c-4742-86dc-dd0656dbd44e
+                        FogOfWar: ref!! a039a1f7-32bf-4873-9bfd-911a4d551e7e
         -   Entity:
                 Id: 442c9b19-c93f-4f7a-b971-c98ea274d1c4
                 Name: FogOfWarCircle
@@ -168,23 +159,16 @@ Hierarchy:
                 BasePartId: e2af0282-36ef-4a13-9700-ff7cd542e873
                 InstanceId: 8cb62f1a-6db5-4c85-988d-2b7c6a44e4e7
         -   Entity:
-                Id: 583cd6b2-e101-4c4a-b3f1-af061486d5b4
-                Name: FogCamera
+                Id: 4bf699a4-3494-47d1-b490-3ca75c96b434
+                Name: FogOfWarCirclePrefab
                 Components:
-                    c8d814fd68fbbf1edffdfc1efe593552: !TransformComponent
-                        Id: b26409f2-40f9-4c3d-bb70-376bcb4580f3
-                        Position: {X: 0.0, Y: 140.0, Z: 38.0}
-                        Rotation: {X: -0.6087614, Y: 0.0, Z: 0.0, W: 0.7933533}
+                    aa492bf11e6195d0634c7798d026db44: !TransformComponent
+                        Id: 6c7ef5cc-c257-4d2b-9ca1-9f365b2ac597
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    a38cbd675bc79e294a2e92bae8eabba6: !CameraComponent
-                        Id: c2d1f866-f7e4-45de-9bdb-c0a3cd3bda80
-                        Name: FogCamera
-                        Projection: Orthographic
-                        VerticalFieldOfView: 10.0
-                        OrthographicSize: 28.0
-                        UseCustomAspectRatio: true
-                        Slot: d41597f1-791f-401e-a8a0-6822b081715f
+                        Children:
+                            6d095d5b93d0e5ae2db3af59aacefe6c: ref!! 5e191380-2827-4c80-9d07-bda2c8d6b13f
         -   Entity:
                 Id: 6cb3645d-c61d-478c-b82c-16c450d29f89
                 Name: FogOfWarCirclePrefab
@@ -196,44 +180,6 @@ Hierarchy:
                         Scale: {X: 0.5, Y: 0.5, Z: 0.5}
                         Children:
                             0829720a18e090624fb246679f46e86b: ref!! c77c3bbb-8e2f-4b10-8c8a-24c41213364c
-        -   Entity:
-                Id: 90076050-7fc4-4615-94df-69b90753468a
-                Name: FogOfWarWedgeDirectionalPrefab
-                Components:
-                    31d359afc38c5c8c5868f621be46796b: !TransformComponent
-                        Id: 605bde5c-0969-4974-b6d7-18e420b94bac
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 1.0, Z: 0.0, W: -4.371139E-08}
-                        Scale: {X: 1.5, Y: 1.5, Z: 1.5}
-                        Children:
-                            99d50f91ee2d5ccca0fc21706b9cd711: ref!! 0831fda9-ca24-4876-8045-93e4e67eccc8
-        -   Entity:
-                Id: 92362a1d-c028-483e-a993-df74d75aebbf
-                Name: FogOfWarCircle
-                Components:
-                    de9bf9b9e37edd6ea6de1fc6cc2ce27d: !TransformComponent
-                        Id: 7c1c3245-de00-4ecf-b4e8-01f5ac4a55ab
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    f3d18ad20d9fdffdb4ab07ca2b84c78d: !SpriteComponent
-                        Id: b41506da-73d7-499c-9934-66bed0d3e9e4
-                        Enabled: false
-                        SpriteProvider: !SpriteFromTexture
-                            Texture: b47384c6-7bb3-46e8-b596-bc6526bfa0d0:FogOfWarPlus/FogOfWarCircleTexture
-                            Center: {X: 0.0, Y: 0.0}
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 200.0
-                        IgnoreDepth: true
-                        IsAlphaCutoff: true
-                        RenderGroup: Group31
-                    42c69eafb40e99ce8d004d4d0b7d0d31: !FogOfWarPlus.FogOfWarVisionCircle,FogOfWarPlus
-                        Id: 1ccf4f5a-dbbf-4c59-b549-85bb44dea6c5
-            Base:
-                BasePartAsset: 3f200ed3-01cf-40b5-b2c5-3f552040ff77:FogOfWarPlus/FogOfWarWedgeDirectionalPrefab
-                BasePartId: 697b14a9-37ec-41bb-a496-4a2a64b1d5bd
-                InstanceId: 1028180b-cb2b-40e9-9b86-472a7fc87841
         -   Folder: null
             Entity:
                 Id: 9665292b-d6f4-4aef-ad57-e921e5919a4f
@@ -267,6 +213,7 @@ Hierarchy:
                         Id: 263d823d-7633-4b12-9324-f3c7a761d76b
                         Type: !LightSkybox
                             Skybox: b8587065-30eb-4e26-a906-9bc256db1ce4:Skybox
+                        Intensity: 0.5
         -   Folder: null
             Entity:
                 Id: 9eca8c4e-87e2-4344-86b0-fda26ab9ba36
@@ -278,7 +225,7 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
-                            8aa6bc8e3dc8c0c8b4baee99eca361e1: ref!! 605bde5c-0969-4974-b6d7-18e420b94bac
+                            2f4dceee8c19f2c662846c4087f86a45: ref!! 6c7ef5cc-c257-4d2b-9ca1-9f365b2ac597
                     ccf3672186bb729d63a302061b2b323e: !ModelComponent
                         Id: ff5648e3-bd9b-47d4-ae2a-438784998c08
                         Model: e3453fa0-dee2-4352-ba2b-ae1a44e130f1:Sphere
@@ -312,16 +259,18 @@ Hierarchy:
                 Components:
                     7af3c421b024754a8251a6fa10ea2a0a: !TransformComponent
                         Id: e692d739-c682-46e4-bd48-df3a169296a5
-                        Position: {X: 0.0, Y: 0.0, Z: 0.5}
+                        Position: {X: 0.0, Y: 10.0, Z: 3.15}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 49.775, Y: 1.0, Z: 29.0}
                         Children: {}
                     41f06819e8fac421fad6ebda356e2822: !ModelComponent
                         Id: 92038944-ff7a-430a-9d4e-e23e076864e5
+                        Enabled: false
                         Model: 696548fe-e111-48de-9f1f-51269d2e3d91:FogOfWarPlus/FogOfWarPlane
                         RenderGroup: Group30
                         IsShadowCaster: false
-                        Materials: {}
+                        Materials:
+                            6755611f61b5f26ceedb889613ec5f76~0: 667c795a-f62e-439a-9249-141bb7656f75:FogOfWarPlus/FogOfWarMaterial
         -   Entity:
                 Id: ab8e0af9-880e-4571-8d1a-4371771d5e05
                 Name: Cube
@@ -335,8 +284,7 @@ Hierarchy:
                     34d5372def84053140bafbc5236fed89: !ModelComponent
                         Id: 1462666d-f6f4-47d3-8069-a222b2aa01a7
                         Model: 1ed9a35f-cc30-49d6-8080-045e85698879:Cube
-                        Materials:
-                            39d211d750a9d285e7a1a3db2a04488c~0: f11dc310-3e6e-4ef1-9743-3a1175d1a300:Ground Material
+                        Materials: {}
                     e82833f66138c35728c9762c915b526e: !StaticColliderComponent
                         Id: 880092c2-a93f-48fd-8460-abf1635d6ef6
                         CollisionGroup: StaticFilter
@@ -365,24 +313,10 @@ Hierarchy:
                         Children: {}
                     23e75e62f66845520e9e9926554a53e9: !ModelComponent
                         Id: cd0963f4-a8a3-4ad4-9097-f4e307f1b0ef
-                        Enabled: false
                         Model: 51706944-615b-444d-b242-65f547adb3e7:Ground
-                        Materials: {}
-        -   Entity:
-                Id: c23fec51-d189-4428-935c-71b5ad615a13
-                Name: FogOfWarCirclePrefab
-                Components:
-                    9c3e66ecd4e06f6e1546a2db05ba494c: !TransformComponent
-                        Id: 131483c7-db67-43df-831d-2f11a76f0ca5
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 0.25, Y: 0.25, Z: 0.25}
-                        Children:
-                            f69197ffc377512ad80062587292d6c9: ref!! 7c1c3245-de00-4ecf-b4e8-01f5ac4a55ab
-            Base:
-                BasePartAsset: 3f200ed3-01cf-40b5-b2c5-3f552040ff77:FogOfWarPlus/FogOfWarWedgeDirectionalPrefab
-                BasePartId: 41ed599a-122c-4ab4-9832-fcb0c286ff4f
-                InstanceId: 1028180b-cb2b-40e9-9b86-472a7fc87841
+                        IsShadowCaster: false
+                        Materials:
+                            335681bf12eae6a3ba63d9ffed93f109~0: f11dc310-3e6e-4ef1-9743-3a1175d1a300:Ground Material
         -   Entity:
                 Id: dcaddace-a94a-43aa-b469-1021fc5e56ab
                 Name: Camera
@@ -415,8 +349,7 @@ Hierarchy:
                     34d5372def84053140bafbc5236fed89: !ModelComponent
                         Id: e8172949-91e7-4f0f-91a1-e6d8806795cf
                         Model: 1ed9a35f-cc30-49d6-8080-045e85698879:Cube
-                        Materials:
-                            39d211d750a9d285e7a1a3db2a04488c~0: f11dc310-3e6e-4ef1-9743-3a1175d1a300:Ground Material
+                        Materials: {}
                     e82833f66138c35728c9762c915b526e: !StaticColliderComponent
                         Id: 2243c072-0953-434b-8389-835fe8387f1c
                         CollisionGroup: StaticFilter

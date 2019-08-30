@@ -55,26 +55,6 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             d3241de26bf3bc889e75062682d61343: ref!! e6258ae8-be7d-4bd4-aed1-f917b86bca09
-                    3ae14f09a5513bf7964d30d6bfbbe561: !RigidbodyComponent
-                        Id: 5bb6e8d7-ffa9-42a1-8b5b-e1b409d9051b
-                        CanSleep: false
-                        Restitution: 0.0
-                        Friction: 0.5
-                        RollingFriction: 0.0
-                        CcdMotionThreshold: 0.0
-                        CcdSweptSphereRadius: 0.0
-                        IsTrigger: true
-                        IsKinematic: true
-                        Mass: 1.0
-                        LinearDamping: 0.0
-                        AngularDamping: 0.0
-                        OverrideGravity: false
-                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
-                        NodeName: null
-                        ColliderShapes:
-                            0c0948eac39e30a9f788cfbedd8f47ec: !SphereColliderShapeDesc
-                                Is2D: true
-                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
                     7a12e43a0b5d5e8c951dfce497d9461f: !FogOfWarPlus.FogOfWarVisionDetection,FogOfWarPlus
                         Id: 04609e7d-57b6-4aef-be8d-32e1796a02df
                         Slice: 4ce600d2-a4c6-4086-8827-0a894a5393bf:FogOfWarPlus/FogOfSlicePrefab

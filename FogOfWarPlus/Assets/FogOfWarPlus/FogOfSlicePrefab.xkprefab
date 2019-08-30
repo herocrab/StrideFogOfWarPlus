@@ -26,7 +26,7 @@ Hierarchy:
                             Texture: bb9988b7-a31f-4ed6-bcf1-25194894039c:FogOfWarPlus/FogOfWarSlice
                             Center: {X: 0.0, Y: 0.0}
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        Intensity: 200.0
+                        Intensity: 400.0
                         IgnoreDepth: true
                         IsAlphaCutoff: true
                         RenderGroup: Group31

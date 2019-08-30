@@ -1,12 +1,9 @@
 *** Research ***
-0) Create a new camera to render the default terrain.
-	- Should be the first camera, render to texture. - Group 1 only.
-		- Change all the other players to group 15.
-	- Next should be the normal camera. - All groups minus 31.
-	- Final can be the fog camera.
-	- Will the FogOfWar need set in it's own render pass for drawing? - To remove players?
-6) Remove the material from the current fog of war.
-7) Begin writing shader.
-8) Can I interpolate between shader values to smooth everything out? If there is any green, interpolate from the last value.
-	- Test this.
-8) Turn back on post effects for the normal camera, for nice looking spheres.
+0) Clean up the compositor.
+	- One Camera.
+	- Simple layered design.
+	- Single Shared Forward Renderer.
+	- Don't clear unless you have to.
+0) Figure out if there is a way to do post effects before render texture (probably not?).
+	- Some other way to do it in the compositor?
+	- If not, you'll have to do this with the shader.

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
@@ -14,5 +14,25 @@
     <PackageReference Include="Xenko.UI" Version="3.1.0.1-beta02-0674" />
 
     <PackageReference Include="Xenko.Core.Assets.CompilerApp" Version="3.1.0.1-beta02-0674" IncludeAssets="build;buildTransitive" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Effects\FogOfWarPlusShader.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FogOfWarPlusShader.xksl</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Effects\FogOfWarPlusShader.xksl">
+      <Generator>XenkoShaderKeyGenerator</Generator>
+      <LastGenOutput>FogOfWarPlusShader.cs</LastGenOutput>
+    </None>
+    <None Update="FogOfWarPlusShader.xksl">
+      <Generator>XenkoShaderKeyGenerator</Generator>
+      <LastGenOutput>FogOfWarPlusShader.cs</LastGenOutput>
+    </None>
   </ItemGroup>
 </Project>
