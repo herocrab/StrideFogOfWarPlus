@@ -2,7 +2,7 @@
 
 namespace FogOfWarPlus
 {
-    public class FogOfWarVisionCircle : StartupScript
+    public class FogOfWarVision : StartupScript
     {
         public override void Start()
         {

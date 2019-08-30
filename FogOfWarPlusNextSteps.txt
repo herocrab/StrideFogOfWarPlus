@@ -1,9 +1,1 @@
 *** Research ***
-0) Clean up the compositor.
-	- One Camera.
-	- Simple layered design.
-	- Single Shared Forward Renderer.
-	- Don't clear unless you have to.
-0) Figure out if there is a way to do post effects before render texture (probably not?).
-	- Some other way to do it in the compositor?
-	- If not, you'll have to do this with the shader.

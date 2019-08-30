@@ -1,30 +1,31 @@
 !PrefabAsset
-Id: fc104e77-4a75-4d81-bfa7-dd33a63a1fa4
+Id: 844dcc1d-2569-424e-8981-46beea990a31
 SerializedVersion: {Xenko: 3.1.0.1}
 Tags: []
 Hierarchy:
     RootParts:
-        - ref!! e2af0282-36ef-4a13-9700-ff7cd542e873
+        - ref!! 00b79497-95e1-4bef-9d99-e459b1c22c3d
     Parts:
-        -   Entity:
-                Id: e2af0282-36ef-4a13-9700-ff7cd542e873
+        -   Folder: null
+            Entity:
+                Id: 00b79497-95e1-4bef-9d99-e459b1c22c3d
                 Name: Revealer
                 Components:
                     de9bf9b9e37edd6ea6de1fc6cc2ce27d: !TransformComponent
-                        Id: 0f66a45c-d389-443f-9053-aa65ab4c937d
+                        Id: b5491667-882b-4559-a9d0-51ed275a4cb7
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     f3d18ad20d9fdffdb4ab07ca2b84c78d: !SpriteComponent
-                        Id: 41d111b5-a313-467b-ab0b-77f6257ea820
+                        Id: 90827c35-92bc-471a-a1d8-c86a668300c8
                         Enabled: false
                         SpriteProvider: !SpriteFromTexture
-                            Texture: b47384c6-7bb3-46e8-b596-bc6526bfa0d0:FogOfWarPlus/FogOfWarCircleTexture
+                            Texture: 778b7573-9984-46de-be72-94e5a2fd52bc:FogOfWarPlus/FogOfWarSlice180Texture
                             Center: {X: 0.0, Y: 0.0}
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
                         IgnoreDepth: true
                         BlendMode: AdditiveBlend
                         RenderGroup: Group30
-                    82c100b11b0b1a816f61c714f5fdc571: !FogOfWarPlus.FogOfWarVision,FogOfWarPlus
-                        Id: 9353e6f1-9ea0-401b-adfa-8ca3e359002c
+                    42b2d150f5fdb5d3a6709f2376f932ed: !FogOfWarPlus.FogOfWarVision,FogOfWarPlus
+                        Id: 5fcc3b26-59cb-462e-9c37-65e22472b66d

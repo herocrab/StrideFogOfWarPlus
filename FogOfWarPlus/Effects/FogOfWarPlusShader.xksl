@@ -14,7 +14,7 @@
 
         override float4 Compute()
         {
-            return Fog.Compute();
+            return Terrain.Compute();
         }
     };
 }
