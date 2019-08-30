@@ -3,18 +3,14 @@
     shader FogOfWarPlusShader : ComputeColor, Texturing
     {
         compose ComputeColor Terrain;
+        compose ComputeColor Units;
         compose ComputeColor Fog;
 
         stream float4 Position : POSITION;
 
-        cbuffer PerMaterial
-        {
-            stage float4 PreviousColor = float4(0, 0, 0, 0);
-        }
-
         override float4 Compute()
         {
-            return Terrain.Compute();
+            return Units.Compute();
         }
     };
 }
