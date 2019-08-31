@@ -52,26 +52,18 @@ RenderFeatures:
                 ShadowMapRenderStage: ref!! 5994d7b4-dc66-4774-929b-b42d7638f8ad
                 EffectName: XenkoForwardShadingEffect.ShadowMapCaster
                 RenderGroup*: All
-            b60663d7cb46417a94341a39c3bc1a12: !Xenko.Rendering.Shadows.ShadowMapRenderStageSelector,Xenko.Rendering
-                ShadowMapRenderStage: ref!! 8e3629e9-3992-4605-bf1d-a60314a47908
-                EffectName: XenkoForwardShadingEffect.ShadowMapCasterParaboloid
-            f5533b1249b942df8a8aba311cd79532: !Xenko.Rendering.Shadows.ShadowMapRenderStageSelector,Xenko.Rendering
-                ShadowMapRenderStage: ref!! 51bc0f8c-ddc3-428f-8453-810ddfe642e6
-                EffectName: XenkoForwardShadingEffect.ShadowMapCasterCubeMap
             106341b76db9fcda6a033dad16aa708b: !Xenko.Rendering.MeshTransparentRenderStageSelector,Xenko.Rendering
                 OpaqueRenderStage: ref!! 9022bdf0-3305-48fd-ace1-35ed7120ab9c
                 EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+            f5533b1249b942df8a8aba311cd79532: ~(Deleted)
+            b60663d7cb46417a94341a39c3bc1a12: ~(Deleted)
         PipelineProcessors:
             d70f5aee0616e4ab25081ceaf643290c: !Xenko.Rendering.MeshPipelineProcessor,Xenko.Rendering
                 TransparentRenderStage: ref!! fa3ce27f-ba40-447a-a19e-ab6ed45cc06f
             26c899b17f88c21ab13bf60a7220ccd1: !Xenko.Rendering.ShadowMeshPipelineProcessor,Xenko.Rendering
                 ShadowMapRenderStage: ref!! 5994d7b4-dc66-4774-929b-b42d7638f8ad
-            ff51170a7d1a4761b73ef6a5c9f0cba2: !Xenko.Rendering.ShadowMeshPipelineProcessor,Xenko.Rendering
-                ShadowMapRenderStage: ref!! 8e3629e9-3992-4605-bf1d-a60314a47908
-                DepthClipping: true
-            ae4336b0a9514e8488e8e0ccbcef25f4: !Xenko.Rendering.ShadowMeshPipelineProcessor,Xenko.Rendering
-                ShadowMapRenderStage: ref!! 51bc0f8c-ddc3-428f-8453-810ddfe642e6
-                DepthClipping: true
+            ff51170a7d1a4761b73ef6a5c9f0cba2: ~(Deleted)
+            ae4336b0a9514e8488e8e0ccbcef25f4: ~(Deleted)
         RenderFeatures:
             86b959cbdf51a1438d4973177c77c627: !Xenko.Rendering.TransformRenderFeature,Xenko.Rendering {}
             8e0351fee9883922648a11016224b195: !Xenko.Rendering.SkinningRenderFeature,Xenko.Rendering {}
@@ -90,12 +82,9 @@ RenderFeatures:
                     Renderers:
                         7c3d3d4c86834c3551bacde2527b3836: !Xenko.Rendering.Shadows.LightDirectionalShadowMapRenderer,Xenko.Rendering
                             ShadowCasterRenderStage: ref!! 5994d7b4-dc66-4774-929b-b42d7638f8ad
-                        1c204b09435636256a3fcfd6f9ddb347: !Xenko.Rendering.Shadows.LightSpotShadowMapRenderer,Xenko.Rendering
-                            ShadowCasterRenderStage: ref!! 5994d7b4-dc66-4774-929b-b42d7638f8ad
-                        7c8c69ce27034b4c8bbcab0bcdfe954b: !Xenko.Rendering.Shadows.LightPointShadowMapRendererParaboloid,Xenko.Rendering
-                            ShadowCasterRenderStage: ref!! 8e3629e9-3992-4605-bf1d-a60314a47908
-                        d59ef45dd99e49d3af3887763d153aa7: !Xenko.Rendering.Shadows.LightPointShadowMapRendererCubeMap,Xenko.Rendering
-                            ShadowCasterRenderStage: ref!! 51bc0f8c-ddc3-428f-8453-810ddfe642e6
+                        1c204b09435636256a3fcfd6f9ddb347: ~(Deleted)
+                        d59ef45dd99e49d3af3887763d153aa7: ~(Deleted)
+                        7c8c69ce27034b4c8bbcab0bcdfe954b: ~(Deleted)
     28e9bf54a5adbe063f59fb17acb2723e: !Xenko.Rendering.Sprites.SpriteRenderFeature,Xenko.Rendering
         RenderStageSelectors:
             d74665cff080638a2439c4422e542d85: !Xenko.Rendering.Sprites.SpriteTransparentRenderStageSelector,Xenko.Rendering
@@ -130,6 +119,7 @@ SharedRenderers:
         OpaqueRenderStage*: ref!! cf1007af-f354-44b3-8525-155f90a4f2c5
         TransparentRenderStage*: null
         ShadowMapRenderStages:
+            6cb89bfdbbc5cf83496e67c5507255d7*: ref!! 5994d7b4-dc66-4774-929b-b42d7638f8ad
             fc4d1e0de5c2b0bbc27bcf96e9a848fd: ~(Deleted)
         GBufferRenderStage: ref!! 9022bdf0-3305-48fd-ace1-35ed7120ab9c
         PostEffects*: null

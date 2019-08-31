@@ -10,7 +10,7 @@
 
         override float4 Compute()
         {
-            return Units.Compute();
+            return Terrain.Compute();
         }
     };
 }

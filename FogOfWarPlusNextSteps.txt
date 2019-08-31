@@ -1,1 +1,1 @@
-*** Research ***
+1) Does not appear I am able to separate out shadows. Seems bound to one single directional light configuration.
