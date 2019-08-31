@@ -51,6 +51,7 @@ RenderFeatures:
             6f7224048750e7260ea87c444f74b32c: !Xenko.Rendering.Shadows.ShadowMapRenderStageSelector,Xenko.Rendering
                 ShadowMapRenderStage: ref!! 5994d7b4-dc66-4774-929b-b42d7638f8ad
                 EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+                RenderGroup*: All
             b60663d7cb46417a94341a39c3bc1a12: !Xenko.Rendering.Shadows.ShadowMapRenderStageSelector,Xenko.Rendering
                 ShadowMapRenderStage: ref!! 8e3629e9-3992-4605-bf1d-a60314a47908
                 EffectName: XenkoForwardShadingEffect.ShadowMapCasterParaboloid
@@ -125,11 +126,11 @@ SharedRenderers:
             Id: 4bc4b2ca-027e-4e4a-94cb-2912709bef5f
             Enabled*: true
             Color: {R: 0.40491876, G: 0.411895424, B: 0.43775, A: 1.0}
-        LightProbes: true
-        OpaqueRenderStage: ref!! cf1007af-f354-44b3-8525-155f90a4f2c5
-        TransparentRenderStage: ref!! fa3ce27f-ba40-447a-a19e-ab6ed45cc06f
+        LightProbes*: false
+        OpaqueRenderStage*: ref!! cf1007af-f354-44b3-8525-155f90a4f2c5
+        TransparentRenderStage*: null
         ShadowMapRenderStages:
-            fc4d1e0de5c2b0bbc27bcf96e9a848fd: ref!! 5994d7b4-dc66-4774-929b-b42d7638f8ad
+            fc4d1e0de5c2b0bbc27bcf96e9a848fd: ~(Deleted)
         GBufferRenderStage: ref!! 9022bdf0-3305-48fd-ace1-35ed7120ab9c
         PostEffects*: null
         LightShafts: null
@@ -252,7 +253,7 @@ Game*: !Xenko.Rendering.Compositing.SceneRendererCollection,Xenko.Rendering
                 Id: 0d9d5bce-d453-4f94-b4ff-e0c104e57057
                 RenderTexture: 5796d9f1-1096-46aa-adbe-fd850bb7a214:FogOfWarPlus/UnitsRenderTexture
                 Child: !Xenko.Rendering.Compositing.ForwardRenderer,Xenko.Engine ref!! c2b7ddad-6b79-47f4-a4b3-008b331b292d
-            RenderMask: Group1, Group2, Group3, Group4, Group5, Group6, Group7, Group8, Group9, Group10, Group11, Group12, Group13, Group14, Group15, Group16, Group17, Group18, Group19, Group20, Group21, Group22, Group23, Group24, Group25, Group26, Group27, Group28, Group29
+            RenderMask: Group0, Group1, Group2, Group3, Group4, Group5, Group6, Group7, Group8, Group9, Group10, Group11, Group12, Group13, Group14, Group15, Group16, Group17, Group18, Group19, Group20, Group21, Group22, Group23, Group24, Group25, Group26, Group27, Group28, Group29
         e66c4ba5b23b5b9e8c81d74a4148f8f7: !Xenko.Rendering.Compositing.SceneCameraRenderer,Xenko.Engine
             Id: 53ffcf05-69bf-4cd4-9180-749092223ce8
             Camera: ref!! 27e4da07-c5d0-44c6-9e27-5ea3358b34d9
