@@ -112,14 +112,14 @@ SharedRenderers:
             Id: 4bc4b2ca-027e-4e4a-94cb-2912709bef5f
             Enabled*: true
             Color: {R: 0.40491876, G: 0.411895424, B: 0.43775, A: 1.0}
-        LightProbes*: false
+        LightProbes*: true
         OpaqueRenderStage*: ref!! cf1007af-f354-44b3-8525-155f90a4f2c5
         TransparentRenderStage*: ref!! fa3ce27f-ba40-447a-a19e-ab6ed45cc06f
         ShadowMapRenderStages:
             6cb89bfdbbc5cf83496e67c5507255d7*: ref!! 5994d7b4-dc66-4774-929b-b42d7638f8ad
             fc4d1e0de5c2b0bbc27bcf96e9a848fd: ~(Deleted)
         GBufferRenderStage: ref!! 9022bdf0-3305-48fd-ace1-35ed7120ab9c
-        PostEffects*: !PostProcessingEffects ref!! 98e82d4a-4f55-4e02-881c-8b09773616f6
+        PostEffects*: null
         LightShafts: null
         VRSettings:
             Enabled: false
@@ -135,14 +135,14 @@ SharedRenderers:
         Id: 12a9d9b9-8502-44b6-bbf9-d80d8912016a
         Clear:
             Id: d2019b1a-681f-43db-9304-ce4078fe06b4
-            Color: {R: 0.0, G: 0.0, B: 0.0, A: 1.0}
+            Color: {R: 0.0, G: 1.0, B: 0.0, A: 1.0}
         LightProbes: true
         OpaqueRenderStage: ref!! cf1007af-f354-44b3-8525-155f90a4f2c5
         TransparentRenderStage: ref!! fa3ce27f-ba40-447a-a19e-ab6ed45cc06f
         ShadowMapRenderStages:
             900b0d80310bff7befd79c9c7ab7171c: ref!! 5994d7b4-dc66-4774-929b-b42d7638f8ad
         GBufferRenderStage: ref!! 9022bdf0-3305-48fd-ace1-35ed7120ab9c
-        PostEffects: null
+        PostEffects: !PostProcessingEffects ref!! 98e82d4a-4f55-4e02-881c-8b09773616f6
         LightShafts: null
         VRSettings:
             Enabled: false

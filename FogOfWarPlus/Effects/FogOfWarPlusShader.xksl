@@ -6,8 +6,18 @@
 
         stream float4 Position : POSITION;
 
+        cbuffer PerMaterial 
+        {
+            stage float FogOpacity = .85f;  // TODO Set these in game code.
+        }
+
         override float4 Compute()
         {
+            //var mask = Fog.Compute().y;
+            //if (mask > 0) {
+            //    return float4(.5f, 0, 0, 0);
+            //}
+            //return float4(FogOpacity, 0, 0, 0);
             return Fog.Compute();
         }
     };

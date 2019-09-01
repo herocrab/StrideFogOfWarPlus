@@ -8,6 +8,8 @@ namespace FogOfWarPlus
 {
     public class FogOfWarSystem : StartupScript
     {
+        public Entity DefaultUnitForShaderAccess;
+
         public override void Start()
         {
             InitializeFogOfWar();
@@ -23,6 +25,8 @@ namespace FogOfWarPlus
             var perspective = Entity.FindChild("Perspective").Get<CameraComponent>();
             perspective.Enabled = true;
             perspective.Slot = SceneSystem.GraphicsCompositor.Cameras[0].ToSlotId();
+
+            // TODO set the parameters from the default unit.
         }
     }
 }

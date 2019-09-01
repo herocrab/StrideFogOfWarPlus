@@ -3,31 +3,20 @@ Id: 667c795a-f62e-439a-9249-141bb7656f75
 SerializedVersion: {Xenko: 2.0.0.0}
 Tags: []
 Attributes:
-    Diffuse: !MaterialDiffuseMapFeature
-        DiffuseMap: !ComputeShaderClassColor
+    Transparency: !MaterialTransparencyBlendFeature
+        Alpha: !ComputeShaderClassScalar
             MixinReference: FogOfWarPlusShader
             Generics: {}
             CompositionNodes:
-                d17cd0b0dbcdda85df6f48c3774d6751~Terrain: !ComputeTextureColor
-                    FallbackValue:
-                        Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    Scale: {X: 1.0, Y: 1.0}
-                    Offset: {X: 0.0, Y: 0.0}
-                    Swizzle: null
-                ca729a36f688ea3449ca6abf48e9570c~Units: !ComputeTextureColor
-                    FallbackValue:
-                        Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                    Scale: {X: 1.0, Y: 1.0}
-                    Offset: {X: 0.0, Y: 0.0}
-                    Swizzle: null
-                ad8b64babbb24e08bbd2982d2bed8943~Fog: !ComputeTextureColor
+                c1cc62b1bbafce9640dcbab1b7f1f3a5~Fog: !ComputeTextureScalar
                     Texture: 796ef2ca-426e-46a1-86a6-232d72c4cf66:FogOfWarPlus/FogOfWarRenderTexture
                     FallbackValue:
-                        Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                        Value: 0.0
+                    Channel: G
                     Scale: {X: 1.0, Y: 1.0}
                     Offset: {X: 0.0, Y: 0.0}
-                    Swizzle: null
-    DiffuseModel: !MaterialDiffuseLambertModelFeature {}
+        Tint: !ComputeColor
+            Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
     Overrides:
         UVScale: {X: 1.0, Y: 1.0}
 Layers: {}

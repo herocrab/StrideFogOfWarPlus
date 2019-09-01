@@ -6,4 +6,18 @@
 // and re-save the associated .xkfx.
 // </auto-generated>
 
-// Nothing to generate
+using System;
+using Xenko.Core;
+using Xenko.Rendering;
+using Xenko.Graphics;
+using Xenko.Shaders;
+using Xenko.Core.Mathematics;
+using Buffer = Xenko.Graphics.Buffer;
+
+namespace FogOfWarPlus
+{
+    public static partial class FogOfWarPlusShaderKeys
+    {
+        public static readonly ValueParameterKey<float> FogOpacity = ParameterKeys.NewValue<float>(.85f);
+    }
+}

@@ -1,1 +1,26 @@
-1) Does not appear I am able to separate out shadows. Seems bound to one single directional light configuration.
+0) Write Fog of War Shader.
+1) Write Unit Fog of War Shader
+2) Create a circular model for field of view.
+3) Write a method for raycasting LEFT to RIGHT, dump to an array of float2(angle, distance).
+4) Pump the array of float2 to a shader and write a shader for field of view.
+5) Material will need to be render group 31.
+
+
+
+=============================================
+
+Any point (x,y) on the path of the circle is x = rsin(θ), y = rcos(θ).
+
+thus: (x,y) = (12*sin(115), 12*cos(115))
+
+So your point will roughly be (10.876, -5.071) (assuming the top right quadrant is x+, y+)
+
+
+[IF THERE IS AN OFFSET (WORLD SPACE)]
+
+x = cx + r * cos(a)
+y = cy + r * sin(a)
+
+Where r is the radius, cx,cy the origin, and a the angle.
+
+That's pretty easy to adapt into any language with basic trig functions. Note that most languages will use radians for the angle in trig functions, so rather than cycling through 0..360 degrees, you're cycling through 0..2PI radians.
