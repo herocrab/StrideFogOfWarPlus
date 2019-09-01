@@ -1,0 +1,20 @@
+﻿namespace FogOfWarPlus
+{
+    shader FogOfWarUnitShader : ComputeColor, Texturing
+    {       
+        cbuffer PerMaterial
+        {
+            stage bool IsFogLoaded;
+            stage Texture2D Fog;
+        }
+
+        override float4 Compute() 
+        {
+            if (!IsFogLoaded) {
+                return float4(1, 0, 0, 0);
+            } else {
+                return float4(.5, 0, 0, 0);
+            }
+        }
+    };
+}

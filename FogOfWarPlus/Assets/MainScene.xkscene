@@ -76,12 +76,13 @@ Hierarchy:
                 Components:
                     5b8aab8aac4aa7e3e881823469f9080e: !TransformComponent
                         Id: 9837492b-0340-4504-8100-51394bbf5506
-                        Position: {X: 0.0, Y: 150.0, Z: 40.0}
+                        Position: {X: 0.0, Y: 155.0, Z: 38.0}
                         Rotation: {X: -0.6087614, Y: 0.0, Z: 0.0, W: 0.7933533}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     3cdd59791d6d69ced72da305da76f85d: !CameraComponent
                         Id: cb8eccf2-e5f6-4395-81ca-1c02a934d7b4
+                        Enabled: false
                         Name: Perspective
                         Projection: Perspective
                         VerticalFieldOfView: 10.0
@@ -107,8 +108,8 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
+                            d0d970579aca116c7aca6f41e39e05a6: ref!! 9837492b-0340-4504-8100-51394bbf5506
                             57e9f6af36e8f536db5fc471ace6ee31: ref!! 4a407864-59bd-4829-b26c-d143a4d2431f
-                            9729d9b5572d04e3bfa946dec644c509: ref!! 9837492b-0340-4504-8100-51394bbf5506
                             4a9c93e69b885f8ff69f18a6cbb6cac7: ref!! e692d739-c682-46e4-bd48-df3a169296a5
                     e16b4648b67f1fd8d4c7262aec04c257: !FogOfWarPlus.GameProfiler,FogOfWarPlus
                         Id: 7d8dab37-a67a-46dd-af23-7054f8be8a71
@@ -120,7 +121,6 @@ Hierarchy:
                         ResultPage: 1
                     61035fbc1becaf51844aaa2ceb56e914: !FogOfWarPlus.FogOfWarSystem,FogOfWarPlus
                         Id: 7ae07f03-889c-4742-86dc-dd0656dbd44e
-                        FogOfWar: ref!! a039a1f7-32bf-4873-9bfd-911a4d551e7e
         -   Entity:
                 Id: 49c86f10-5f53-4080-827c-9867778bd2ba
                 Name: Revealer
@@ -140,7 +140,7 @@ Hierarchy:
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
                         IgnoreDepth: true
                         BlendMode: AdditiveBlend
-                        RenderGroup: Group30
+                        RenderGroup: Group31
                     82c100b11b0b1a816f61c714f5fdc571: !FogOfWarPlus.FogOfWarVision,FogOfWarPlus
                         Id: a3014cf1-34ea-4e7f-bbbf-1072f869b38a
             Base:
@@ -177,7 +177,7 @@ Hierarchy:
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
                         IgnoreDepth: true
                         BlendMode: AdditiveBlend
-                        RenderGroup: Group30
+                        RenderGroup: Group31
                     0fb7fa691c24d518bfefb71906171e90: !FogOfWarPlus.FogOfWarVision,FogOfWarPlus
                         Id: 10e3b8b9-78ed-4a4e-b716-46a383a1e6bb
             Base:
@@ -203,7 +203,7 @@ Hierarchy:
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
                         IgnoreDepth: true
                         BlendMode: AdditiveBlend
-                        RenderGroup: Group30
+                        RenderGroup: Group31
                     82c100b11b0b1a816f61c714f5fdc571: !FogOfWarPlus.FogOfWarVision,FogOfWarPlus
                         Id: 5e52fae8-6525-4e06-a406-b935f8dd3c0f
             Base:
@@ -212,21 +212,22 @@ Hierarchy:
                 InstanceId: 39291012-12e2-463e-87f0-a2d48926a9f4
         -   Entity:
                 Id: 87620a6e-4fee-4166-b433-608fa613db4f
-                Name: Main
+                Name: Orthographic
                 Components:
                     c8d814fd68fbbf1edffdfc1efe593552: !TransformComponent
                         Id: 4a407864-59bd-4829-b26c-d143a4d2431f
-                        Position: {X: 0.0, Y: 200.0, Z: 0.0}
+                        Position: {X: 0.0, Y: 150.0, Z: 0.0}
                         Rotation: {X: -0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     a38cbd675bc79e294a2e92bae8eabba6: !CameraComponent
                         Id: b87e940f-fd93-4196-93ed-00f26113e5a3
-                        Name: Main
+                        Enabled: false
+                        Name: Orthographic
                         Projection: Orthographic
                         VerticalFieldOfView: 10.0
-                        OrthographicSize: 30.0
-                        Slot: fded8758-ffcb-4f35-8792-e5b6ccaba376
+                        OrthographicSize: 36.0
+                        Slot: ee1bb293-6644-4d15-9cfa-949f406fe1c7
         -   Entity:
                 Id: 9be576c1-c3dc-4564-b46f-6d33c848878c
                 Name: Skybox
@@ -287,18 +288,18 @@ Hierarchy:
                                 LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
         -   Entity:
                 Id: a039a1f7-32bf-4873-9bfd-911a4d551e7e
-                Name: SceneView
+                Name: FogOfWar
                 Components:
                     7af3c421b024754a8251a6fa10ea2a0a: !TransformComponent
                         Id: e692d739-c682-46e4-bd48-df3a169296a5
-                        Position: {X: 0.0, Y: 199.0, Z: 0.0}
+                        Position: {X: 0.0, Y: 5.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 54.0, Y: 1.0, Z: 30.34}
+                        Scale: {X: 64.0, Y: 1.0, Z: 35.95}
                         Children: {}
                     41f06819e8fac421fad6ebda356e2822: !ModelComponent
                         Id: 92038944-ff7a-430a-9d4e-e23e076864e5
                         Model: 696548fe-e111-48de-9f1f-51269d2e3d91:FogOfWarPlus/FogOfWarPlane
-                        RenderGroup: Group31
+                        RenderGroup: Group30
                         IsShadowCaster: false
                         Materials:
                             6755611f61b5f26ceedb889613ec5f76~0: 667c795a-f62e-439a-9249-141bb7656f75:FogOfWarPlus/FogOfWarMaterial

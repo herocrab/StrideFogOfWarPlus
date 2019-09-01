@@ -25,6 +25,6 @@ Hierarchy:
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
                         IgnoreDepth: true
                         BlendMode: AdditiveBlend
-                        RenderGroup: Group30
+                        RenderGroup: Group31
                     0fb7fa691c24d518bfefb71906171e90: !FogOfWarPlus.FogOfWarVision,FogOfWarPlus
                         Id: 8546dd6f-243b-4198-8fcf-5d25f29d79a2

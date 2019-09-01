@@ -23,6 +23,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>FogOfWarPlusShader.xksl</DependentUpon>
     </Compile>
+    <Compile Update="FogOfWarUnitShader.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FogOfWarUnitShader.xksl</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +39,10 @@
     <None Update="FogOfWarPlusShader.xksl">
       <Generator>XenkoShaderKeyGenerator</Generator>
       <LastGenOutput>FogOfWarPlusShader.cs</LastGenOutput>
+    </None>
+    <None Update="Effects\FogOfWarUnitShader.xksl">
+      <Generator>XenkoShaderKeyGenerator</Generator>
+      <LastGenOutput>FogOfWarUnitShader.cs</LastGenOutput>
     </None>
   </ItemGroup>
 </Project>

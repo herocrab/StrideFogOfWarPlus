@@ -9,14 +9,12 @@ Attributes:
             Generics: {}
             CompositionNodes:
                 d17cd0b0dbcdda85df6f48c3774d6751~Terrain: !ComputeTextureColor
-                    Texture: d308025e-6674-4182-a93b-cc426c32d1ea:FogOfWarPlus/TerrainRenderTexture
                     FallbackValue:
                         Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
                     Scale: {X: 1.0, Y: 1.0}
                     Offset: {X: 0.0, Y: 0.0}
                     Swizzle: null
                 ca729a36f688ea3449ca6abf48e9570c~Units: !ComputeTextureColor
-                    Texture: 5796d9f1-1096-46aa-adbe-fd850bb7a214:FogOfWarPlus/UnitsRenderTexture
                     FallbackValue:
                         Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
                     Scale: {X: 1.0, Y: 1.0}
