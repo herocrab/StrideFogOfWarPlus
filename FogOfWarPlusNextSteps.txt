@@ -1,4 +1,7 @@
-0) Put terrain render texture back in and average it for grayscale on fog of war.
+0) Need more fade effect on fog textures.
+0) Fog of war needs to be rendered on top of everything--last in the render pass.
+0) Put terrain render texture back in and average it for a bright grayscale on the fog of war.
+	- Lots of image tweaking for good effect.
 1) Write Unit Fog of War Shader
 2) Create a circular model for field of view.
 3) Write a method for raycasting LEFT to RIGHT, dump to an array of float2(angle, distance).
