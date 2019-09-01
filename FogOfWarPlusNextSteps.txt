@@ -1,4 +1,4 @@
-0) Write Fog of War Shader.
+0) Put terrain render texture back in and average it for grayscale on fog of war.
 1) Write Unit Fog of War Shader
 2) Create a circular model for field of view.
 3) Write a method for raycasting LEFT to RIGHT, dump to an array of float2(angle, distance).

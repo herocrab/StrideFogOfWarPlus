@@ -18,6 +18,6 @@ namespace FogOfWarPlus
 {
     public static partial class FogOfWarPlusShaderKeys
     {
-        public static readonly ValueParameterKey<float> FogOpacity = ParameterKeys.NewValue<float>(.85f);
+        public static readonly ValueParameterKey<float> FogOpacity = ParameterKeys.NewValue<float>(.90f);
     }
 }

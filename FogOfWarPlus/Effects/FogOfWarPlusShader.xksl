@@ -8,17 +8,17 @@
 
         cbuffer PerMaterial 
         {
-            stage float FogOpacity = .85f;  // TODO Set these in game code.
+            stage float FogOpacity = .90f;  // TODO Set these in game code.
         }
 
         override float4 Compute()
         {
-            //var mask = Fog.Compute().y;
-            //if (mask > 0) {
-            //    return float4(.5f, 0, 0, 0);
-            //}
-            //return float4(FogOpacity, 0, 0, 0);
-            return Fog.Compute();
+            var fogColor = Fog.Compute();
+            if (fogColor.x > FogOpacity) {
+                return float4(FogOpacity, 0, 0, 0);
+            }
+            
+            return fogColor;
         }
     };
 }
