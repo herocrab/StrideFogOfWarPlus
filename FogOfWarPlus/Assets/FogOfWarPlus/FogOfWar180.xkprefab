@@ -25,6 +25,7 @@ Hierarchy:
                             Center: {X: 0.0, Y: 0.0}
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
                         IgnoreDepth: true
+                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
                     42b2d150f5fdb5d3a6709f2376f932ed: !FogOfWarPlus.FogOfWarVision,FogOfWarPlus
                         Id: 5fcc3b26-59cb-462e-9c37-65e22472b66d

@@ -8,7 +8,7 @@
 
         cbuffer PerMaterial 
         {
-            stage float FogOpacity = .60f;  // TODO Set these in game code.
+            stage float FogOpacity = .75f;  // TODO Set these in game code.
         }
 
         override float4 Compute()

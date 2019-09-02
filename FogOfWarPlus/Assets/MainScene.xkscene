@@ -140,6 +140,7 @@ Hierarchy:
                             Center: {X: 0.0, Y: 0.0}
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
                         IgnoreDepth: true
+                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
                     82c100b11b0b1a816f61c714f5fdc571: !FogOfWarPlus.FogOfWarVision,FogOfWarPlus
                         Id: a3014cf1-34ea-4e7f-bbbf-1072f869b38a
@@ -176,6 +177,7 @@ Hierarchy:
                             Center: {X: 0.0, Y: 0.0}
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
                         IgnoreDepth: true
+                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
                     0fb7fa691c24d518bfefb71906171e90: !FogOfWarPlus.FogOfWarVision,FogOfWarPlus
                         Id: 10e3b8b9-78ed-4a4e-b716-46a383a1e6bb
@@ -201,6 +203,7 @@ Hierarchy:
                             Center: {X: 0.0, Y: 0.0}
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
                         IgnoreDepth: true
+                        Sampler: AnisotropicClamp
                         RenderGroup: Group31
                     82c100b11b0b1a816f61c714f5fdc571: !FogOfWarPlus.FogOfWarVision,FogOfWarPlus
                         Id: 5e52fae8-6525-4e06-a406-b935f8dd3c0f
