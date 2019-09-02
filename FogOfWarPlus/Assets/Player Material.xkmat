@@ -5,7 +5,7 @@ Tags: []
 Attributes:
     MicroSurface: !MaterialGlossinessMapFeature
         GlossinessMap: !ComputeFloat
-            Value: 0.65
+            Value: 0.75
     Diffuse: !MaterialDiffuseMapFeature
         DiffuseMap: !ComputeColor
             Value: {R: 0.50161916, G: 0.812750041, B: 0.304781258, A: 1.0}

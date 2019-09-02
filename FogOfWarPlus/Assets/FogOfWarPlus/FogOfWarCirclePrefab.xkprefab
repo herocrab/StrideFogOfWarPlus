@@ -24,6 +24,7 @@ Hierarchy:
                             Center: {X: 0.0, Y: 0.0}
                         Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
                         IgnoreDepth: true
+                        BlendMode: AlphaBlend
                         Sampler: AnisotropicClamp
                         RenderGroup: Group31
                     82c100b11b0b1a816f61c714f5fdc571: !FogOfWarPlus.FogOfWarVision,FogOfWarPlus

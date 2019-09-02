@@ -1,6 +1,4 @@
-﻿using System.Xml;
-using Xenko.Engine;
-using Xenko.Graphics;
+﻿using Xenko.Engine;
 // ReSharper disable UnassignedField.Global
 // ReSharper disable MemberCanBePrivate.Global
 
@@ -8,7 +6,7 @@ namespace FogOfWarPlus
 {
     public class FogOfWarSystem : StartupScript
     {
-        public Entity DefaultUnitForShaderAccess;
+        public float FogOpacity;
 
         public override void Start()
         {
@@ -17,7 +15,7 @@ namespace FogOfWarPlus
 
         private void InitializeFogOfWar()
         {
-            var modelComponent = Entity.FindChild("FogOfWar").Get<ModelComponent>();
+            var modelComponent = Entity.FindChild("FogOfWar").FindChild("FogOfWarLayer1").Get<ModelComponent>();
             modelComponent.Enabled = true;
 
             Entity.FindChild("Orthographic").Get<CameraComponent>().Enabled = true;
@@ -26,7 +24,7 @@ namespace FogOfWarPlus
             perspective.Enabled = true;
             perspective.Slot = SceneSystem.GraphicsCompositor.Cameras[0].ToSlotId();
 
-            // TODO set the parameters from the default unit.
+            modelComponent.GetMaterial(0).Passes[0].Parameters.Set(FogOfWarPlusShaderKeys.FogOpacity, FogOpacity);
         }
     }
 }

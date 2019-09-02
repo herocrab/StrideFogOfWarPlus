@@ -1,7 +1,0 @@
-!Texture
-Id: 778b7573-9984-46de-be72-94e5a2fd52bc
-SerializedVersion: {Xenko: 2.0.0.0}
-Tags: []
-Source: !file FogOfWarSlice180.png
-Type: !ColorTextureType
-    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}

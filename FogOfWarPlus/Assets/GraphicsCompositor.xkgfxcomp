@@ -163,24 +163,22 @@ SharedRenderers:
             Enabled: false
             DOFAreas: {X: 0.5, Y: 6.0, Z: 50.0, W: 200.0}
         BrightFilter:
-            Threshold: 0.1
-            Steepness: 10.0
+            Threshold: 0.25
+            Steepness: 4.0
             Color: {R: 1.0, G: 1.0, B: 1.0}
         Bloom:
-            Amount: 0.375
+            Radius: 6.0
+            Amount: 2.5
             Distortion: {X: 1.0, Y: 1.0}
             Afterimage:
                 Enabled: false
         LightStreak:
-            Enabled: false
             Attenuation: 0.7
         LensFlare:
             Enabled: false
         ColorTransforms:
             Enabled: false
-            Transforms:
-                5bfa74c5190e1893dd1641ae0039a5ad: !ToneMap
-                    Operator: !ToneMapHejl2Operator {}
+            Transforms: {}
         Antialiasing: !FXAAEffect
             Dither: Medium
     98cc2635c297cb3a3d3f37dacdbd3435*: !Xenko.Rendering.Compositing.ForwardRenderer,Xenko.Engine

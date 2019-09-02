@@ -1,8 +1,3 @@
-0) Get a good post effects tone map going, will need lots of weaking.
-
-0) Put terrain render texture back in and average it for a bright grayscale on the fog of war.
-	- Lots of image tweaking for good effect.
-
 1) Write Unit Fog of War Shader
 2) Create a circular model for field of view.
 3) Write a method for raycasting LEFT to RIGHT, dump to an array of float2(angle, distance).
