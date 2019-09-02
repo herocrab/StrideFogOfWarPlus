@@ -1,4 +1,11 @@
-1) Write Unit Fog of War Shader
+0) Convert the "enemies" to prefabs.
+0) Perform a simple X test for Alpha, verify this works with prefabs.
+0) Copy over/convert other shader system into FogOfWarSystem.
+0) Add in a float2 CameraPos variable (Is everything else float2?).
+0) Perform a simple test with the camera.
+0) Modify the shader logic to check camera first.
+0) Optimize logic to check the closest player, if in complete visibility range, set to 1 and return.
+0) Measure/Optimize performance.
 2) Create a circular model for field of view.
 3) Write a method for raycasting LEFT to RIGHT, dump to an array of float2(angle, distance).
 4) Pump the array of float2 to a shader and write a shader for field of view.
