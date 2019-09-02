@@ -1,3 +1,5 @@
+0) Get a good post effects tone map going, will need lots of weaking.
+
 0) Put terrain render texture back in and average it for a bright grayscale on the fog of war.
 	- Lots of image tweaking for good effect.
 
