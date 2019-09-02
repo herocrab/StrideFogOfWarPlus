@@ -185,6 +185,8 @@ Hierarchy:
                     61035fbc1becaf51844aaa2ceb56e914: !FogOfWarPlus.FogOfWarSystem,FogOfWarPlus
                         Id: 7ae07f03-889c-4742-86dc-dd0656dbd44e
                         FogOpacity: 0.7825
+                        FogOfWarRenderTexture: 796ef2ca-426e-46a1-86a6-232d72c4cf66:FogOfWarPlus/FogOfWarRenderTexture
+                        EnemyUnit: ref!! fafd9a97-2ea4-47b8-8233-195bb1381220
         -   Entity:
                 Id: 48b25e24-1dcd-4365-af99-302e6d08754d
                 Name: FogOfWarLayer3
@@ -489,7 +491,7 @@ Hierarchy:
                         Model: e3453fa0-dee2-4352-ba2b-ae1a44e130f1:Sphere
                         RenderGroup: Group10
                         Materials:
-                            695b9b5bb37f4c4ef5258653ab503335~0: b14eadbf-3226-4a65-9dc1-631a4bdb92d6:Enemy Material
+                            695b9b5bb37f4c4ef5258653ab503335~0: b14eadbf-3226-4a65-9dc1-631a4bdb92d6:FogOfWarPlus/Enemy Material
         -   Entity:
                 Id: d37911a5-157c-4426-8874-fa9e9c940377
                 Name: FogOfWarCirclePrefab
@@ -579,4 +581,4 @@ Hierarchy:
                         Model: e3453fa0-dee2-4352-ba2b-ae1a44e130f1:Sphere
                         RenderGroup: Group10
                         Materials:
-                            695b9b5bb37f4c4ef5258653ab503335~0: b14eadbf-3226-4a65-9dc1-631a4bdb92d6:Enemy Material
+                            695b9b5bb37f4c4ef5258653ab503335~0: b14eadbf-3226-4a65-9dc1-631a4bdb92d6:FogOfWarPlus/Enemy Material

@@ -18,6 +18,13 @@ Attributes:
         Visibility: !MaterialSpecularMicrofacetVisibilitySmithSchlickGGX {}
         NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionGGX {}
         Environment: !MaterialSpecularMicrofacetEnvironmentGGXLUT {}
+    Transparency: !MaterialTransparencyAdditiveFeature
+        Alpha: !ComputeShaderClassScalar
+            MixinReference: FogOfWarUnitShader
+            Generics: {}
+            CompositionNodes: {}
+        Tint: !ComputeColor
+            Value: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
     Overrides:
         UVScale: {X: 1.0, Y: 1.0}
 Layers: {}

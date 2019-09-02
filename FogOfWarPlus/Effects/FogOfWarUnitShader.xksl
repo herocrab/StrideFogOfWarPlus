@@ -13,7 +13,9 @@
             if (!IsFogLoaded) {
                 return float4(1, 0, 0, 0);
             } else {
-                return float4(.5, 0, 0, 0);
+                //return float4(0, 0, 0, 0);
+                var color = Fog.Sample(Sampler, streams.TexCoord);
+                return float4(color.a, 0, 0, 0);
             }
         }
     };
