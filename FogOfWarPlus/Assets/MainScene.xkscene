@@ -184,7 +184,7 @@ Hierarchy:
                         ResultPage: 1
                     61035fbc1becaf51844aaa2ceb56e914: !FogOfWarPlus.FogOfWarSystem,FogOfWarPlus
                         Id: 7ae07f03-889c-4742-86dc-dd0656dbd44e
-                        FogOpacity: 0.7825
+                        FogOpacity: 0.65
                         FogOfWarRenderTexture: 796ef2ca-426e-46a1-86a6-232d72c4cf66:FogOfWarPlus/FogOfWarRenderTexture
                         EnemyUnit: ref!! fafd9a97-2ea4-47b8-8233-195bb1381220
         -   Entity:

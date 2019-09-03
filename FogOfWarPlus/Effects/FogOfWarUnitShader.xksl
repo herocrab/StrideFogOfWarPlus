@@ -1,7 +1,9 @@
 ﻿namespace FogOfWarPlus
 {
     shader FogOfWarUnitShader : ComputeColor, Texturing
-    {       
+    {
+        stream float4 Position : POSITION;
+
         cbuffer PerMaterial
         {
             stage bool IsFogLoaded;
@@ -14,8 +16,12 @@
                 return float4(1, 0, 0, 0);
             } else {
                 //return float4(0, 0, 0, 0);
-                var color = Fog.Sample(Sampler, streams.TexCoord);
-                return float4(color.a, 0, 0, 0);
+                var color = Fog.Sample(Sampler, float2(10, 10));
+                //return float4(color.y, 0, 0, 0);
+                if (color.x > .1 || color.y > .1 || color.z > .1 || color.w > .1) {
+                    return float4(1, 0, 0, 0);
+                }
+                return float4(0, 0, 0, 0);
             }
         }
     };
