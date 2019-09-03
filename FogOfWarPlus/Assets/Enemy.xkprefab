@@ -1,0 +1,25 @@
+!PrefabAsset
+Id: 9b210d7a-201b-4f11-b9d1-1244082dc9b3
+SerializedVersion: {Xenko: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! baecae74-2ecf-4b55-83d7-8e0e9d4fb411
+    Parts:
+        -   Folder: null
+            Entity:
+                Id: baecae74-2ecf-4b55-83d7-8e0e9d4fb411
+                Name: Enemy
+                Components:
+                    431c4bc8fd74958f39ac725c05c5a205: !TransformComponent
+                        Id: 4e6d4e4b-0522-484a-8e25-69fe93525d99
+                        Position: {X: 0.0, Y: 0.5, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    ccf3672186bb729d63a302061b2b323e: !ModelComponent
+                        Id: 3ae9d494-c6a7-46ed-8fd2-e05605533b6d
+                        Model: e3453fa0-dee2-4352-ba2b-ae1a44e130f1:Sphere
+                        RenderGroup: Group10
+                        Materials:
+                            695b9b5bb37f4c4ef5258653ab503335~0: b14eadbf-3226-4a65-9dc1-631a4bdb92d6:Enemy Material

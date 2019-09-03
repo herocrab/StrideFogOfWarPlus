@@ -1,0 +1,21 @@
+!PrefabAsset
+Id: 8ca96e09-c0d4-4e99-92e5-bba4602529e8
+SerializedVersion: {Xenko: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! ca9ccd48-1b6d-407a-88c0-7b83b332c0ba
+    Parts:
+        -   Entity:
+                Id: ca9ccd48-1b6d-407a-88c0-7b83b332c0ba
+                Name: Spawner
+                Components:
+                    132c38d5d095e00d6a0d0be2acd84be8: !TransformComponent
+                        Id: 43334b47-6853-4660-9500-f3c0576054a1
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    a873a7479abbc47791a7c66ac1d3eb96: !FogOfWarPlus.PrefabSpawner,FogOfWarPlus
+                        Id: 28601d7e-8969-4941-b6ea-9585eb3efe28
+                        Prefab: null

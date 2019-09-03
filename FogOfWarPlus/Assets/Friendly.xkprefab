@@ -1,0 +1,59 @@
+!PrefabAsset
+Id: 84c9b2e0-9435-4e17-81f7-609bd2edcec9
+SerializedVersion: {Xenko: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! d3112a2a-d6cc-40b7-b7cd-9e5c973c4a3b
+    Parts:
+        -   Entity:
+                Id: 0fe7d9cc-5dc1-47ba-891d-c39667240b08
+                Name: Revealer
+                Components:
+                    de9bf9b9e37edd6ea6de1fc6cc2ce27d: !TransformComponent
+                        Id: 61fd8b35-be07-4c14-a853-31c96653c81a
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    f3d18ad20d9fdffdb4ab07ca2b84c78d: !SpriteComponent
+                        Id: 4b7727cb-5f8f-4c4c-891b-751d9572b184
+                        Enabled: false
+                        SpriteProvider: !SpriteFromTexture
+                            Texture: b47384c6-7bb3-46e8-b596-bc6526bfa0d0:FogOfWarPlus/FogOfWarCircleTexture
+                            Center: {X: 0.0, Y: 0.0}
+                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                        IgnoreDepth: true
+                        BlendMode: AlphaBlend
+                        Sampler: AnisotropicClamp
+                        RenderGroup: Group31
+                    82c100b11b0b1a816f61c714f5fdc571: !FogOfWarPlus.FogOfWarVision,FogOfWarPlus
+                        Id: b95cb6c9-448a-4ee2-9f71-7bca8426c84c
+        -   Entity:
+                Id: 6f31817f-5756-49da-b270-1c878b15b641
+                Name: FogOfWarCirclePrefab
+                Components:
+                    284c1c334cabf335cd41d92e01c31ba9: !TransformComponent
+                        Id: 683751f9-f87b-495e-aa8a-1437bda15d2a
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 0.75, Y: 0.75, Z: 0.75}
+                        Children:
+                            ee22f2f2eb7f23571d593c64fe9ab19a: ref!! 61fd8b35-be07-4c14-a853-31c96653c81a
+        -   Entity:
+                Id: d3112a2a-d6cc-40b7-b7cd-9e5c973c4a3b
+                Name: Friendly
+                Components:
+                    431c4bc8fd74958f39ac725c05c5a205: !TransformComponent
+                        Id: 30076631-d784-4339-8f97-52a5f22c3a37
+                        Position: {X: 0.0, Y: 0.5, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.9238795, Z: 0.0, W: 0.382683426}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            610f095f6eafe110d87e55fd8caf2168: ref!! 683751f9-f87b-495e-aa8a-1437bda15d2a
+                    ccf3672186bb729d63a302061b2b323e: !ModelComponent
+                        Id: 364ae1a5-e669-4bd7-b127-53c4ce35f5f3
+                        Model: e3453fa0-dee2-4352-ba2b-ae1a44e130f1:Sphere
+                        RenderGroup: Group10
+                        Materials:
+                            695b9b5bb37f4c4ef5258653ab503335~0: 372471bd-474f-4bd9-9eec-7ce2a255381c:Player Material
