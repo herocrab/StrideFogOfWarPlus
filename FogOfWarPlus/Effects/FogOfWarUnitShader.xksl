@@ -18,7 +18,7 @@
             int closestDetector = 0;
             float closestDetectorRange =  0;
 
-            if (!InCameraRange) {
+            if (!InCameraRange()) {
                 return float4(0, 0, 0, 0);
             }
 
