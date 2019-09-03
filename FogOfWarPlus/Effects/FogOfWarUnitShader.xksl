@@ -2,6 +2,7 @@
 {
     shader FogOfWarUnitShader : ComputeColor, ShaderBase, Texturing
     {
+        // TODO move this all to the game side code and just update a single Alpha variable.
         cbuffer PerMaterial
         {
             stage float3 WorldPos = float3(0, 0, 0);

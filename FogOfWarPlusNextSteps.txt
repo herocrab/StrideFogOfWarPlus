@@ -1,3 +1,5 @@
+
+0) Move this all (Shader Logic) to the game side code and just update a single Alpha variable.
 0) Write the unit alpha script-> attach to enemies through prefab.
 0) Copy over the registration component of the fog of war script.
 0) Copy over the system portion of the fog of war script.
