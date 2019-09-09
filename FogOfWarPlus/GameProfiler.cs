@@ -2,7 +2,6 @@
 using System;
 using System.Threading.Tasks;
 using Xenko.Core.Mathematics;
-using Xenko.Core.Diagnostics;
 using Xenko.Input;
 using Xenko.Engine;
 using Xenko.Profiling;

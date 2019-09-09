@@ -1,0 +1,70 @@
+namespace FogOfWarPlus
+{
+    shader FogOfWarUnitShader : ComputeColor, ShaderBase, Texturing
+    {
+        // TODO move this all to the game side code and just update a single Alpha variable.
+        cbuffer PerMaterial
+        {
+            stage float3 WorldPos = float3(0, 0, 0);
+            stage float3 CameraPos = float3(0, 0, 0);
+            stage float CameraRange = 25;
+            stage float DetectDistance = 5;
+            stage float DetectFade = 1;
+            stage float3 DetectorPos[100];  // Only detectors within camera range!
+            stage int MaxDetectors = 100;
+        }
+
+        override float4 Compute() 
+        {
+            int closestDetector = 0;
+            float closestDetectorRange =  0;
+
+            if (!InCameraRange()) {
+                return float4(0, 0, 0, 0);
+            }
+
+            for (int j = 0; j < MaxDetectors; j++) {
+                float detectorRange = DetectorRange(j);
+                if (detectorRange > closestDetectorRange) {
+                    closestDetector = j;
+                    closestDetectorRange = detectorRange;
+
+                    // Shortcut if fully visible
+                    if (detectorRange == 1) {
+                        break;
+                    }
+                }
+            }
+            
+            return float4(0, 0, 0, 0);
+        }
+
+        stage bool InCameraRange()
+        { 
+            var distance = sqrt(pow(WorldPos.x - CameraPos.x, 2) + 
+                pow(WorldPos.z - CameraPos.z, 2));
+
+            if (distance < CameraRange) {
+                return true;
+                }
+
+            return false;
+        }
+
+        stage float DetectorRange(int playerIndex)
+        {
+            var distance = sqrt(pow(WorldPos.x - DetectorPos[playerIndex].x, 2) + 
+                pow(WorldPos.z - DetectorPos[playerIndex].z, 2));
+
+            if (distance < DetectDistance) {
+                return 1;
+            }
+
+            if (distance < DetectDistance + DetectFade) {
+                return (DetectFade - (distance - DetectDistance)) / DetectFade;
+            }
+
+            return 0;
+        }
+    };
+}
