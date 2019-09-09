@@ -1,18 +1,20 @@
 
 [WIP] 0) Move this all (Shader Logic) to the game side code and just update a single Alpha variable.
-0) Write the unit alpha script-> attach to enemies through prefab.
+[WIP] 0) Write the unit alpha script-> attach to enemies through prefab.
 	- This should be a startup script.
 [WIP] 0) Copy over the registration component of the fog of war script.
 [WIP] 0) Copy over the system portion of the fog of war script.
 [WIP] 0) Perform a simple test with the camera.
 
 
+0) *Will need to remap/update script references in Game Studio based on changes*.
+
 
 0) Measure/Optimize performance.
-2) Create a circular model for field of view.
-3) Write a method for raycasting LEFT to RIGHT, dump to an array of float2(angle, distance).
-4) Pump the array of float2 to a shader and write a shader for field of view.
-5) Material will need to be render group 31.
+0) Design the new Dynamic Line Of Sight Detector prefab.
+	- This can use the same texture as the detector.
+0) Write a method for raycasting LEFT to RIGHT, dump to an array of float2(angle, distance).
+0) Material will need to be in the render group 
 
 
 
