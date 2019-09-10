@@ -31,14 +31,7 @@ Next Steps After Getting Working:
 ****	Augmentation/ Hybrid approach:
 		- Don't register the Line Of Sight as a detector.
 		- Use a "tagging" scheme which refreshes a "timer" in the subscriber.
-		- Update timer logic, If the "timer" is > zero, make visible
-			- Need some types of fade logics.
-		- The existing logic for normal Detectors should also update the timer
-			- When full visibility is reached.
-
-
-
-
+			- Accessed through an internal method on Subscriber class.
 
 
 
