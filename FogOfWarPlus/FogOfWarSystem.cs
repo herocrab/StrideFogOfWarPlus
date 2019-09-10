@@ -41,11 +41,11 @@ namespace FogOfWarPlus
 
             private readonly Entity subscriber;
             private readonly ParameterCollection shaderParams;
+            private float alpha;
             private float closestDetectorDistance;
             private float detectorDistanceRecycler;
             private Vector3 worldPosRecycler;
             private float distanceRecycler;
-            private float alphaRecycler;
 
             private static Vector3 CameraWorldPos = Vector3.Zero;
             private static readonly (bool, Vector3)[] DetectorWorldPos = new (bool, Vector3)[25];
@@ -57,7 +57,7 @@ namespace FogOfWarPlus
             internal FogSubscriber(Entity entity)
             {
                 Name = entity.Name;
-                alphaRecycler = 0;
+                alpha = 0;
                 subscriber = entity;
                 shaderParams = entity.Get<ModelComponent>()?
                     .GetMaterial(0)?
@@ -73,6 +73,7 @@ namespace FogOfWarPlus
 
                 if (Vector3.Distance(worldPosRecycler, CameraWorldPos) > CameraRange) {
                     shaderParams?.Set(FogOfWarUnitShaderKeys.Alpha, 0f);
+                    alpha = 0;
                     return;
                 }
 
@@ -84,18 +85,24 @@ namespace FogOfWarPlus
                         // Shortcut fully visible units (equal to zero)
                         if (Math.Abs(detectorDistanceRecycler - 1) < DetectZeroThreshold) {
                             shaderParams?.Set(FogOfWarUnitShaderKeys.Alpha, 1f);
+                            alpha = 1;
                             break;
                         }
                     }
                 }
 
                 // Avoid unnecessarily updating shader parameters.
-                if (Math.Abs(alphaRecycler - closestDetectorDistance) < DetectZeroThreshold) {
+                if (Math.Abs(alpha - closestDetectorDistance) < DetectZeroThreshold) {
                     return;
                 }
 
-                alphaRecycler = closestDetectorDistance;
                 shaderParams?.Set(FogOfWarUnitShaderKeys.Alpha, closestDetectorDistance);
+                alpha = closestDetectorDistance;
+            }
+
+            internal void UpdateAlphaLineOfSight(Vector3 sourcePos)
+            {
+                // TODO implement this, needs to take into consideration alpha.
             }
 
             internal static void UpdateWorld(Vector3 cameraWorldPos, IEnumerable<Vector3> detectorWorldPos)

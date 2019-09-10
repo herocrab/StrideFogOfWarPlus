@@ -13,7 +13,34 @@ Current Effort:
 Next Steps:
 ===========
 
-0) Add in "Hybrid" approach for dynamic line of sight detection.
+Distance checking through a FogOfWarSystem registration service.
+
+	Pros with current system:
+		- Doesn't do checking unless within distance of the camera.
+		- Shortcuts out once fully visible.
+
+	Cons with current system:
+		- Checks distance from the object to all detectors. (Poor scale)
+		- Does not currently do line of sight checking.
+		- LoS Could be added, but wouldn't detect the edges.
+		- Doesn't scale will RTS numbers.
+
+Next Steps After Getting Working:
+=================================
+
+****	Augmentation/ Hybrid approach:
+		- Don't register the Line Of Sight as a detector.
+		- Use a "tagging" scheme which refreshes a "timer" in the subscriber.
+		- Update timer logic, If the "timer" is > zero, make visible
+			- Need some types of fade logics.
+		- The existing logic for normal Detectors should also update the timer
+			- When full visibility is reached.
+
+
+
+
+
+
 
 
 0) Measure/Optimize performance.
