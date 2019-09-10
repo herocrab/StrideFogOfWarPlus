@@ -43,9 +43,12 @@ namespace FogOfWarPlus
             private readonly ParameterCollection shaderParams;
             private float alpha;
             private float closestDetectorDistance;
+            private float closestLineOfSightDistance;
             private float detectorDistanceRecycler;
             private Vector3 worldPosRecycler;
             private float distanceRecycler;
+            private float lineOfSightRecycler;
+            private byte seenByCounter;
 
             private static Vector3 CameraWorldPos = Vector3.Zero;
             private static readonly (bool, Vector3)[] DetectorWorldPos = new (bool, Vector3)[25];
@@ -53,11 +56,13 @@ namespace FogOfWarPlus
             private const float DetectDistance = 5f;
             private const float DetectFade = 1f;
             private const float DetectZeroThreshold = .01f;
+            private const byte seenByCounterReset = 5;
 
             internal FogSubscriber(Entity entity)
             {
                 Name = entity.Name;
                 alpha = 0;
+                closestLineOfSightDistance = float.MaxValue;
                 subscriber = entity;
                 shaderParams = entity.Get<ModelComponent>()?
                     .GetMaterial(0)?
@@ -68,17 +73,25 @@ namespace FogOfWarPlus
             internal void UpdateAlpha()
             {
                 subscriber.Transform.GetWorldTransformation(out worldPosRecycler, out _, out _);
+                closestDetectorDistance = float.MaxValue;
 
-                closestDetectorDistance =  float.MaxValue;
-
-                if (Vector3.Distance(worldPosRecycler, CameraWorldPos) > CameraRange) {
+                // Do not calculate alphas for off screen entities
+                if (Vector3.Distance(worldPosRecycler, CameraWorldPos) > CameraRange)
+                {
                     shaderParams?.Set(FogOfWarUnitShaderKeys.Alpha, 0f);
                     alpha = 0;
                     return;
                 }
 
+                // Set the closest distance for line of sight detectors
+                if (seenByCounter > 0) {
+                    closestDetectorDistance = closestLineOfSightDistance;
+                    seenByCounter -= 1;
+                }
+
+                /* Not the most efficient; depends on detector distance, includes shortcut */
                 for (var j = 0; j < DetectorWorldPos.Length; j++) {
-                    detectorDistanceRecycler = DetectorDistance(j);
+                    detectorDistanceRecycler = DetectorDistance(DetectorWorldPos[j].Item2);
                     if (detectorDistanceRecycler < closestDetectorDistance) {
                         closestDetectorDistance = detectorDistanceRecycler;
 
@@ -102,7 +115,16 @@ namespace FogOfWarPlus
 
             internal void UpdateAlphaLineOfSight(Vector3 sourcePos)
             {
-                // TODO implement this, needs to take into consideration alpha.
+                lineOfSightRecycler = DetectorDistance(sourcePos);
+                if (seenByCounter > 0 && lineOfSightRecycler < closestLineOfSightDistance) {
+                    closestLineOfSightDistance = lineOfSightRecycler;
+                }
+
+                if (seenByCounter <= 0) {
+                    closestLineOfSightDistance = lineOfSightRecycler;
+                }
+
+                seenByCounter = seenByCounterReset;
             }
 
             internal static void UpdateWorld(Vector3 cameraWorldPos, IEnumerable<Vector3> detectorWorldPos)
@@ -122,9 +144,9 @@ namespace FogOfWarPlus
                 }
             }
 
-            private float DetectorDistance(int playerIndex)
+            private float DetectorDistance(Vector3 playerPos)
             {
-                distanceRecycler = Vector3.Distance(worldPosRecycler, DetectorWorldPos[playerIndex].Item2);
+                distanceRecycler = Vector3.Distance(worldPosRecycler, playerPos);
                 if (distanceRecycler < DetectDistance) {
                     return 1;
                 }
