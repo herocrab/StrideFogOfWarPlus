@@ -8,7 +8,7 @@ Hierarchy:
     Parts:
         -   Entity:
                 Id: e2af0282-36ef-4a13-9700-ff7cd542e873
-                Name: Revealer
+                Name: Detector
                 Components:
                     de9bf9b9e37edd6ea6de1fc6cc2ce27d: !TransformComponent
                         Id: 0f66a45c-d389-443f-9053-aa65ab4c937d
@@ -27,5 +27,5 @@ Hierarchy:
                         BlendMode: AlphaBlend
                         Sampler: AnisotropicClamp
                         RenderGroup: Group31
-                    82c100b11b0b1a816f61c714f5fdc571: !FogOfWarPlus.FogOfWarVision,FogOfWarPlus
-                        Id: 9353e6f1-9ea0-401b-adfa-8ca3e359002c
+                    1b124765ede27ca99ee3e8773e3f6edd: !FogOfWarPlus.FogOfWarDetector,FogOfWarPlus
+                        Id: 210b0b96-bc31-4762-9f65-7479bd04dd5b

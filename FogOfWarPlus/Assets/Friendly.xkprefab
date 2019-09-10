@@ -8,7 +8,7 @@ Hierarchy:
     Parts:
         -   Entity:
                 Id: 0fe7d9cc-5dc1-47ba-891d-c39667240b08
-                Name: Revealer
+                Name: Detector
                 Components:
                     de9bf9b9e37edd6ea6de1fc6cc2ce27d: !TransformComponent
                         Id: 61fd8b35-be07-4c14-a853-31c96653c81a
@@ -27,8 +27,8 @@ Hierarchy:
                         BlendMode: AlphaBlend
                         Sampler: AnisotropicClamp
                         RenderGroup: Group31
-                    82c100b11b0b1a816f61c714f5fdc571: !FogOfWarPlus.FogOfWarVision,FogOfWarPlus
-                        Id: b95cb6c9-448a-4ee2-9f71-7bca8426c84c
+                    29dd0d50dbd7334fe821dc3b2e77e14e: !FogOfWarPlus.FogOfWarDetector,FogOfWarPlus
+                        Id: cf1bc8ba-ca40-40d3-aa76-c2a9e44cf4dd
         -   Entity:
                 Id: 6f31817f-5756-49da-b270-1c878b15b641
                 Name: FogOfWarCirclePrefab

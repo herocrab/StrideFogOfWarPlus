@@ -23,3 +23,5 @@ Hierarchy:
                         RenderGroup: Group10
                         Materials:
                             695b9b5bb37f4c4ef5258653ab503335~0: b14eadbf-3226-4a65-9dc1-631a4bdb92d6:Enemy Material
+                    c4dcd86c29b24bee0a7f7e7ad773bba1: !FogOfWarPlus.FogOfWarPlus.FogOfWarSubscriber,FogOfWarPlus
+                        Id: 69631492-5fe5-4e75-9440-8c0deb736424

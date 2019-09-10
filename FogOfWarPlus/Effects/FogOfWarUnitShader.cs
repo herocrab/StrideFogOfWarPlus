@@ -18,12 +18,6 @@ namespace FogOfWarPlus
 {
     public static partial class FogOfWarUnitShaderKeys
     {
-        public static readonly ValueParameterKey<Vector3> WorldPos = ParameterKeys.NewValue<Vector3>(new Vector3(0,0,0));
-        public static readonly ValueParameterKey<Vector3> CameraPos = ParameterKeys.NewValue<Vector3>(new Vector3(0,0,0));
-        public static readonly ValueParameterKey<float> CameraRange = ParameterKeys.NewValue<float>(25);
-        public static readonly ValueParameterKey<float> DetectDistance = ParameterKeys.NewValue<float>(5);
-        public static readonly ValueParameterKey<float> DetectFade = ParameterKeys.NewValue<float>(1);
-        public static readonly ValueParameterKey<Vector3> DetectorPos = ParameterKeys.NewValue<Vector3>();
-        public static readonly ValueParameterKey<int> MaxDetectors = ParameterKeys.NewValue<int>(100);
+        public static readonly ValueParameterKey<float> Alpha = ParameterKeys.NewValue<float>(0);
     }
 }

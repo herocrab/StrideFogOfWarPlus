@@ -480,7 +480,7 @@ Hierarchy:
                             335681bf12eae6a3ba63d9ffed93f109~0: f11dc310-3e6e-4ef1-9743-3a1175d1a300:Ground Material
         -   Entity:
                 Id: bef9458a-1248-4dae-902a-1e616cd6d616
-                Name: Revealer
+                Name: Detector
                 Components:
                     de9bf9b9e37edd6ea6de1fc6cc2ce27d: !TransformComponent
                         Id: f6cd5c40-93c4-4bca-ac2f-d36c195fa3c3
@@ -499,8 +499,8 @@ Hierarchy:
                         BlendMode: AlphaBlend
                         Sampler: AnisotropicClamp
                         RenderGroup: Group31
-                    82c100b11b0b1a816f61c714f5fdc571: !FogOfWarPlus.FogOfWarVision,FogOfWarPlus
-                        Id: d254c097-a263-4148-bb19-ca03d79fc8fc
+                    1b124765ede27ca99ee3e8773e3f6edd: !FogOfWarPlus.FogOfWarDetector,FogOfWarPlus
+                        Id: fdce7c55-b79e-425f-945e-f91c0f7d2a25
             Base:
                 BasePartAsset: fc104e77-4a75-4d81-bfa7-dd33a63a1fa4:FogOfWarPlus/FogOfWarCirclePrefab
                 BasePartId: e2af0282-36ef-4a13-9700-ff7cd542e873

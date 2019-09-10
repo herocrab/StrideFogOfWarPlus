@@ -4,10 +4,6 @@ using System.Linq;
 using Xenko.Core.Mathematics;
 using Xenko.Engine;
 using Xenko.Rendering;
-// ReSharper disable InconsistentNaming
-
-// ReSharper disable UnassignedField.Global
-// ReSharper disable MemberCanBePrivate.Global
 
 namespace FogOfWarPlus
 {
@@ -106,9 +102,9 @@ namespace FogOfWarPlus
             {
                 CameraWorldPos = cameraWorldPos;
 
-                // Reset array items to defaults if the list is short.
+                // Reset array items to default
                 for (var i = 0; i < DetectorWorldPos.Length; i++) {
-                    if (DetectorWorldPos.Length <= i) {
+                    if (detectorWorldPos.Count() <= i) {
                         DetectorWorldPos[i].Item1 = false;
                         DetectorWorldPos[i].Item2 = Vector3.Zero;
                         continue;

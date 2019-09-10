@@ -4,7 +4,7 @@
     {
         cbuffer PerMaterial
         {
-            stage float3 Alpha = 0;
+            stage float Alpha = 0;
         }
 
         override float4 Compute() 
