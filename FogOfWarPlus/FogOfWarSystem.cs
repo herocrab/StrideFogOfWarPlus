@@ -7,8 +7,11 @@ using Xenko.Rendering;
 
 namespace FogOfWarPlus
 {
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class FogOfWarSystem : SyncScript
     {
+        // ReSharper disable once MemberCanBePrivate.Global
+        // ReSharper disable once UnassignedField.Global
         public float FogOpacity;
 
         private Dictionary<string, FogSubscriber> fogSubscribers;
@@ -43,26 +46,27 @@ namespace FogOfWarPlus
             private readonly ParameterCollection shaderParams;
             private float alpha;
             private float closestDetectorDistance;
-            private float closestLineOfSightDistance;
+            private float closestLineOfSightDetectorDistance;
             private float detectorDistanceRecycler;
             private Vector3 worldPosRecycler;
             private float distanceRecycler;
             private float lineOfSightRecycler;
             private byte seenByCounter;
 
+            // ReSharper disable once InconsistentNaming
             private static Vector3 CameraWorldPos = Vector3.Zero;
             private static readonly (bool, Vector3)[] DetectorWorldPos = new (bool, Vector3)[25];
             private const float CameraRange = 25f;
             private const float DetectDistance = 5f;
             private const float DetectFade = 1f;
             private const float DetectZeroThreshold = .01f;
-            private const byte seenByCounterReset = 5;
+            private const byte SeenByCounterReset = 5;
 
             internal FogSubscriber(Entity entity)
             {
                 Name = entity.Name;
                 alpha = 0;
-                closestLineOfSightDistance = float.MaxValue;
+                closestLineOfSightDetectorDistance = float.MaxValue;
                 subscriber = entity;
                 shaderParams = entity.Get<ModelComponent>()?
                     .GetMaterial(0)?
@@ -73,6 +77,7 @@ namespace FogOfWarPlus
             internal void UpdateAlpha()
             {
                 subscriber.Transform.GetWorldTransformation(out worldPosRecycler, out _, out _);
+
                 closestDetectorDistance = float.MaxValue;
 
                 // Do not calculate alphas for off screen entities
@@ -85,17 +90,17 @@ namespace FogOfWarPlus
 
                 // Set the closest distance for line of sight detectors
                 if (seenByCounter > 0) {
-                    closestDetectorDistance = closestLineOfSightDistance;
+                    closestDetectorDistance = closestLineOfSightDetectorDistance;
                     seenByCounter -= 1;
                 }
 
-                /* Not the most efficient; depends on detector distance, includes shortcut */
+                /* Not the most efficient n(n-1)/2; depends on detector distance, with shortcut */
                 for (var j = 0; j < DetectorWorldPos.Length; j++) {
                     detectorDistanceRecycler = DetectorDistance(DetectorWorldPos[j].Item2);
                     if (detectorDistanceRecycler < closestDetectorDistance) {
                         closestDetectorDistance = detectorDistanceRecycler;
 
-                        // Shortcut fully visible units (equal to zero)
+                        // Shortcut fully visible units, stop iterating
                         if (Math.Abs(detectorDistanceRecycler - 1) < DetectZeroThreshold) {
                             shaderParams?.Set(FogOfWarUnitShaderKeys.Alpha, 1f);
                             alpha = 1;
@@ -104,7 +109,7 @@ namespace FogOfWarPlus
                     }
                 }
 
-                // Avoid unnecessarily updating shader parameters.
+                // Avoid unnecessarily updating shader parameters
                 if (Math.Abs(alpha - closestDetectorDistance) < DetectZeroThreshold) {
                     return;
                 }
@@ -116,24 +121,24 @@ namespace FogOfWarPlus
             internal void UpdateAlphaLineOfSight(Vector3 sourcePos)
             {
                 lineOfSightRecycler = DetectorDistance(sourcePos);
-                if (seenByCounter > 0 && lineOfSightRecycler < closestLineOfSightDistance) {
-                    closestLineOfSightDistance = lineOfSightRecycler;
+                if (seenByCounter > 0 && lineOfSightRecycler < closestLineOfSightDetectorDistance) {
+                    closestLineOfSightDetectorDistance = lineOfSightRecycler;
                 }
 
                 if (seenByCounter <= 0) {
-                    closestLineOfSightDistance = lineOfSightRecycler;
+                    closestLineOfSightDetectorDistance = lineOfSightRecycler;
                 }
 
-                seenByCounter = seenByCounterReset;
+                seenByCounter = SeenByCounterReset;
             }
 
-            internal static void UpdateWorld(Vector3 cameraWorldPos, IEnumerable<Vector3> detectorWorldPos)
+            internal static void UpdateWorld(Vector3 cameraWorldPos, ICollection<Vector3> detectorWorldPos)
             {
                 CameraWorldPos = cameraWorldPos;
 
                 // Reset array items to default
                 for (var i = 0; i < DetectorWorldPos.Length; i++) {
-                    if (detectorWorldPos.Count() <= i) {
+                    if (detectorWorldPos.Count <= i) {
                         DetectorWorldPos[i].Item1 = false;
                         DetectorWorldPos[i].Item2 = Vector3.Zero;
                         continue;
