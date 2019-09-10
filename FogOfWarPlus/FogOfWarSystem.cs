@@ -94,7 +94,7 @@ namespace FogOfWarPlus
                     seenByCounter -= 1;
                 }
 
-                /* Not the most efficient n(n-1)/2; depends on detector distance, with shortcut */
+                /* Not the most efficient n(n-1)/2; depends on detector distance, uses a shortcut */
                 for (var j = 0; j < DetectorWorldPos.Length; j++) {
                     detectorDistanceRecycler = DetectorDistance(DetectorWorldPos[j].Item2);
                     if (detectorDistanceRecycler < closestDetectorDistance) {
@@ -123,13 +123,13 @@ namespace FogOfWarPlus
                 lineOfSightRecycler = DetectorDistance(sourcePos);
                 if (seenByCounter > 0 && lineOfSightRecycler < closestLineOfSightDetectorDistance) {
                     closestLineOfSightDetectorDistance = lineOfSightRecycler;
+                    seenByCounter = SeenByCounterReset;
                 }
 
                 if (seenByCounter <= 0) {
                     closestLineOfSightDetectorDistance = lineOfSightRecycler;
+                    seenByCounter = SeenByCounterReset;
                 }
-
-                seenByCounter = SeenByCounterReset;
             }
 
             internal static void UpdateWorld(Vector3 cameraWorldPos, ICollection<Vector3> detectorWorldPos)
