@@ -11,7 +11,9 @@ namespace FogOfWarPlus
 
         public override void Start()
         {
-            Entity.AddChild(Prefab.Instantiate().First());
+            var spawnedEntity = Prefab.Instantiate().First();
+            spawnedEntity.Name = Entity.GetParent().Name;
+            Entity.AddChild(spawnedEntity);
         }
     }
 }

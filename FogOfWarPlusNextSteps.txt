@@ -1,15 +1,4 @@
 
-Current Effort:
-===============
-
-0) Set the Detector and Subscriber Scripts to 1.
-0) Using Vector 3 Distance won’t work with camera elevation? Check this. This may need converted to Vector 2.
-	- Convert this to Vector2.
-0) Verify everything loads in correctly.
-0) Comment out Alpha setting and just set it to 1.
-0) Debug/Troubleshoot, need to get this version working before augmenting.
-
-
 Next Steps:
 ===========
 
@@ -34,6 +23,7 @@ Next Steps After Getting Working:
 			- Accessed through an internal method on Subscriber class.
 
 
+0) Change the camera to moving as well as the character.
 
 
 0) Measure/Optimize performance.

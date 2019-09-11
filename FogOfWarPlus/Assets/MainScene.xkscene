@@ -6,7 +6,6 @@ ChildrenIds: []
 Offset: {X: 0.0, Y: 0.0, Z: 0.0}
 Hierarchy:
     RootParts:
-        - ref!! 4354b0ae-5e74-4361-ad39-6f26a229a8d9
         - ref!! 3399d271-a949-47e1-b194-a37caa9d831c
         - ref!! 9be576c1-c3dc-4564-b46f-6d33c848878c
         - ref!! babceb81-5264-4551-b455-d09015ebb566
@@ -19,8 +18,13 @@ Hierarchy:
         - ref!! b0834c72-b06a-4817-9f9a-9e4f9631a260
         - ref!! 5ac0b63c-7d82-44ab-9b44-e6d720103b87
         - ref!! c15f01bd-0b58-4560-bad8-b356b0b1c68c
+        - ref!! 3ecb60d4-513a-4bbb-b8e6-97dd5b192b48
         - ref!! 5f5411f7-5bf1-48a4-afd5-018e946a494e
         - ref!! 6a3b1cf5-3908-430f-af7e-8c169d9f2b6c
+        - ref!! 3e27f10b-3d9b-45e3-8f72-3665c7690336
+        - ref!! 4c50b057-28ee-4b51-9d76-a65a550b5d9b
+        - ref!! ee3f36b3-078f-431e-bfa3-3d247489b4d9
+        - ref!! ce837c17-a7f9-4d80-8689-473393644cdd
     Parts:
         -   Entity:
                 Id: 0231856a-fc64-4269-a57c-772aa2bccf75
@@ -36,16 +40,73 @@ Hierarchy:
                             b1f88a7fa3e07173310e8d316d34402d: ref!! 70d682fe-52e5-40ae-b906-886734f0ec0b
                             6e9853d2292383bbc15d2d97a41b9fc3: ref!! 9862f570-ef1a-48f6-8af1-86a1c2ef1d5d
         -   Entity:
-                Id: 30a7e184-e9b0-4980-8e3b-9a13a1b694d0
-                Name: FogOfWarCirclePrefab
+                Id: 05f164d9-3e33-40f0-9ca6-7754233c4a6d
+                Name: Spawner
                 Components:
-                    7b76245b3557d8074f8a0376a7ca42fa: !TransformComponent
-                        Id: 678be811-0ff6-4a52-8060-5939de05b458
+                    132c38d5d095e00d6a0d0be2acd84be8: !TransformComponent
+                        Id: 23f5cb4e-5888-49da-b256-bbeca0147227
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children:
-                            dc4fed4e93d571c7387038b63d26e2dd: ref!! f6cd5c40-93c4-4bca-ac2f-d36c195fa3c3
+                        Children: {}
+                    a873a7479abbc47791a7c66ac1d3eb96: !FogOfWarPlus.PrefabSpawner,FogOfWarPlus
+                        Id: 05572ba0-7978-43ee-9739-317cd71df473
+                        Prefab*: 9b210d7a-201b-4f11-b9d1-1244082dc9b3:Enemy
+            Base:
+                BasePartAsset: 8ca96e09-c0d4-4e99-92e5-bba4602529e8:Spawner
+                BasePartId: ca9ccd48-1b6d-407a-88c0-7b83b332c0ba
+                InstanceId: 805eb24d-4813-4078-8dd5-d789e66fc659
+        -   Entity:
+                Id: 069a3948-f339-4c09-b201-ea22403311c4
+                Name: Spawner
+                Components:
+                    132c38d5d095e00d6a0d0be2acd84be8: !TransformComponent
+                        Id: 684b79f6-c96a-4025-b65f-a9c3599b7daf
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    a873a7479abbc47791a7c66ac1d3eb96: !FogOfWarPlus.PrefabSpawner,FogOfWarPlus
+                        Id: 2991a7ca-eea7-4e39-9d9c-3061bc090329
+                        Prefab*: 9b210d7a-201b-4f11-b9d1-1244082dc9b3:Enemy
+            Base:
+                BasePartAsset: 8ca96e09-c0d4-4e99-92e5-bba4602529e8:Spawner
+                BasePartId: ca9ccd48-1b6d-407a-88c0-7b83b332c0ba
+                InstanceId: 446cec0a-f870-405e-b0ea-0835b53770ef
+        -   Entity:
+                Id: 2f33ad32-6cc4-4d4d-aeaf-3d652e40594f
+                Name: Spawner
+                Components:
+                    132c38d5d095e00d6a0d0be2acd84be8: !TransformComponent
+                        Id: cbb5ce9e-8dd9-4a9f-bb92-242315805a1a
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    a873a7479abbc47791a7c66ac1d3eb96: !FogOfWarPlus.PrefabSpawner,FogOfWarPlus
+                        Id: 28fb0cb0-70be-4402-9b53-d903282f845c
+                        Prefab*: 9b210d7a-201b-4f11-b9d1-1244082dc9b3:Enemy
+            Base:
+                BasePartAsset: 8ca96e09-c0d4-4e99-92e5-bba4602529e8:Spawner
+                BasePartId: ca9ccd48-1b6d-407a-88c0-7b83b332c0ba
+                InstanceId: 24e9ec39-0031-49af-949f-5d7a53828734
+        -   Entity:
+                Id: 30225e44-1dab-4149-b8f7-abcd50203f1f
+                Name: Spawner
+                Components:
+                    132c38d5d095e00d6a0d0be2acd84be8: !TransformComponent
+                        Id: c4fcc8dd-ec3c-43b1-a36e-a28ed7e49062
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    a873a7479abbc47791a7c66ac1d3eb96: !FogOfWarPlus.PrefabSpawner,FogOfWarPlus
+                        Id: 0c4a11aa-cde2-462a-b878-6d6f7e7ddc0e
+                        Prefab*: 9b210d7a-201b-4f11-b9d1-1244082dc9b3:Enemy
+            Base:
+                BasePartAsset: 8ca96e09-c0d4-4e99-92e5-bba4602529e8:Spawner
+                BasePartId: ca9ccd48-1b6d-407a-88c0-7b83b332c0ba
+                InstanceId: 25911ffc-cf74-40a8-a1c0-8343acbc03a7
         -   Entity:
                 Id: 3399d271-a949-47e1-b194-a37caa9d831c
                 Name: Directional light
@@ -72,7 +133,7 @@ Hierarchy:
                                 BiasParameters:
                                     DepthBias: 0.0001
                                     NormalOffsetScale: 5.0
-                        Intensity: 1.5
+                        Intensity: 1.25
         -   Entity:
                 Id: 341c64fe-d848-4f52-b869-334619e5b8b2
                 Name: Spawner
@@ -106,6 +167,30 @@ Hierarchy:
                         Projection: Perspective
                         VerticalFieldOfView: 5.0
                         Slot: 27e4da07-c5d0-44c6-9e27-5ea3358b34d9
+        -   Folder: null
+            Entity:
+                Id: 3e27f10b-3d9b-45e3-8f72-3665c7690336
+                Name: Enemy5
+                Components:
+                    f4d2519f938b3e9518a101d584e7bf40: !TransformComponent
+                        Id: 0af3297d-4a9d-464d-864b-d994f60ad88a
+                        Position: {X: 15.1728706, Y: 0.0, Z: -16.65976}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            3fc39ffe6736928dff0681889eb14b6c: ref!! 684b79f6-c96a-4025-b65f-a9c3599b7daf
+        -   Folder: null
+            Entity:
+                Id: 3ecb60d4-513a-4bbb-b8e6-97dd5b192b48
+                Name: Enemy2
+                Components:
+                    f4d2519f938b3e9518a101d584e7bf40: !TransformComponent
+                        Id: 2f58c08b-53b7-4e1e-a98c-feb59a812058
+                        Position: {X: -3.32185984, Y: 0.0, Z: -7.88816261}
+                        Rotation: {X: 0.0, Y: 0.382683456, Z: 0.0, W: 0.9238795}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            3fc39ffe6736928dff0681889eb14b6c: ref!! cbb5ce9e-8dd9-4a9f-bb92-242315805a1a
         -   Entity:
                 Id: 3ee5a6dd-26d2-4cdf-b61f-22734f7ca0dc
                 Name: Spawner
@@ -146,7 +231,7 @@ Hierarchy:
                         ResultPage: 1
                     61035fbc1becaf51844aaa2ceb56e914: !FogOfWarPlus.FogOfWarSystem,FogOfWarPlus
                         Id: 7ae07f03-889c-4742-86dc-dd0656dbd44e
-                        FogOpacity: 0.7
+                        FogOpacity: 0.725
         -   Entity:
                 Id: 48b25e24-1dcd-4365-af99-302e6d08754d
                 Name: FogOfWarLayer3
@@ -164,6 +249,18 @@ Hierarchy:
                         IsShadowCaster: false
                         Materials:
                             6755611f61b5f26ceedb889613ec5f76~0: 667c795a-f62e-439a-9249-141bb7656f75:FogOfWarPlus/FogOfWarMaterial
+        -   Folder: null
+            Entity:
+                Id: 4c50b057-28ee-4b51-9d76-a65a550b5d9b
+                Name: Enemy6
+                Components:
+                    f4d2519f938b3e9518a101d584e7bf40: !TransformComponent
+                        Id: e222db01-6fde-4516-8887-2513906db56e
+                        Position: {X: 17.7644711, Y: 0.0, Z: -13.0649614}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            3fc39ffe6736928dff0681889eb14b6c: ref!! a2ca3c47-7edd-4682-b3c0-c503e58cad70
         -   Entity:
                 Id: 569969d7-1ecc-4f73-90a9-5abfba216531
                 Name: Spawner
@@ -184,7 +281,7 @@ Hierarchy:
         -   Folder: null
             Entity:
                 Id: 5ac0b63c-7d82-44ab-9b44-e6d720103b87
-                Name: Friendly
+                Name: Friendly2
                 Components:
                     a96e1314a7037646d58101a80f9cb2a9: !TransformComponent
                         Id: 73bba6cf-2218-46e2-9fea-b31c06e8ffdf
@@ -258,7 +355,7 @@ Hierarchy:
         -   Folder: null
             Entity:
                 Id: 5f5411f7-5bf1-48a4-afd5-018e946a494e
-                Name: Enemy
+                Name: Enemy3
                 Components:
                     f4d2519f938b3e9518a101d584e7bf40: !TransformComponent
                         Id: d10ae032-ab57-4943-b16d-dd99f841b6b1
@@ -270,7 +367,7 @@ Hierarchy:
         -   Folder: null
             Entity:
                 Id: 6a3b1cf5-3908-430f-af7e-8c169d9f2b6c
-                Name: Enemy
+                Name: Enemy4
                 Components:
                     f4d2519f938b3e9518a101d584e7bf40: !TransformComponent
                         Id: 315316bb-4d53-4232-b4d3-2decf9b0272b
@@ -296,6 +393,17 @@ Hierarchy:
                         IsShadowCaster: false
                         Materials:
                             6755611f61b5f26ceedb889613ec5f76~0: 667c795a-f62e-439a-9249-141bb7656f75:FogOfWarPlus/FogOfWarMaterial
+        -   Entity:
+                Id: 7aeea926-bec2-40f6-a1a0-c5e20ea63da7
+                Name: DetectorPrefab
+                Components:
+                    a8f730714b217a5da80b4bad50ca7a73: !TransformComponent
+                        Id: e7061b18-548d-469b-9235-b18f1c2d6eb0
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            e5cce5a926f210865bb3f773dc4c656d: ref!! f3fc32f0-072e-4fb9-a045-c0b1af6a82c7
         -   Entity:
                 Id: 805565b0-e2c0-4f21-bb63-39864277aaff
                 Name: Spawner
@@ -358,7 +466,8 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
-                            a6779751e0e71805e3bd882ababfac2c: ref!! 678be811-0ff6-4a52-8060-5939de05b458
+                            123428aa6d98f5f577f8b8c3e1ab2c1c: ref!! e7061b18-548d-469b-9235-b18f1c2d6eb0
+                            9701a8a9da14717f3f4e22e82900915b: ref!! 3f20df97-743c-489a-ab6b-5befec3f361d
                     ccf3672186bb729d63a302061b2b323e: !ModelComponent
                         Id: ff5648e3-bd9b-47d4-ae2a-438784998c08
                         Model: e3453fa0-dee2-4352-ba2b-ae1a44e130f1:Sphere
@@ -453,7 +562,7 @@ Hierarchy:
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
         -   Entity:
                 Id: b0834c72-b06a-4817-9f9a-9e4f9631a260
-                Name: Friendly
+                Name: Friendly1
                 Components:
                     a96e1314a7037646d58101a80f9cb2a9: !TransformComponent
                         Id: dcad61e5-75fa-4d31-9894-8769b27545be
@@ -478,37 +587,10 @@ Hierarchy:
                         IsShadowCaster: false
                         Materials:
                             335681bf12eae6a3ba63d9ffed93f109~0: f11dc310-3e6e-4ef1-9743-3a1175d1a300:Ground Material
-        -   Entity:
-                Id: bef9458a-1248-4dae-902a-1e616cd6d616
-                Name: Detector
-                Components:
-                    de9bf9b9e37edd6ea6de1fc6cc2ce27d: !TransformComponent
-                        Id: f6cd5c40-93c4-4bca-ac2f-d36c195fa3c3
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    f3d18ad20d9fdffdb4ab07ca2b84c78d: !SpriteComponent
-                        Id: 552716b8-096f-4570-ad79-50b74ca387c7
-                        Enabled: false
-                        SpriteProvider: !SpriteFromTexture
-                            Texture: b47384c6-7bb3-46e8-b596-bc6526bfa0d0:FogOfWarPlus/FogOfWarCircleTexture
-                            Center: {X: 0.0, Y: 0.0}
-                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
-                        IgnoreDepth: true
-                        BlendMode: AlphaBlend
-                        Sampler: AnisotropicClamp
-                        RenderGroup: Group31
-                    1b124765ede27ca99ee3e8773e3f6edd: !FogOfWarPlus.FogOfWarDetector,FogOfWarPlus
-                        Id: fdce7c55-b79e-425f-945e-f91c0f7d2a25
-            Base:
-                BasePartAsset: fc104e77-4a75-4d81-bfa7-dd33a63a1fa4:FogOfWarPlus/FogOfWarCirclePrefab
-                BasePartId: e2af0282-36ef-4a13-9700-ff7cd542e873
-                InstanceId: 8461d8f7-9da6-45bf-a4dc-ee6ab27d6be8
         -   Folder: null
             Entity:
                 Id: c15f01bd-0b58-4560-bad8-b356b0b1c68c
-                Name: Enemy
+                Name: Enemy1
                 Components:
                     f4d2519f938b3e9518a101d584e7bf40: !TransformComponent
                         Id: 15719605-0822-46b4-b83b-c8d45fec6b47
@@ -517,6 +599,18 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             3fc39ffe6736928dff0681889eb14b6c: ref!! 3323e266-1aba-45f1-8158-4ef89ede472e
+        -   Folder: null
+            Entity:
+                Id: ce837c17-a7f9-4d80-8689-473393644cdd
+                Name: Enemy9
+                Components:
+                    f4d2519f938b3e9518a101d584e7bf40: !TransformComponent
+                        Id: 8849be3c-5264-4b5d-a32f-523e937b2e22
+                        Position: {X: 14.41527, Y: 0.0, Z: -13.1410789}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            3fc39ffe6736928dff0681889eb14b6c: ref!! 23f5cb4e-5888-49da-b256-bbeca0147227
         -   Folder: null
             Entity:
                 Id: ed9aa4d0-f39d-4e5a-a1c1-2747883be299
@@ -550,6 +644,35 @@ Hierarchy:
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
         -   Folder: null
             Entity:
+                Id: ee3f36b3-078f-431e-bfa3-3d247489b4d9
+                Name: Enemy8
+                Components:
+                    f4d2519f938b3e9518a101d584e7bf40: !TransformComponent
+                        Id: 4161b2c9-c572-4088-a413-eac5ca67a4e0
+                        Position: {X: 11.2436752, Y: 0.0, Z: -15.3221626}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            3fc39ffe6736928dff0681889eb14b6c: ref!! c4fcc8dd-ec3c-43b1-a36e-a28ed7e49062
+        -   Entity:
+                Id: f04a35e9-f270-4cad-98d1-0d2f4b9c330d
+                Name: Spawner
+                Components:
+                    132c38d5d095e00d6a0d0be2acd84be8: !TransformComponent
+                        Id: a2ca3c47-7edd-4682-b3c0-c503e58cad70
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    a873a7479abbc47791a7c66ac1d3eb96: !FogOfWarPlus.PrefabSpawner,FogOfWarPlus
+                        Id: 12e59a8c-7468-4aa0-bb33-d39867f26414
+                        Prefab*: 9b210d7a-201b-4f11-b9d1-1244082dc9b3:Enemy
+            Base:
+                BasePartAsset: 8ca96e09-c0d4-4e99-92e5-bba4602529e8:Spawner
+                BasePartId: ca9ccd48-1b6d-407a-88c0-7b83b332c0ba
+                InstanceId: 5d2204e8-6bbb-4aba-978f-6051da537870
+        -   Folder: null
+            Entity:
                 Id: f61f69c9-6383-470c-9f00-dcd4f9bf70a9
                 Name: Cube
                 Components:
@@ -579,3 +702,31 @@ Hierarchy:
                                 Size: {X: 1.0, Y: 1.0, Z: 1.0}
                                 LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+        -   Entity:
+                Id: f96c388a-5dab-458e-8d48-e90991a6d1c8
+                Name: Detector
+                Components:
+                    de9bf9b9e37edd6ea6de1fc6cc2ce27d: !TransformComponent
+                        Id: f3fc32f0-072e-4fb9-a045-c0b1af6a82c7
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
+                        Scale: {X: 1.1, Y: 1.1, Z: 1.1}
+                        Children: {}
+                    f3d18ad20d9fdffdb4ab07ca2b84c78d: !SpriteComponent
+                        Id: a8a2d715-cd4b-4e7a-a02c-b662ba74b2ec
+                        Enabled: false
+                        SpriteProvider: !SpriteFromTexture
+                            Texture: b47384c6-7bb3-46e8-b596-bc6526bfa0d0:FogOfWarPlus/FogOfWarCircleTexture
+                            Center: {X: 0.0, Y: 0.0}
+                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                        IgnoreDepth: true
+                        BlendMode: AlphaBlend
+                        Sampler: AnisotropicClamp
+                        RenderGroup: Group31
+                    1b124765ede27ca99ee3e8773e3f6edd: !FogOfWarPlus.FogOfWarDetector,FogOfWarPlus
+                        Id: 5f66e8c8-33ff-4918-b349-9629f3351ad8
+                        Priority*: 1
+            Base:
+                BasePartAsset: fc104e77-4a75-4d81-bfa7-dd33a63a1fa4:FogOfWarPlus/DetectorPrefab
+                BasePartId: e2af0282-36ef-4a13-9700-ff7cd542e873
+                InstanceId: 37b24937-4434-45ac-885a-3bb2cf18b61e

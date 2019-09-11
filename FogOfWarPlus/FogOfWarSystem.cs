@@ -43,24 +43,24 @@ namespace FogOfWarPlus
             internal readonly string Name;
 
             private readonly Entity subscriber;
+            private readonly ModelComponent model;
             private readonly ParameterCollection shaderParams;
             private float alpha;
             private float closestDetectorDistance;
             private float closestLineOfSightDetectorDistance;
-            private float detectorDistanceRecycler;
+            private float detectorDistanceAlpha;
             private Vector3 worldPosRecycler;
             private float distanceRecycler;
-            private float lineOfSightRecycler;
             private byte seenByCounter;
 
-            // ReSharper disable once InconsistentNaming
-            private static Vector3 CameraWorldPos = Vector3.Zero;
+            private static Vector3 cameraWorldPos = Vector3.Zero;
             private static readonly (bool, Vector3)[] DetectorWorldPos = new (bool, Vector3)[25];
             private const float CameraRange = 25f;
-            private const float DetectDistance = 5f;
-            private const float DetectFade = 1f;
+            private const float DetectDistance = 9.35f;
+            private const float DetectFade = 1.25f;
             private const float DetectZeroThreshold = .01f;
             private const byte SeenByCounterReset = 5;
+            private const float ShadowThreshold = 1f;
 
             internal FogSubscriber(Entity entity)
             {
@@ -68,24 +68,24 @@ namespace FogOfWarPlus
                 alpha = 0;
                 closestLineOfSightDetectorDistance = float.MaxValue;
                 subscriber = entity;
-                shaderParams = entity.Get<ModelComponent>()?
-                    .GetMaterial(0)?
-                    .Passes[0]?
-                    .Parameters;
+                model = entity.Get<ModelComponent>();
+                shaderParams = model?.GetMaterial(0)?.Passes[0]?.Parameters;
             }
 
-            internal void UpdateAlpha()
+            internal void UpdateAlphaAndShadow()
             {
                 subscriber.Transform.GetWorldTransformation(out worldPosRecycler, out _, out _);
-
                 closestDetectorDistance = float.MaxValue;
 
-                // Do not calculate alphas for off screen entities
-                if (Vector3.Distance(worldPosRecycler, CameraWorldPos) > CameraRange)
+                // Do not calculate alphas for off screen entities, this *could* use physics on GPU side
+                if (Vector3.Distance(worldPosRecycler, cameraWorldPos) > CameraRange)
                 {
-                    shaderParams?.Set(FogOfWarUnitShaderKeys.Alpha, 0f);
-                    alpha = 0;
-                    return;
+                    if (alpha >= 0) {
+                        shaderParams?.Set(FogOfWarUnitShaderKeys.Alpha, 0f);
+                        model.IsShadowCaster = false;
+                        alpha = 0;
+                        return;
+                    }
                 }
 
                 // Set the closest distance for line of sight detectors
@@ -96,47 +96,57 @@ namespace FogOfWarPlus
 
                 /* Not the most efficient n(n-1)/2; depends on detector distance, uses a shortcut */
                 for (var j = 0; j < DetectorWorldPos.Length; j++) {
-                    detectorDistanceRecycler = DetectorDistance(DetectorWorldPos[j].Item2);
-                    if (detectorDistanceRecycler < closestDetectorDistance) {
-                        closestDetectorDistance = detectorDistanceRecycler;
+                    if (!DetectorWorldPos[j].Item1) {
+                        continue;
+                    }
+                    
+                    distanceRecycler = Vector3.Distance(worldPosRecycler, DetectorWorldPos[j].Item2);
+                    if (distanceRecycler < closestDetectorDistance) {
+                        closestDetectorDistance = distanceRecycler;
+                        detectorDistanceAlpha = DistanceAlpha(closestDetectorDistance);
 
                         // Shortcut fully visible units, stop iterating
-                        if (Math.Abs(detectorDistanceRecycler - 1) < DetectZeroThreshold) {
-                            shaderParams?.Set(FogOfWarUnitShaderKeys.Alpha, 1f);
-                            alpha = 1;
+                        if (Math.Abs(detectorDistanceAlpha - 1) < DetectZeroThreshold) {
+                            detectorDistanceAlpha = 1;
                             break;
                         }
                     }
                 }
 
                 // Avoid unnecessarily updating shader parameters
-                if (Math.Abs(alpha - closestDetectorDistance) < DetectZeroThreshold) {
+                if (Math.Abs(alpha - detectorDistanceAlpha) < DetectZeroThreshold) {
+
+                    // Enable the model after shader is "working," for cleaner rendering.
+                    if (!model.Enabled) {
+                        model.Enabled = true;
+                    }
                     return;
                 }
 
-                shaderParams?.Set(FogOfWarUnitShaderKeys.Alpha, closestDetectorDistance);
-                alpha = closestDetectorDistance;
+                shaderParams?.Set(FogOfWarUnitShaderKeys.Alpha, detectorDistanceAlpha);
+                model.IsShadowCaster = detectorDistanceAlpha >= ShadowThreshold;
+                alpha = detectorDistanceAlpha;
             }
 
             internal void UpdateAlphaLineOfSight(Vector3 sourcePos)
             {
-                lineOfSightRecycler = DetectorDistance(sourcePos);
-                if (seenByCounter > 0 && lineOfSightRecycler < closestLineOfSightDetectorDistance) {
-                    closestLineOfSightDetectorDistance = lineOfSightRecycler;
+                distanceRecycler = Vector3.Distance(worldPosRecycler, sourcePos);
+                if (seenByCounter > 0 && distanceRecycler < closestLineOfSightDetectorDistance) {
+                    closestLineOfSightDetectorDistance = distanceRecycler;
                     seenByCounter = SeenByCounterReset;
                 }
 
                 if (seenByCounter <= 0) {
-                    closestLineOfSightDetectorDistance = lineOfSightRecycler;
+                    closestLineOfSightDetectorDistance = distanceRecycler;
                     seenByCounter = SeenByCounterReset;
                 }
             }
 
-            internal static void UpdateWorld(Vector3 cameraWorldPos, ICollection<Vector3> detectorWorldPos)
+            internal static void UpdateWorld(Vector3 cameraWorldPos, IReadOnlyList<Vector3> detectorWorldPos)
             {
-                CameraWorldPos = cameraWorldPos;
-
-                // Reset array items to default
+                FogSubscriber.cameraWorldPos = cameraWorldPos;
+                
+                // Assign array elements, only up to the maximum length
                 for (var i = 0; i < DetectorWorldPos.Length; i++) {
                     if (detectorWorldPos.Count <= i) {
                         DetectorWorldPos[i].Item1 = false;
@@ -145,19 +155,18 @@ namespace FogOfWarPlus
                     }
 
                     DetectorWorldPos[i].Item1 = true;
-                    DetectorWorldPos[i].Item2 = detectorWorldPos.ElementAt(i);
+                    DetectorWorldPos[i].Item2 = detectorWorldPos[i];
                 }
             }
 
-            private float DetectorDistance(Vector3 playerPos)
+            private float DistanceAlpha(float distance)
             {
-                distanceRecycler = Vector3.Distance(worldPosRecycler, playerPos);
-                if (distanceRecycler < DetectDistance) {
+                if (distance < DetectDistance) {
                     return 1;
                 }
 
-                if (distanceRecycler < DetectDistance + DetectFade) {
-                    return (DetectFade - (distanceRecycler - DetectDistance)) / DetectFade;
+                if (distance < DetectDistance + DetectFade) {
+                    return (DetectFade - (distance - DetectDistance)) / DetectFade;
                 }
 
                 return 0;
@@ -212,10 +221,10 @@ namespace FogOfWarPlus
         private void UpdateFogOfWarSystem()
         {
             Entity.Transform.GetWorldTransformation(out var worldPos, out _, out _);
-            FogSubscriber.UpdateWorld(worldPos, fogDetectors.Select(a => a.Value.Pos));
+            FogSubscriber.UpdateWorld(worldPos, fogDetectors.Select(a => a.Value.Pos).ToList());
 
             foreach (var fogSubscriber in fogSubscribers.Select(a => a.Value)) {
-                fogSubscriber.UpdateAlpha();
+                fogSubscriber.UpdateAlphaAndShadow();
             }
         }
 

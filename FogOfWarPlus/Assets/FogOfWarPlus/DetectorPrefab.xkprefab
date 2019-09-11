@@ -14,7 +14,7 @@ Hierarchy:
                         Id: 0f66a45c-d389-443f-9053-aa65ab4c937d
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Scale: {X: 1.1, Y: 1.1, Z: 1.1}
                         Children: {}
                     f3d18ad20d9fdffdb4ab07ca2b84c78d: !SpriteComponent
                         Id: 41d111b5-a313-467b-ab0b-77f6257ea820
@@ -29,3 +29,4 @@ Hierarchy:
                         RenderGroup: Group31
                     1b124765ede27ca99ee3e8773e3f6edd: !FogOfWarPlus.FogOfWarDetector,FogOfWarPlus
                         Id: 210b0b96-bc31-4762-9f65-7479bd04dd5b
+                        Priority: 1

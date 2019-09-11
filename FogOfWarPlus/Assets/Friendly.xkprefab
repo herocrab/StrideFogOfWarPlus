@@ -7,17 +7,28 @@ Hierarchy:
         - ref!! d3112a2a-d6cc-40b7-b7cd-9e5c973c4a3b
     Parts:
         -   Entity:
-                Id: 0fe7d9cc-5dc1-47ba-891d-c39667240b08
+                Id: 706e9a21-74a5-49c0-bd49-8d658552cc6a
+                Name: DetectorPrefab
+                Components:
+                    ea2604b580ac23b47ffad4255819030b: !TransformComponent
+                        Id: 1b8d34b8-698d-4372-a1ab-2738bcc8a1ee
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children:
+                            16349a710cc4ad314d2d6d9624445837: ref!! a0d868bb-6816-44a3-9990-d86300fe374f
+        -   Entity:
+                Id: 994704a4-006c-4a84-ac8c-a243f33715ec
                 Name: Detector
                 Components:
                     de9bf9b9e37edd6ea6de1fc6cc2ce27d: !TransformComponent
-                        Id: 61fd8b35-be07-4c14-a853-31c96653c81a
+                        Id: a0d868bb-6816-44a3-9990-d86300fe374f
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Scale: {X: 1.1, Y: 1.1, Z: 1.1}
                         Children: {}
                     f3d18ad20d9fdffdb4ab07ca2b84c78d: !SpriteComponent
-                        Id: 4b7727cb-5f8f-4c4c-891b-751d9572b184
+                        Id: 31bc3d35-ff63-4556-a3cd-ae1d79a338a1
                         Enabled: false
                         SpriteProvider: !SpriteFromTexture
                             Texture: b47384c6-7bb3-46e8-b596-bc6526bfa0d0:FogOfWarPlus/FogOfWarCircleTexture
@@ -27,19 +38,13 @@ Hierarchy:
                         BlendMode: AlphaBlend
                         Sampler: AnisotropicClamp
                         RenderGroup: Group31
-                    29dd0d50dbd7334fe821dc3b2e77e14e: !FogOfWarPlus.FogOfWarDetector,FogOfWarPlus
-                        Id: cf1bc8ba-ca40-40d3-aa76-c2a9e44cf4dd
-        -   Entity:
-                Id: 6f31817f-5756-49da-b270-1c878b15b641
-                Name: FogOfWarCirclePrefab
-                Components:
-                    284c1c334cabf335cd41d92e01c31ba9: !TransformComponent
-                        Id: 683751f9-f87b-495e-aa8a-1437bda15d2a
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 0.75, Y: 0.75, Z: 0.75}
-                        Children:
-                            ee22f2f2eb7f23571d593c64fe9ab19a: ref!! 61fd8b35-be07-4c14-a853-31c96653c81a
+                    1b124765ede27ca99ee3e8773e3f6edd: !FogOfWarPlus.FogOfWarDetector,FogOfWarPlus
+                        Id: 6ae682e1-6c7f-413f-be75-26311080c7ee
+                        Priority: 1
+            Base:
+                BasePartAsset: fc104e77-4a75-4d81-bfa7-dd33a63a1fa4:FogOfWarPlus/DetectorPrefab
+                BasePartId: e2af0282-36ef-4a13-9700-ff7cd542e873
+                InstanceId: ae6590b5-4b78-4ea9-9e6c-757f04e7417b
         -   Entity:
                 Id: d3112a2a-d6cc-40b7-b7cd-9e5c973c4a3b
                 Name: Friendly
@@ -50,7 +55,7 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.9238795, Z: 0.0, W: 0.382683426}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
-                            610f095f6eafe110d87e55fd8caf2168: ref!! 683751f9-f87b-495e-aa8a-1437bda15d2a
+                            efaac54fdcadd163b4733f3deb4b9c6d: ref!! 1b8d34b8-698d-4372-a1ab-2738bcc8a1ee
                     ccf3672186bb729d63a302061b2b323e: !ModelComponent
                         Id: 364ae1a5-e669-4bd7-b127-53c4ce35f5f3
                         Model: e3453fa0-dee2-4352-ba2b-ae1a44e130f1:Sphere
