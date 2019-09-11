@@ -231,7 +231,7 @@ Hierarchy:
                         ResultPage: 1
                     61035fbc1becaf51844aaa2ceb56e914: !FogOfWarPlus.FogOfWarSystem,FogOfWarPlus
                         Id: 7ae07f03-889c-4742-86dc-dd0656dbd44e
-                        FogOpacity: 0.725
+                        FogOpacity: 0.735
         -   Entity:
                 Id: 48b25e24-1dcd-4365-af99-302e6d08754d
                 Name: FogOfWarLayer3
@@ -466,8 +466,8 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
+                            667f9ceb80e1a93610d5ecd5c8b0b844: ref!! 3f20df97-743c-489a-ab6b-5befec3f361d
                             123428aa6d98f5f577f8b8c3e1ab2c1c: ref!! e7061b18-548d-469b-9235-b18f1c2d6eb0
-                            9701a8a9da14717f3f4e22e82900915b: ref!! 3f20df97-743c-489a-ab6b-5befec3f361d
                     ccf3672186bb729d63a302061b2b323e: !ModelComponent
                         Id: ff5648e3-bd9b-47d4-ae2a-438784998c08
                         Model: e3453fa0-dee2-4352-ba2b-ae1a44e130f1:Sphere

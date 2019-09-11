@@ -2,31 +2,9 @@
 Next Steps:
 ===========
 
-Distance checking through a FogOfWarSystem registration service.
-
-	Pros with current system:
-		- Doesn't do checking unless within distance of the camera.
-		- Shortcuts out once fully visible.
-
-	Cons with current system:
-		- Checks distance from the object to all detectors. (Poor scale)
-		- Does not currently do line of sight checking.
-		- LoS Could be added, but wouldn't detect the edges.
-		- Doesn't scale will RTS numbers.
-
-Next Steps After Getting Working:
-=================================
-
-****	Augmentation/ Hybrid approach:
-		- Don't register the Line Of Sight as a detector.
-		- Use a "tagging" scheme which refreshes a "timer" in the subscriber.
-			- Accessed through an internal method on Subscriber class.
-
-
-0) Change the camera to moving as well as the character.
-
-
 0) Measure/Optimize performance.
+	- 3.5ms near ~10 (8 revealed) units.
+
 0) Design the new Dynamic Line Of Sight Detector prefab.
 	- This can use the same texture as the detector.
 0) Write a method for raycasting LEFT to RIGHT, dump to an array of float2(angle, distance).

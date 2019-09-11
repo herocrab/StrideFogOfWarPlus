@@ -22,7 +22,6 @@ Hierarchy:
                         Enabled: false
                         Model: e3453fa0-dee2-4352-ba2b-ae1a44e130f1:Sphere
                         RenderGroup: Group10
-                        IsShadowCaster: false
                         Materials:
                             695b9b5bb37f4c4ef5258653ab503335~0: b14eadbf-3226-4a65-9dc1-631a4bdb92d6:Enemy Material
                     c4dcd86c29b24bee0a7f7e7ad773bba1: !FogOfWarPlus.FogOfWarPlus.FogOfWarSubscriber,FogOfWarPlus

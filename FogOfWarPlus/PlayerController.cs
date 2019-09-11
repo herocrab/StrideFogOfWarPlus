@@ -5,7 +5,7 @@ namespace FogOfWarPlus
 {
     public class PlayerController : SyncScript
     {
-        private const float Speed = .1f;
+        private const float Speed = .065f;
 
         public override void Start()
         {

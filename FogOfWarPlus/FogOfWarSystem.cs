@@ -51,21 +51,22 @@ namespace FogOfWarPlus
             private float detectorDistanceAlpha;
             private Vector3 worldPosRecycler;
             private float distanceRecycler;
-            private byte seenByCounter;
+            private byte seenByLineOfSightCounter;
+            private byte alphaDelayCounter;
 
             private static Vector3 cameraWorldPos = Vector3.Zero;
             private static readonly (bool, Vector3)[] DetectorWorldPos = new (bool, Vector3)[25];
-            private const float CameraRange = 25f;
+
+            private const float CameraRange = 30f;
             private const float DetectDistance = 9.35f;
-            private const float DetectFade = 1.25f;
+            private const float DetectFade = 1.35f;
             private const float DetectZeroThreshold = .01f;
-            private const byte SeenByCounterReset = 5;
-            private const float ShadowThreshold = 1f;
+            private const byte SeenByLineOfSightCounterReset = 5;
+            private const byte AlphaDelay = 6;
 
             internal FogSubscriber(Entity entity)
             {
                 Name = entity.Name;
-                alpha = 0;
                 closestLineOfSightDetectorDistance = float.MaxValue;
                 subscriber = entity;
                 model = entity.Get<ModelComponent>();
@@ -74,6 +75,16 @@ namespace FogOfWarPlus
 
             internal void UpdateAlphaAndShadow()
             {
+                // Delay rendering, cleans up shader artifacts
+                if (alphaDelayCounter < AlphaDelay) {
+                    alphaDelayCounter++;
+                    return;
+                }
+
+                if (!model.Enabled) {
+                    model.Enabled = true;
+                }
+
                 subscriber.Transform.GetWorldTransformation(out worldPosRecycler, out _, out _);
                 closestDetectorDistance = float.MaxValue;
 
@@ -89,9 +100,10 @@ namespace FogOfWarPlus
                 }
 
                 // Set the closest distance for line of sight detectors
-                if (seenByCounter > 0) {
+                if (seenByLineOfSightCounter > 0) {
                     closestDetectorDistance = closestLineOfSightDetectorDistance;
-                    seenByCounter -= 1;
+                    detectorDistanceAlpha = DistanceAlpha(closestDetectorDistance);
+                    seenByLineOfSightCounter -= 1;
                 }
 
                 /* Not the most efficient n(n-1)/2; depends on detector distance, uses a shortcut */
@@ -113,32 +125,21 @@ namespace FogOfWarPlus
                     }
                 }
 
-                // Avoid unnecessarily updating shader parameters
-                if (Math.Abs(alpha - detectorDistanceAlpha) < DetectZeroThreshold) {
-
-                    // Enable the model after shader is "working," for cleaner rendering.
-                    if (!model.Enabled) {
-                        model.Enabled = true;
-                    }
-                    return;
-                }
-
                 shaderParams?.Set(FogOfWarUnitShaderKeys.Alpha, detectorDistanceAlpha);
-                model.IsShadowCaster = detectorDistanceAlpha >= ShadowThreshold;
                 alpha = detectorDistanceAlpha;
             }
 
             internal void UpdateAlphaLineOfSight(Vector3 sourcePos)
             {
                 distanceRecycler = Vector3.Distance(worldPosRecycler, sourcePos);
-                if (seenByCounter > 0 && distanceRecycler < closestLineOfSightDetectorDistance) {
+                if (seenByLineOfSightCounter > 0 && distanceRecycler < closestLineOfSightDetectorDistance) {
                     closestLineOfSightDetectorDistance = distanceRecycler;
-                    seenByCounter = SeenByCounterReset;
+                    seenByLineOfSightCounter = SeenByLineOfSightCounterReset;
                 }
 
-                if (seenByCounter <= 0) {
+                if (seenByLineOfSightCounter <= 0) {
                     closestLineOfSightDetectorDistance = distanceRecycler;
-                    seenByCounter = SeenByCounterReset;
+                    seenByLineOfSightCounter = SeenByLineOfSightCounterReset;
                 }
             }
 
