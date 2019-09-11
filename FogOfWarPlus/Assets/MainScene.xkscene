@@ -133,7 +133,7 @@ Hierarchy:
                                 BiasParameters:
                                     DepthBias: 0.0001
                                     NormalOffsetScale: 5.0
-                        Intensity: 1.25
+                        Intensity: 1.65
         -   Entity:
                 Id: 341c64fe-d848-4f52-b869-334619e5b8b2
                 Name: Spawner
@@ -231,14 +231,14 @@ Hierarchy:
                         ResultPage: 1
                     61035fbc1becaf51844aaa2ceb56e914: !FogOfWarPlus.FogOfWarSystem,FogOfWarPlus
                         Id: 7ae07f03-889c-4742-86dc-dd0656dbd44e
-                        FogOpacity: 0.735
+                        FogOpacity: 0.725
         -   Entity:
                 Id: 48b25e24-1dcd-4365-af99-302e6d08754d
                 Name: FogOfWarLayer3
                 Components:
                     7af3c421b024754a8251a6fa10ea2a0a: !TransformComponent
                         Id: 9862f570-ef1a-48f6-8af1-86a1c2ef1d5d
-                        Position: {X: 0.0, Y: 1.5, Z: 0.0}
+                        Position: {X: 0.0, Y: 1.75, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 64.0, Y: 1.0, Z: 35.95}
                         Children: {}
@@ -455,7 +455,7 @@ Hierarchy:
                         Id: 263d823d-7633-4b12-9324-f3c7a761d76b
                         Type: !LightSkybox
                             Skybox: b8587065-30eb-4e26-a906-9bc256db1ce4:Skybox
-                        Intensity: 0.5
+                        Intensity: 0.45
         -   Entity:
                 Id: 9eca8c4e-87e2-4344-86b0-fda26ab9ba36
                 Name: Player
