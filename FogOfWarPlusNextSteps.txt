@@ -12,7 +12,7 @@ Next Steps:
 ===========
 
 0) Implement a two layer fog system for saving triangles.
-	- Decrease the darkness of fogs, perhaps by modifying lighting or shadows on the light source.
+	- Decrease the darkness of shadows, perhaps by modifying the light source.
 0) Design the new Dynamic Line Of Sight Detector prefab.
 	- This can use the same texture as the detector.
 0) Write a method for raycasting LEFT to RIGHT, dump to an array of float2(angle, distance).
@@ -24,10 +24,16 @@ Line Of Sight Pseudo Code:
 ==========================
 
 1) Input should be radius and angle step.
+	- 360 is divisible by?
+	- Should be an enum?
+		-1, 2, 5, 10
 2) Raycast every angle step and record the distance.
-	- Use the formula from the next steps document.
-	- Use real world position information.
-3) Create a "slice" object and record float2 or Dictionary (angle, distance).
+	- Raycast until <= 360.
+	- Use the formula from the next steps document to determine the destination point.
+	- Use real world position information for source and destination (will need to add back in the offset).
+	- Will need to penetrating raycast and check for any static colliders.
+	- If there are multiple, grab the closest one.
+3) Create a "slice" object and record Dictionary (clampedAngle, distance).
 4) Link the first and last "slices" in the "next slice"
 
 
