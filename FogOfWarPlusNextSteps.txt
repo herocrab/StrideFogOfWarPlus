@@ -12,6 +12,7 @@ Next Steps:
 ===========
 
 0) Implement a two layer fog system for saving triangles.
+	- Decrease the darkness of fogs, perhaps by modifying lighting or shadows on the light source.
 0) Design the new Dynamic Line Of Sight Detector prefab.
 	- This can use the same texture as the detector.
 0) Write a method for raycasting LEFT to RIGHT, dump to an array of float2(angle, distance).
