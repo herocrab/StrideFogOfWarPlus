@@ -33,7 +33,7 @@ Line Of Sight Pseudo Code:
 	- Use real world position information for source and destination (will need to add back in the offset).
 	- Will need to penetrating raycast and check for any static colliders.
 	- If there are multiple, grab the closest one.
-3) Create a "slice" object and record Dictionary (clampedAngle, distance).
+3) Create a "slice" object and record Dictionary (clampedAngle, angleDistance, raycastDistance).
 4) Link the first and last "slices" in the "next slice"
 
 
