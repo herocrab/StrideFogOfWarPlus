@@ -14,6 +14,7 @@ Next Steps:
 
 0) Optimize/Implement a two layer fog system for saving triangles.
 	- Decrease the darkness of shadows, perhaps by modifying the light source.
+	- Increased the darkness of the fog of war itself.
 
 0) Profan is saying that I can put post fx on the fog of war camera, even though I tried earlier.
 	- Try this out again, this would allow consistent shading.
