@@ -12,11 +12,20 @@
 Next Steps:
 ===========
 
+0) Optimize/Implement a two layer fog system for saving triangles.
+	- Decrease the darkness of shadows, perhaps by modifying the light source.
+
+0) Profan is saying that I can put post fx on the fog of war camera, even though I tried earlier.
+	- Try this out again, this would allow consistent shading.
+	- Try to get this working.
+
+0) If the above works, maybe the shadow problem can be solved.
+	- If the shadow problem can be solved, then I can use a texture based rendering.
+
 0) Put in an actual velocity based movement system using a character collider.
 	- This should smooth out movement, it's super choppy right now.
 
-0) Optimize/Implement a two layer fog system for saving triangles.
-	- Decrease the darkness of shadows, perhaps by modifying the light source.
+
 
 0) Design the new Dynamic Line Of Sight Detector prefab.
 	- This can use the same texture as the detector.
