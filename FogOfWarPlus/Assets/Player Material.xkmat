@@ -3,21 +3,10 @@ Id: 372471bd-474f-4bd9-9eec-7ce2a255381c
 SerializedVersion: {Xenko: 2.0.0.0}
 Tags: []
 Attributes:
-    MicroSurface: !MaterialGlossinessMapFeature
-        GlossinessMap: !ComputeFloat
-            Value: 0.75
     Diffuse: !MaterialDiffuseMapFeature
         DiffuseMap: !ComputeColor
-            Value: {R: 0.50161916, G: 0.812750041, B: 0.304781258, A: 1.0}
+            Value: {R: 0.36970973, G: 0.781500041, B: 0.112340644, A: 1.0}
     DiffuseModel: !MaterialDiffuseLambertModelFeature {}
-    Specular: !MaterialMetalnessMapFeature
-        MetalnessMap: !ComputeFloat
-            Value: 1.0
-    SpecularModel: !MaterialSpecularMicrofacetModelFeature
-        Fresnel: !MaterialSpecularMicrofacetFresnelSchlick {}
-        Visibility: !MaterialSpecularMicrofacetVisibilitySmithSchlickGGX {}
-        NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionGGX {}
-        Environment: !MaterialSpecularMicrofacetEnvironmentGGXLUT {}
     Overrides:
         UVScale: {X: 1.0, Y: 1.0}
 Layers: {}

@@ -119,7 +119,7 @@ SharedRenderers:
             6cb89bfdbbc5cf83496e67c5507255d7*: ref!! 5994d7b4-dc66-4774-929b-b42d7638f8ad
             fc4d1e0de5c2b0bbc27bcf96e9a848fd: ~(Deleted)
         GBufferRenderStage: ref!! 9022bdf0-3305-48fd-ace1-35ed7120ab9c
-        PostEffects*: null
+        PostEffects*: !PostProcessingEffects ref!! 98e82d4a-4f55-4e02-881c-8b09773616f6
         LightShafts: null
         VRSettings:
             Enabled: false
@@ -142,7 +142,7 @@ SharedRenderers:
         ShadowMapRenderStages:
             900b0d80310bff7befd79c9c7ab7171c: ref!! 5994d7b4-dc66-4774-929b-b42d7638f8ad
         GBufferRenderStage: ref!! 9022bdf0-3305-48fd-ace1-35ed7120ab9c
-        PostEffects: !PostProcessingEffects ref!! 98e82d4a-4f55-4e02-881c-8b09773616f6
+        PostEffects: !PostProcessingEffects ref!! f874cd40-e8cf-4a91-867e-92a51d37418e
         LightShafts: null
         VRSettings:
             Enabled: false
@@ -163,12 +163,12 @@ SharedRenderers:
             Enabled: false
             DOFAreas: {X: 0.5, Y: 6.0, Z: 50.0, W: 200.0}
         BrightFilter:
-            Threshold: 0.25
-            Steepness: 4.0
+            Threshold: 0.1
+            Steepness: 12.0
             Color: {R: 1.0, G: 1.0, B: 1.0}
         Bloom:
             Radius: 6.0
-            Amount: 2.5
+            Amount: 5.0
             Distortion: {X: 1.0, Y: 1.0}
             Afterimage:
                 Enabled: false
@@ -179,8 +179,7 @@ SharedRenderers:
         ColorTransforms:
             Enabled: false
             Transforms: {}
-        Antialiasing: !FXAAEffect
-            Dither: Medium
+        Antialiasing: null
     98cc2635c297cb3a3d3f37dacdbd3435*: !Xenko.Rendering.Compositing.ForwardRenderer,Xenko.Engine
         Id: 7c220f7e-3ff3-45c9-a84a-a2c86fc178fe
         Clear:
@@ -193,7 +192,7 @@ SharedRenderers:
         ShadowMapRenderStages:
             86fb7458cd7b8841e915b590bf8126ac: null
         GBufferRenderStage: ref!! 9022bdf0-3305-48fd-ace1-35ed7120ab9c
-        PostEffects: null
+        PostEffects: !PostProcessingEffects ref!! 98e82d4a-4f55-4e02-881c-8b09773616f6
         LightShafts: null
         VRSettings:
             Enabled: false
@@ -202,6 +201,36 @@ SharedRenderers:
         SubsurfaceScatteringBlurEffect: null
         MSAALevel: None
         MSAAResolver: {}
+    6b62c2f428daf894fd2e2dfa4009271b*: !PostProcessingEffects
+        Id: f874cd40-e8cf-4a91-867e-92a51d37418e
+        AmbientOcclusion:
+            Enabled: false
+        LocalReflections:
+            Enabled: false
+            ResolvePassResolution: Full
+            DepthResolution: Half
+        DepthOfField:
+            Enabled: false
+            DOFAreas: {X: 0.5, Y: 6.0, Z: 50.0, W: 200.0}
+        BrightFilter:
+            Threshold: 0.01
+            Steepness: 10.0
+            Color: {R: 1.0, G: 1.0, B: 1.0}
+        Bloom:
+            Radius: 30.0
+            Amount: 6.0
+            Distortion: {X: 1.0, Y: 1.0}
+            Afterimage:
+                Enabled: false
+        LightStreak:
+            Enabled: false
+            Attenuation: 0.6
+        LensFlare:
+            Enabled: false
+        ColorTransforms:
+            Enabled: false
+            Transforms: {}
+        Antialiasing: null
     d5b2e71c088247e21556decdce138d96: ~(Deleted)
     34ecb9b2633eacfc439ba8744fe05102: ~(Deleted)
 Game*: !Xenko.Rendering.Compositing.SceneRendererCollection,Xenko.Rendering
@@ -218,7 +247,7 @@ Game*: !Xenko.Rendering.Compositing.SceneRendererCollection,Xenko.Rendering
         e66c4ba5b23b5b9e8c81d74a4148f8f7: !Xenko.Rendering.Compositing.SceneCameraRenderer,Xenko.Engine
             Id: 53ffcf05-69bf-4cd4-9180-749092223ce8
             Camera: ref!! 27e4da07-c5d0-44c6-9e27-5ea3358b34d9
-            Child: !Xenko.Rendering.Compositing.ForwardRenderer,Xenko.Engine ref!! 12a9d9b9-8502-44b6-bbf9-d80d8912016a
+            Child: !Xenko.Rendering.Compositing.ForwardRenderer,Xenko.Engine ref!! 7c220f7e-3ff3-45c9-a84a-a2c86fc178fe
             RenderMask: Group0, Group1, Group2, Group3, Group4, Group5, Group6, Group7, Group8, Group9, Group10, Group11, Group12, Group13, Group14, Group15, Group16, Group17, Group18, Group19, Group20, Group21, Group22, Group23, Group24, Group25, Group26, Group27, Group28, Group29
         f983af4e41941fa60a81bd1a54d22d37: !Xenko.Rendering.Compositing.SceneCameraRenderer,Xenko.Engine
             Id: 8a650173-7c26-47d1-b996-2bd54693e79f

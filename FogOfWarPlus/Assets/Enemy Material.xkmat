@@ -3,21 +3,10 @@ Id: b14eadbf-3226-4a65-9dc1-631a4bdb92d6
 SerializedVersion: {Xenko: 2.0.0.0}
 Tags: []
 Attributes:
-    MicroSurface: !MaterialGlossinessMapFeature
-        GlossinessMap: !ComputeFloat
-            Value: 0.75
     Diffuse: !MaterialDiffuseMapFeature
         DiffuseMap: !ComputeColor
-            Value: {R: 0.296887517, G: 0.486153245, B: 0.819, A: 1.0}
+            Value: {R: 0.193750024, G: 0.606953144, B: 1.0, A: 1.0}
     DiffuseModel: !MaterialDiffuseLambertModelFeature {}
-    Specular: !MaterialMetalnessMapFeature
-        MetalnessMap: !ComputeFloat
-            Value: 1.0
-    SpecularModel: !MaterialSpecularMicrofacetModelFeature
-        Fresnel: !MaterialSpecularMicrofacetFresnelSchlick {}
-        Visibility: !MaterialSpecularMicrofacetVisibilitySmithSchlickGGX {}
-        NormalDistribution: !MaterialSpecularMicrofacetNormalDistributionGGX {}
-        Environment: !MaterialSpecularMicrofacetEnvironmentGGXLUT {}
     Transparency: !MaterialTransparencyBlendFeature
         Alpha: !ComputeShaderClassScalar
             MixinReference: FogOfWarUnitShader

@@ -19,11 +19,10 @@ Hierarchy:
                         Children: {}
                     ccf3672186bb729d63a302061b2b323e: !ModelComponent
                         Id: 3ae9d494-c6a7-46ed-8fd2-e05605533b6d
-                        Enabled: false
-                        Model: e3453fa0-dee2-4352-ba2b-ae1a44e130f1:Sphere
+                        Model: 1ed9a35f-cc30-49d6-8080-045e85698879:Cube
                         RenderGroup: Group10
                         Materials:
-                            695b9b5bb37f4c4ef5258653ab503335~0: b14eadbf-3226-4a65-9dc1-631a4bdb92d6:Enemy Material
+                            0fa905df686d14b55edf1b13de077f45~0: b14eadbf-3226-4a65-9dc1-631a4bdb92d6:Enemy Material
                     c4dcd86c29b24bee0a7f7e7ad773bba1: !FogOfWarPlus.FogOfWarPlus.FogOfWarSubscriber,FogOfWarPlus
                         Id: 69631492-5fe5-4e75-9440-8c0deb736424
                         Priority: 1

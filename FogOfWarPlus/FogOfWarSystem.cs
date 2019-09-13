@@ -58,7 +58,7 @@ namespace FogOfWarPlus
             private static readonly (bool, Vector3)[] DetectorWorldPos = new (bool, Vector3)[25];
 
             private const float CameraRange = 30f;
-            private const float DetectDistance = 9.35f;
+            private const float DetectDistance = 10.5f;
             private const float DetectFade = 1.35f;
             private const float DetectZeroThreshold = .01f;
             private const byte SeenByLineOfSightCounterReset = 5;

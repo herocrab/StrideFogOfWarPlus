@@ -6,8 +6,8 @@ ChildrenIds: []
 Offset: {X: 0.0, Y: 0.0, Z: 0.0}
 Hierarchy:
     RootParts:
-        - ref!! 3399d271-a949-47e1-b194-a37caa9d831c
-        - ref!! 9be576c1-c3dc-4564-b46f-6d33c848878c
+        - ref!! 5955e315-f720-4d59-b895-2446bfc66302
+        - ref!! d9a3ec37-764f-47e8-9108-ab30b04902bd
         - ref!! babceb81-5264-4551-b455-d09015ebb566
         - ref!! ab8e0af9-880e-4571-8d1a-4371771d5e05
         - ref!! 5af4b658-bc15-45fb-83a0-1f3a8a0be24a
@@ -37,7 +37,6 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             778e4b9664caceb8c6ea934a301b7cf1: ref!! e692d739-c682-46e4-bd48-df3a169296a5
-                            b1f88a7fa3e07173310e8d316d34402d: ref!! 70d682fe-52e5-40ae-b906-886734f0ec0b
                             6e9853d2292383bbc15d2d97a41b9fc3: ref!! 9862f570-ef1a-48f6-8af1-86a1c2ef1d5d
         -   Entity:
                 Id: 05f164d9-3e33-40f0-9ca6-7754233c4a6d
@@ -108,33 +107,6 @@ Hierarchy:
                 BasePartId: ca9ccd48-1b6d-407a-88c0-7b83b332c0ba
                 InstanceId: 25911ffc-cf74-40a8-a1c0-8343acbc03a7
         -   Entity:
-                Id: 3399d271-a949-47e1-b194-a37caa9d831c
-                Name: Directional light
-                Components:
-                    20516a8cd48bed8c1d9ed82a25ce9095: !TransformComponent
-                        Id: 67aa8077-e23c-4ff4-bd11-054b0a733179
-                        Position: {X: 0.0, Y: 2.0, Z: 0.0}
-                        Rotation: {X: 0.1503529, Y: 0.825943053, Z: 0.476858467, W: -0.260418862}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    7974e94caa5d67c69eed23fef480b090: !LightComponent
-                        Id: a20898c2-b84b-4219-a308-d1394236edbc
-                        Type: !LightDirectional
-                            Color: !ColorRgbProvider
-                                Value: {R: 1.0, G: 1.0, B: 1.0}
-                            Shadow:
-                                Enabled: true
-                                Filter: !LightShadowMapFilterTypePcf {}
-                                Size: XLarge
-                                DepthRange:
-                                    ManualMaxDistance: 100.0
-                                PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
-                                ComputeTransmittance: false
-                                BiasParameters:
-                                    DepthBias: 0.0001
-                                    NormalOffsetScale: 5.0
-                        Intensity: 1.65
-        -   Entity:
                 Id: 341c64fe-d848-4f52-b869-334619e5b8b2
                 Name: Spawner
                 Components:
@@ -157,7 +129,7 @@ Hierarchy:
                 Components:
                     5b8aab8aac4aa7e3e881823469f9080e: !TransformComponent
                         Id: 9837492b-0340-4504-8100-51394bbf5506
-                        Position: {X: 0.0, Y: 280.0, Z: 72.0}
+                        Position: {X: 0.0, Y: 280.0, Z: 74.0}
                         Rotation: {X: -0.6087614, Y: 0.0, Z: 0.0, W: 0.7933533}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -231,14 +203,14 @@ Hierarchy:
                         ResultPage: 1
                     61035fbc1becaf51844aaa2ceb56e914: !FogOfWarPlus.FogOfWarSystem,FogOfWarPlus
                         Id: 7ae07f03-889c-4742-86dc-dd0656dbd44e
-                        FogOpacity: 0.725
+                        FogOpacity: 0.825
         -   Entity:
                 Id: 48b25e24-1dcd-4365-af99-302e6d08754d
-                Name: FogOfWarLayer3
+                Name: FogOfWarLayer2
                 Components:
                     7af3c421b024754a8251a6fa10ea2a0a: !TransformComponent
                         Id: 9862f570-ef1a-48f6-8af1-86a1c2ef1d5d
-                        Position: {X: 0.0, Y: 1.75, Z: 0.0}
+                        Position: {X: 0.0, Y: 2.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 64.0, Y: 1.0, Z: 35.95}
                         Children: {}
@@ -278,6 +250,32 @@ Hierarchy:
                 BasePartAsset: 8ca96e09-c0d4-4e99-92e5-bba4602529e8:Spawner
                 BasePartId: ca9ccd48-1b6d-407a-88c0-7b83b332c0ba
                 InstanceId: 4771e417-eb43-4dda-8785-dcfd2535f5b2
+        -   Entity:
+                Id: 5955e315-f720-4d59-b895-2446bfc66302
+                Name: Directional light
+                Components:
+                    7b187a5c9258be0e3032be129990d902: !TransformComponent
+                        Id: db1e226c-1216-42c0-8be5-bd3c0eaf60db
+                        Position: {X: 0.0, Y: 2.0, Z: 0.0}
+                        Rotation: {X: 0.1503529, Y: 0.825943053, Z: 0.476858467, W: -0.260418862}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    a7c033042a96683c429247b0b79a8f3b: !LightComponent
+                        Id: 5c056612-f129-4264-ab40-f468489bf268
+                        Type: !LightDirectional
+                            Color: !ColorRgbProvider
+                                Value: {R: 1.0, G: 1.0, B: 1.0}
+                            Shadow:
+                                Enabled: true
+                                Filter: !LightShadowMapFilterTypePcf {}
+                                Size: Large
+                                DepthRange: {}
+                                PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
+                                ComputeTransmittance: false
+                                BiasParameters:
+                                    DepthBias: 0.005
+                                    NormalOffsetScale: 0.0
+                        Intensity: 1.5
         -   Folder: null
             Entity:
                 Id: 5ac0b63c-7d82-44ab-9b44-e6d720103b87
@@ -377,23 +375,6 @@ Hierarchy:
                         Children:
                             3fc39ffe6736928dff0681889eb14b6c: ref!! fc57138c-0a27-4518-adac-9cc14ec80539
         -   Entity:
-                Id: 6f244d97-7281-4ab0-a9d0-baadf0de2b56
-                Name: FogOfWarLayer2
-                Components:
-                    7af3c421b024754a8251a6fa10ea2a0a: !TransformComponent
-                        Id: 70d682fe-52e5-40ae-b906-886734f0ec0b
-                        Position: {X: 0.0, Y: 0.5, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 64.0, Y: 1.0, Z: 35.95}
-                        Children: {}
-                    41f06819e8fac421fad6ebda356e2822: !ModelComponent
-                        Id: c84820c0-2dfa-48b5-8a6b-daa98f9dd78a
-                        Model: 696548fe-e111-48de-9f1f-51269d2e3d91:FogOfWarPlus/FogOfWarPlane
-                        RenderGroup: Group29
-                        IsShadowCaster: false
-                        Materials:
-                            6755611f61b5f26ceedb889613ec5f76~0: 667c795a-f62e-439a-9249-141bb7656f75:FogOfWarPlus/FogOfWarMaterial
-        -   Entity:
                 Id: 7aeea926-bec2-40f6-a1a0-c5e20ea63da7
                 Name: DetectorPrefab
                 Components:
@@ -439,24 +420,6 @@ Hierarchy:
                         OrthographicSize: 36.0
                         Slot: ee1bb293-6644-4d15-9cfa-949f406fe1c7
         -   Entity:
-                Id: 9be576c1-c3dc-4564-b46f-6d33c848878c
-                Name: Skybox
-                Components:
-                    f20e7dd3247c56cf0d27b3a4ce2edf98: !TransformComponent
-                        Id: 271161f1-5bed-4e56-8cc7-1865b95cbd31
-                        Position: {X: 0.0, Y: 2.0, Z: -2.0}
-                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    be006d79c4a08dc5873018a94963a994: !BackgroundComponent
-                        Id: 59280b36-aecc-4b0c-9cee-e65f94b9e81f
-                        Texture: 69691443-58a6-497a-ba6b-b6229254b456:Skybox texture
-                    5e38d02ce853d8593e766a27afeef68c: !LightComponent
-                        Id: 263d823d-7633-4b12-9324-f3c7a761d76b
-                        Type: !LightSkybox
-                            Skybox: b8587065-30eb-4e26-a906-9bc256db1ce4:Skybox
-                        Intensity: 0.45
-        -   Entity:
                 Id: 9eca8c4e-87e2-4344-86b0-fda26ab9ba36
                 Name: Player
                 Components:
@@ -470,39 +433,37 @@ Hierarchy:
                             123428aa6d98f5f577f8b8c3e1ab2c1c: ref!! e7061b18-548d-469b-9235-b18f1c2d6eb0
                     ccf3672186bb729d63a302061b2b323e: !ModelComponent
                         Id: ff5648e3-bd9b-47d4-ae2a-438784998c08
-                        Model: e3453fa0-dee2-4352-ba2b-ae1a44e130f1:Sphere
+                        Model: 1ed9a35f-cc30-49d6-8080-045e85698879:Cube
                         RenderGroup: Group10
                         Materials:
-                            cbd2733e9da5b196803a6876c0f8adf2~0: 372471bd-474f-4bd9-9eec-7ce2a255381c:Player Material
+                            dc943ad71ddb7cd96f3e38f2d6724a03~0: 372471bd-474f-4bd9-9eec-7ce2a255381c:Player Material
                     bf72031d2099ccad7bb9a81dcd5aa865: !FogOfWarPlus.PlayerController,FogOfWarPlus
                         Id: bbea20c0-8d0f-4198-b8b2-b3aac6072954
-                    efce1d29c0c246f96b06efb421604a2c: !RigidbodyComponent
-                        Id: 219af66d-f89d-4dd8-84c5-bba09256dd26
+                    ffce5c5c93601d7719d77624e54a570b: !CharacterComponent
+                        Id: fba60563-c90f-4576-a0dc-b76c51571000
                         CanSleep: false
                         Restitution: 0.0
-                        Friction: 0.5
+                        Friction: 0.0
                         RollingFriction: 0.0
                         CcdMotionThreshold: 0.0
                         CcdSweptSphereRadius: 0.0
-                        IsTrigger: false
-                        IsKinematic: true
-                        Mass: 1.0
-                        LinearDamping: 0.0
-                        AngularDamping: 0.0
-                        OverrideGravity: false
-                        Gravity: {X: 0.0, Y: 0.0, Z: 0.0}
-                        NodeName: null
+                        FallSpeed: 10.0
+                        MaxSlope: {Radians: 0.7853982}
+                        JumpSpeed: 5.0
+                        Gravity: {X: 0.0, Y: -10.0, Z: 0.0}
                         ColliderShapes:
-                            9874c91f0f3ac767d58a216b1cf9888c: !SphereColliderShapeDesc
+                            f6c5194e59556c11b4462674c031859d: !BoxColliderShapeDesc
                                 Is2D: false
+                                Size: {X: 1.0, Y: 1.0, Z: 1.0}
                                 LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
         -   Entity:
                 Id: a039a1f7-32bf-4873-9bfd-911a4d551e7e
                 Name: FogOfWarLayer1
                 Components:
                     7af3c421b024754a8251a6fa10ea2a0a: !TransformComponent
                         Id: e692d739-c682-46e4-bd48-df3a169296a5
-                        Position: {X: 0.0, Y: 0.035, Z: 0.0}
+                        Position: {X: 0.0, Y: 0.025, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 64.0, Y: 1.0, Z: 35.95}
                         Children: {}
@@ -587,6 +548,19 @@ Hierarchy:
                         IsShadowCaster: false
                         Materials:
                             335681bf12eae6a3ba63d9ffed93f109~0: f11dc310-3e6e-4ef1-9743-3a1175d1a300:Ground Material
+                    409659ac1d182cd02f0648de460c7e33: !StaticColliderComponent
+                        Id: a85505b2-d90b-4d1d-9d00-9139edcfab56
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.0
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            4e0a853a3ff8c2ad91458ae4efb6f777: !StaticPlaneColliderShapeDesc
+                                Normal: {X: 0.0, Y: 1.0, Z: 0.0}
+                                Offset: 0.0
         -   Folder: null
             Entity:
                 Id: c15f01bd-0b58-4560-bad8-b356b0b1c68c
@@ -611,6 +585,22 @@ Hierarchy:
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             3fc39ffe6736928dff0681889eb14b6c: ref!! 23f5cb4e-5888-49da-b256-bbeca0147227
+        -   Entity:
+                Id: d9a3ec37-764f-47e8-9108-ab30b04902bd
+                Name: Ambient light
+                Components:
+                    4af257b34854ac230bb78e5d5dd62d8a: !TransformComponent
+                        Id: 49430033-3787-46cf-9fa0-ef09bf720614
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    d4629adb6cc53ada00f93c26d56ac2e2: !LightComponent
+                        Id: 55640bb5-f554-4451-ada2-b03558f765cd
+                        Type: !LightAmbient
+                            Color: !ColorRgbProvider
+                                Value: {R: 1.0, G: 1.0, B: 1.0}
+                        Intensity: 0.65
         -   Folder: null
             Entity:
                 Id: ed9aa4d0-f39d-4e5a-a1c1-2747883be299

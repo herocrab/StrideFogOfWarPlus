@@ -14,4 +14,5 @@ OutputGroupDirectories: {}
 ExplicitFolders: []
 Bundles: []
 TemplateFolders: []
-RootAssets: []
+RootAssets:
+    - f11dc310-3e6e-4ef1-9743-3a1175d1a300:Ground Material

@@ -58,7 +58,7 @@ Hierarchy:
                             efaac54fdcadd163b4733f3deb4b9c6d: ref!! 1b8d34b8-698d-4372-a1ab-2738bcc8a1ee
                     ccf3672186bb729d63a302061b2b323e: !ModelComponent
                         Id: 364ae1a5-e669-4bd7-b127-53c4ce35f5f3
-                        Model: e3453fa0-dee2-4352-ba2b-ae1a44e130f1:Sphere
+                        Model: 1ed9a35f-cc30-49d6-8080-045e85698879:Cube
                         RenderGroup: Group10
                         Materials:
-                            695b9b5bb37f4c4ef5258653ab503335~0: 372471bd-474f-4bd9-9eec-7ce2a255381c:Player Material
+                            c1cdeedea09e9b10ccde3aacdf8d0dba~0: 372471bd-474f-4bd9-9eec-7ce2a255381c:Player Material
