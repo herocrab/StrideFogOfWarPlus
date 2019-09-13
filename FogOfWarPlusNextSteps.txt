@@ -12,7 +12,10 @@
 Next Steps:
 ===========
 
-0) Implement a two layer fog system for saving triangles.
+0) Put in an actual velocity based movement system using a character collider.
+	- This should smooth out movement, it's super choppy right now.
+
+0) Optimize/Implement a two layer fog system for saving triangles.
 	- Decrease the darkness of shadows, perhaps by modifying the light source.
 
 0) Design the new Dynamic Line Of Sight Detector prefab.
