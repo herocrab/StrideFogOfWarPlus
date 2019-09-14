@@ -217,8 +217,9 @@ SharedRenderers:
             Steepness: 10.0
             Color: {R: 1.0, G: 1.0, B: 1.0}
         Bloom:
-            Radius: 30.0
-            Amount: 6.0
+            Radius: 20.0
+            Amount: 8.0
+            SigmaRatio: 2.5
             Distortion: {X: 1.0, Y: 1.0}
             Afterimage:
                 Enabled: false

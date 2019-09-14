@@ -129,7 +129,7 @@ Hierarchy:
                 Components:
                     5b8aab8aac4aa7e3e881823469f9080e: !TransformComponent
                         Id: 9837492b-0340-4504-8100-51394bbf5506
-                        Position: {X: 0.0, Y: 280.0, Z: 74.0}
+                        Position: {X: 0.0, Y: 280.0, Z: 75.0}
                         Rotation: {X: -0.6087614, Y: 0.0, Z: 0.0, W: 0.7933533}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
@@ -203,14 +203,14 @@ Hierarchy:
                         ResultPage: 1
                     61035fbc1becaf51844aaa2ceb56e914: !FogOfWarPlus.FogOfWarSystem,FogOfWarPlus
                         Id: 7ae07f03-889c-4742-86dc-dd0656dbd44e
-                        FogOpacity: 0.825
+                        FogOpacity: 0.8
         -   Entity:
                 Id: 48b25e24-1dcd-4365-af99-302e6d08754d
                 Name: FogOfWarLayer2
                 Components:
                     7af3c421b024754a8251a6fa10ea2a0a: !TransformComponent
                         Id: 9862f570-ef1a-48f6-8af1-86a1c2ef1d5d
-                        Position: {X: 0.0, Y: 2.0, Z: 0.0}
+                        Position: {X: 0.0, Y: 5.0, Z: 1.35}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 64.0, Y: 1.0, Z: 35.95}
                         Children: {}
@@ -600,7 +600,7 @@ Hierarchy:
                         Type: !LightAmbient
                             Color: !ColorRgbProvider
                                 Value: {R: 1.0, G: 1.0, B: 1.0}
-                        Intensity: 0.65
+                        Intensity: 0.7
         -   Folder: null
             Entity:
                 Id: ed9aa4d0-f39d-4e5a-a1c1-2747883be299
