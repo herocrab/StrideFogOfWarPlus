@@ -9,4 +9,4 @@ Type: !PlaneProceduralModel
     UvScale: {X: 1.0, Y: 1.0}
     LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
     MaterialInstance:
-        Material: f11dc310-3e6e-4ef1-9743-3a1175d1a300:Ground Material
+        Material: edafaf6b-fcf3-4a18-a1e6-cee11d86572d:DesertMaterial

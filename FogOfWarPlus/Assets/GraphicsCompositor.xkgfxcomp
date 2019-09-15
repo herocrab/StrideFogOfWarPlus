@@ -217,13 +217,13 @@ SharedRenderers:
             Steepness: 10.0
             Color: {R: 1.0, G: 1.0, B: 1.0}
         Bloom:
-            Radius: 15.0
-            Amount: 30.0
-            SigmaRatio: 6.5
+            Radius: 12.0
+            Amount: 7.5
+            SigmaRatio: 2.5
             Distortion: {X: 1.0, Y: 1.0}
             Afterimage:
-                Enabled: false
-                FadeOutSpeed: 0.1
+                FadeOutSpeed: 0.75
+                Sensitivity: 10.0
         LightStreak:
             Enabled: false
             Attenuation: 0.6

@@ -1,7 +1,11 @@
+0) Need a little bit of fog stabilization when moving.
+	- More turning
+	- Should I Interpolate in the shader?
+
 
 0) Optimize performance
 	- Use the profiling tool that profan linked.
+		- See how deep you can go.
 
-0) Create the new arena.
 
 0) Comment for release.

@@ -3,13 +3,11 @@ using Xenko.Rendering;
 using Xenko.Core.Mathematics;
 using Xenko.Physics;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using FogOfWarPlus;
 using FogOfWarPlus.FogOfWarPlus;
-using Xenko.Core.Collections;
-
+// ReSharper disable ConvertToConstant.Global
+// ReSharper disable FieldCanBeMadeReadOnly.Global
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable UnassignedField.Global
 
@@ -17,17 +15,18 @@ namespace FogOfWarPlus
 {
     public class FogOfWarDetectorLineOfSight : SyncScript
     {
-        public float VisionRadius;
-        public float VisionCounterBloom;
+        public float VisionRadius = 11f;
+        public float VisionCounterBloom = 0;
 
         private ParameterCollection shaderParams;
         private float[] visionSlices;
         private Vector3 sourcePosRecycler;
         private Vector3 targetPosRecycler;
         private Vector3 prevSourcePosRecycler;
-        private float distanceRecycler;
-        private IOrderedEnumerable<HitResult> hitResultListRecycler;
+        private SortedDictionary<float, HitResult> staticResultRecycler;
+        private SortedDictionary<float, HitResult> subscriberResultRecycler;
         private Simulation simulation;
+        private bool isDetectorMoved;
 
         public override void Start()
         {
@@ -39,17 +38,18 @@ namespace FogOfWarPlus
             UpdateVisionField();
         }
 
-        public override void Cancel()
-        {
-            base.Cancel();
-        }
-
         private void InitializeVisionField()
         {
             Entity.Get<ModelComponent>().Enabled = true;
             shaderParams = Entity.Get<ModelComponent>()?.GetMaterial(0)?.Passes[0]?.Parameters;
             visionSlices = new float[360];
+            for (var i = 0; i < visionSlices.Length; i++) {
+                visionSlices[i] = VisionRadius;
+            }
+
             simulation = this.GetSimulation();
+            staticResultRecycler = new SortedDictionary<float, HitResult>();
+            subscriberResultRecycler = new SortedDictionary<float, HitResult>();
 
             shaderParams?.Set(FogOfWarLineOfSightShaderKeys.VisionCounterBloom, VisionCounterBloom);
         }
@@ -66,29 +66,42 @@ namespace FogOfWarPlus
                 targetPosRecycler = new Vector3(VisionRadius * (float)Math.Cos(i * Math.PI/180), 0, VisionRadius * (float)Math.Sin(i * Math.PI/180));
                 targetPosRecycler += sourcePosRecycler;
 
-                hitResultListRecycler = simulation.RaycastPenetrating(sourcePosRecycler, targetPosRecycler).OrderBy(a => Vector3.Distance(sourcePosRecycler, a.Point));
-                // ReSharper disable once PossibleMultipleEnumeration
-                if (!hitResultListRecycler.Any()) {
-                    visionSlices[i] = VisionRadius;
-                    continue;
+                isDetectorMoved = prevSourcePosRecycler != sourcePosRecycler;
+                staticResultRecycler.Clear();
+                subscriberResultRecycler.Clear();
+                foreach (var hitResult in simulation.RaycastPenetrating(sourcePosRecycler, targetPosRecycler)
+                    .Where(collider => collider.Collider.CollisionGroup == CollisionFilterGroups.StaticFilter ||
+                                       collider.Collider.CollisionGroup == CollisionFilterGroups.CustomFilter10)) {
+
+                    switch (hitResult.Collider.CollisionGroup) {
+                        case CollisionFilterGroups.StaticFilter:
+                            if (isDetectorMoved) {
+                                staticResultRecycler.Add(Vector3.Distance(sourcePosRecycler, hitResult.Point), hitResult);
+                            }
+                            break;
+                        case CollisionFilterGroups.CustomFilter10:
+                            subscriberResultRecycler.Add(Vector3.Distance(sourcePosRecycler, hitResult.Point), hitResult);
+                            break;
+                    }
                 }
 
-                // ReSharper disable once PossibleMultipleEnumeration
-                foreach (var hitResult in hitResultListRecycler) {
-                    if (hitResult.Collider.CollisionGroup == CollisionFilterGroups.StaticFilter) {
-                        distanceRecycler = Vector3.Distance(sourcePosRecycler, hitResult.Point);
-                        visionSlices[i] = distanceRecycler < VisionRadius ? distanceRecycler : VisionRadius;
-                        break;
+                if (isDetectorMoved) {
+                    if (staticResultRecycler.Any()) {
+                        visionSlices[i] = staticResultRecycler.First().Key;
                     }
+                    else {
+                        visionSlices[i] = VisionRadius;
+                    }
+                }
 
-                    if (hitResult.Collider.CollisionGroup == CollisionFilterGroups.CustomFilter10) {
-                        hitResult.Collider.Entity?.Get<FogOfWarSubscriber>().UpdateAlphaLineOfSight(sourcePosRecycler);
+                foreach (var hitResult in subscriberResultRecycler) {
+                    if (visionSlices[i] > hitResult.Key) {
+                        hitResult.Value.Collider.Entity?.Get<FogOfWarSubscriber>().UpdateAlphaLineOfSight(sourcePosRecycler);
                     }
                 }
             }
 
-            // Avoid unnecessarily updating shaders, needs to occur after tagging visibility.
-            if (sourcePosRecycler == prevSourcePosRecycler) {
+            if (!isDetectorMoved) {
                 return;
             }
 

@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using FogOfWarPlus.FogOfWarPlus;
-using Xenko.Core.Mathematics;
 using Xenko.Engine;
-using Xenko.Rendering;
 
 namespace FogOfWarPlus
 {

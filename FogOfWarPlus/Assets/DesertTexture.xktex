@@ -1,0 +1,7 @@
+!Texture
+Id: 6bc3b5dc-0470-4b0f-b17d-be83eca85c52
+SerializedVersion: {Xenko: 2.0.0.0}
+Tags: []
+Source: !file desert.jpg
+Type: !ColorTextureType
+    ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}

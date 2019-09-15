@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using Xenko.Core.Mathematics;
 using Xenko.Rendering;
 // ReSharper disable ClassNeverInstantiated.Global
+// ReSharper disable MemberCanBePrivate.Global
+// ReSharper disable ConvertToConstant.Global
+// ReSharper disable FieldCanBeMadeReadOnly.Global
 
 namespace FogOfWarPlus
 {
@@ -12,6 +15,14 @@ namespace FogOfWarPlus
     {
         public class FogOfWarSubscriber : SyncScript
         {
+            // If you change these in game studio, zero them out here
+            public float AlphaFadeOut = .1f;
+            public float CameraRange = 30f;
+            public float DetectDistance = 11f;
+            public float DetectFade = 1.45f;
+            public float DetectZeroThreshold = .01f;
+            public byte AlphaDelay = 6;
+
             internal string Name;
 
             private ModelComponent model;
@@ -27,13 +38,6 @@ namespace FogOfWarPlus
 
             private static Vector3 cameraWorldPos = Vector3.Zero;
             private static readonly (bool, Vector3)[] DetectorWorldPos = new (bool, Vector3)[25];
-
-            private const float AlphaFadeOut = .1f;
-            private const float CameraRange = 30f;
-            private const float DetectDistance = 9.5f;
-            private const float DetectFade = 1.45f;
-            private const float DetectZeroThreshold = .01f;
-            private const byte AlphaDelay = 6;
 
             public override void Start()
             {

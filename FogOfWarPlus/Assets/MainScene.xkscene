@@ -14,6 +14,7 @@ Hierarchy:
         - ref!! 5f2284d3-76d2-42f0-9002-8bfa58ac3928
         - ref!! ed9aa4d0-f39d-4e5a-a1c1-2747883be299
         - ref!! f61f69c9-6383-470c-9f00-dcd4f9bf70a9
+        - ref!! 56ceaf1d-ad6a-4acf-8f92-5da69f7aa1f1
         - ref!! 9eca8c4e-87e2-4344-86b0-fda26ab9ba36
         - ref!! b0834c72-b06a-4817-9f9a-9e4f9631a260
         - ref!! 5ac0b63c-7d82-44ab-9b44-e6d720103b87
@@ -96,8 +97,8 @@ Hierarchy:
                             929bffbb934d02de40a98aa80babb261~0: c06f7580-278b-4f8a-ac95-6d8a1e983ddc:FogOfWarPlus/DetectorLineOfSightMaterial
                     89eea88a9367653c6cc1c1566908172f: !FogOfWarPlus.FogOfWarDetectorLineOfSight,FogOfWarPlus
                         Id: 1368851f-7e48-4631-842b-028ebb6cce7f
-                        VisionRadius: 10.0
-                        VisionCounterBloom: 0.5
+                        VisionRadius: 9.5
+                        VisionCounterBloom: 0.0
             Base:
                 BasePartAsset: 8ee9361a-7d35-4cce-8736-e02aeea0af68:FogOfWarPlus/DetectorLineOfSightPrefab
                 BasePartId: 5c638087-e2b8-4993-bbe9-7eff48ba26c0
@@ -237,7 +238,7 @@ Hierarchy:
                         ResultPage: 1
                     61035fbc1becaf51844aaa2ceb56e914: !FogOfWarPlus.FogOfWarSystem,FogOfWarPlus
                         Id: c617a297-ea38-42d8-986b-de3ee65bb002
-                        FogOpacity: 0.8
+                        FogOpacity*: 0.7
             Base:
                 BasePartAsset: a2a69691-a4d4-4b50-8d6c-78699dfd99a5:FogOfWarPlus/FogOfWarSystem
                 BasePartId: e48cffa3-5af4-4545-8cfa-72b5ef781a5b
@@ -292,6 +293,37 @@ Hierarchy:
                 BasePartAsset: 8ca96e09-c0d4-4e99-92e5-bba4602529e8:Spawner
                 BasePartId: ca9ccd48-1b6d-407a-88c0-7b83b332c0ba
                 InstanceId: 4771e417-eb43-4dda-8785-dcfd2535f5b2
+        -   Folder: null
+            Entity:
+                Id: 56ceaf1d-ad6a-4acf-8f92-5da69f7aa1f1
+                Name: Cube
+                Components:
+                    d941c572302dcdb21b2196ca96f51578: !TransformComponent
+                        Id: 34eb021c-24db-4346-ba03-37306991c7c6
+                        Position: {X: 18.379261, Y: 1.0, Z: -9.751755}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 6.0, Y: 2.0, Z: 2.0}
+                        Children: {}
+                    34d5372def84053140bafbc5236fed89: !ModelComponent
+                        Id: 7c21b805-17eb-42d0-9954-f65776d7df00
+                        Model: 1ed9a35f-cc30-49d6-8080-045e85698879:Cube
+                        Materials: {}
+                    e82833f66138c35728c9762c915b526e: !StaticColliderComponent
+                        Id: 2e5f19a3-1cad-4fe7-894a-80550eb68ab7
+                        CollisionGroup: StaticFilter
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            664633d4d563858d8c77423d65a5f9b2: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 1.0, Y: 1.0, Z: 1.0}
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
         -   Entity:
                 Id: 5955e315-f720-4d59-b895-2446bfc66302
                 Name: Directional light
@@ -317,7 +349,7 @@ Hierarchy:
                                 BiasParameters:
                                     DepthBias: 0.005
                                     NormalOffsetScale: 0.0
-                        Intensity: 1.5
+                        Intensity: 1.35
         -   Folder: null
             Entity:
                 Id: 5ac0b63c-7d82-44ab-9b44-e6d720103b87
@@ -339,7 +371,7 @@ Hierarchy:
                         Id: d5dd5768-3f5b-4d64-a524-b1f975fd90d0
                         Position: {X: -17.54287, Y: 1.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-                        Scale: {X: 2.0, Y: 2.0, Z: 2.0}
+                        Scale: {X: 4.0, Y: 2.0, Z: 2.0}
                         Children: {}
                     34d5372def84053140bafbc5236fed89: !ModelComponent
                         Id: fe902b41-b5f0-4102-b41e-20a8eaa51491
@@ -370,7 +402,7 @@ Hierarchy:
                         Id: bb332268-68b1-48a6-b897-3377dd09e534
                         Position: {X: -8.742863, Y: 1.0, Z: 4.914289}
                         Rotation: {X: 0.0, Y: 0.382683456, Z: 0.0, W: 0.9238795}
-                        Scale: {X: 2.0, Y: 2.0, Z: 2.0}
+                        Scale: {X: 4.0, Y: 2.0, Z: 4.0}
                         Children: {}
                     34d5372def84053140bafbc5236fed89: !ModelComponent
                         Id: d01dad1b-7875-4fd0-92bc-7411c13eb16e
@@ -562,9 +594,9 @@ Hierarchy:
                 Components:
                     d941c572302dcdb21b2196ca96f51578: !TransformComponent
                         Id: fc22b4cd-0d10-4561-8794-bc99d560981a
-                        Position: {X: 12.0, Y: 1.0, Z: 0.0}
+                        Position: {X: 14.1518383, Y: 1.0, Z: -3.1560216}
                         Rotation: {X: 0.0, Y: 0.382683456, Z: 0.0, W: 0.9238795}
-                        Scale: {X: 2.0, Y: 2.0, Z: 2.0}
+                        Scale: {X: 4.0, Y: 2.0, Z: 2.0}
                         Children: {}
                     34d5372def84053140bafbc5236fed89: !ModelComponent
                         Id: 1462666d-f6f4-47d3-8069-a222b2aa01a7
@@ -612,7 +644,7 @@ Hierarchy:
                         Model: 51706944-615b-444d-b242-65f547adb3e7:Ground
                         IsShadowCaster: false
                         Materials:
-                            335681bf12eae6a3ba63d9ffed93f109~0: f11dc310-3e6e-4ef1-9743-3a1175d1a300:Ground Material
+                            335681bf12eae6a3ba63d9ffed93f109~0: edafaf6b-fcf3-4a18-a1e6-cee11d86572d:DesertMaterial
                     409659ac1d182cd02f0648de460c7e33: !StaticColliderComponent
                         Id: a85505b2-d90b-4d1d-9d00-9139edcfab56
                         CanSleep: false
@@ -665,7 +697,7 @@ Hierarchy:
                         Type: !LightAmbient
                             Color: !ColorRgbProvider
                                 Value: {R: 1.0, G: 1.0, B: 1.0}
-                        Intensity: 0.7
+                        Intensity: 0.3
         -   Folder: null
             Entity:
                 Id: ed9aa4d0-f39d-4e5a-a1c1-2747883be299

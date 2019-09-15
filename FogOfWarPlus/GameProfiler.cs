@@ -48,8 +48,9 @@ namespace FogOfWarPlus
 
         public override async Task Execute()
         {
-            if (Enabled)
+            if (Enabled) {
                 GameProfiler.EnableProfiling();
+            }
 
             while (Game.IsRunning)
             {

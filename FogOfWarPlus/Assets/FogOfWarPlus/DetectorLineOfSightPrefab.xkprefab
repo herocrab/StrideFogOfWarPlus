@@ -26,8 +26,8 @@ Hierarchy:
                             929bffbb934d02de40a98aa80babb261~0: c06f7580-278b-4f8a-ac95-6d8a1e983ddc:FogOfWarPlus/DetectorLineOfSightMaterial
                     89eea88a9367653c6cc1c1566908172f: !FogOfWarPlus.FogOfWarDetectorLineOfSight,FogOfWarPlus
                         Id: de473bd1-773e-4dd0-a500-0e63a1d5269d
-                        VisionRadius: 10.0
-                        VisionCounterBloom: 0.5
+                        VisionRadius: 9.5
+                        VisionCounterBloom: 0.0
         -   Entity:
                 Id: ace40832-c748-4639-88a8-1157c8112bc0
                 Name: Detector
