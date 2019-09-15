@@ -1,7 +1,5 @@
-0) Need a little bit of fog stabilization when moving.
-	- More turning
-	- Should I Interpolate in the shader?
-
+0) Stabilization
+	- Interpolation, somehow.
 
 0) Optimize performance
 	- Use the profiling tool that profan linked.

@@ -85,7 +85,7 @@ Hierarchy:
                         Id: 0a40d074-4112-4f05-aeb1-5d4363b8bff3
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: -0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
-                        Scale: {X: 1.25, Y: 1.0, Z: 1.25}
+                        Scale: {X: 1.15, Y: 1.0, Z: 1.15}
                         Children: {}
                     ff556142f3373d64bab0678f2775bdff: !ModelComponent
                         Id: 6f9e6740-a7ec-4e9b-99dd-ac8623c731e2
@@ -97,8 +97,8 @@ Hierarchy:
                             929bffbb934d02de40a98aa80babb261~0: c06f7580-278b-4f8a-ac95-6d8a1e983ddc:FogOfWarPlus/DetectorLineOfSightMaterial
                     89eea88a9367653c6cc1c1566908172f: !FogOfWarPlus.FogOfWarDetectorLineOfSight,FogOfWarPlus
                         Id: 1368851f-7e48-4631-842b-028ebb6cce7f
-                        VisionRadius: 9.5
-                        VisionCounterBloom: 0.0
+                        VisionRadius: 9.0
+                        VisionCounterBloom: 1.25
             Base:
                 BasePartAsset: 8ee9361a-7d35-4cce-8736-e02aeea0af68:FogOfWarPlus/DetectorLineOfSightPrefab
                 BasePartId: 5c638087-e2b8-4993-bbe9-7eff48ba26c0

@@ -15,7 +15,7 @@ namespace FogOfWarPlus
 {
     public class FogOfWarDetectorLineOfSight : SyncScript
     {
-        public float VisionRadius = 11f;
+        public float VisionRadius = 16f;
         public float VisionCounterBloom = 0;
 
         private ParameterCollection shaderParams;
