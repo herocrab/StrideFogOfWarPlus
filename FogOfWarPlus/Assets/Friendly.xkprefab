@@ -25,7 +25,7 @@ Hierarchy:
                         Id: a0d868bb-6816-44a3-9990-d86300fe374f
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
-                        Scale: {X: 1.1, Y: 1.1, Z: 1.1}
+                        Scale: {X: 1.25, Y: 1.25, Z: 1.25}
                         Children: {}
                     f3d18ad20d9fdffdb4ab07ca2b84c78d: !SpriteComponent
                         Id: 31bc3d35-ff63-4556-a3cd-ae1d79a338a1
@@ -62,3 +62,18 @@ Hierarchy:
                         RenderGroup: Group10
                         Materials:
                             c1cdeedea09e9b10ccde3aacdf8d0dba~0: 372471bd-474f-4bd9-9eec-7ce2a255381c:Player Material
+                    33d05f396a11b7a6e4468974624ed230: !StaticColliderComponent
+                        Id: 38eb72ca-e263-44f9-bd79-f6e0d63fee5a
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            d62b3c448530f9ea46720fcfdf30a286: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 1.0, Y: 1.0, Z: 1.0}
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}

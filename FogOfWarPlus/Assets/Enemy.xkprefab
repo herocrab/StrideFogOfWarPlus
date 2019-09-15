@@ -19,10 +19,27 @@ Hierarchy:
                         Children: {}
                     ccf3672186bb729d63a302061b2b323e: !ModelComponent
                         Id: 3ae9d494-c6a7-46ed-8fd2-e05605533b6d
+                        Enabled: false
                         Model: 1ed9a35f-cc30-49d6-8080-045e85698879:Cube
                         RenderGroup: Group10
                         Materials:
-                            0fa905df686d14b55edf1b13de077f45~0: b14eadbf-3226-4a65-9dc1-631a4bdb92d6:Enemy Material
+                            0fa905df686d14b55edf1b13de077f45~0: b14eadbf-3226-4a65-9dc1-631a4bdb92d6:FogOfWarPlus/SubscriberMaterial
                     c4dcd86c29b24bee0a7f7e7ad773bba1: !FogOfWarPlus.FogOfWarPlus.FogOfWarSubscriber,FogOfWarPlus
                         Id: 69631492-5fe5-4e75-9440-8c0deb736424
                         Priority: 1
+                    b806552d820d84f2d553d67fb8e7aabb: !StaticColliderComponent
+                        Id: d08c5324-4bb3-4dd3-bfff-2bf83c0e03ed
+                        CollisionGroup: CustomFilter10
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        ColliderShapes:
+                            3c3b97f72ce72c85f55c9d559a07b796: !BoxColliderShapeDesc
+                                Is2D: false
+                                Size: {X: 1.0, Y: 1.0, Z: 1.0}
+                                LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}

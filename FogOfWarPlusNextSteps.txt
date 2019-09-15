@@ -1,61 +1,7 @@
-0) What is triangle count with various layers of fog?
-	- (3) Layers is ~1,201,200
-	- (1) Layers is ~761,334.
-	- Could the the Sphere Models.
-0) Lighting could be adjusted.
-	- Convert the enemies to Cubes? Maybe later.
 
-=============================================
-=============================================
-=============================================
+0) Optimize performance
+	- Use the profiling tool that profan linked.
 
-Next Steps:
-===========
+0) Create the new arena.
 
-0) Profan is saying that I can put post fx on the fog of war camera, even though I tried earlier.
-	- Try this out again, this would allow consistent shading.
-	- Try to get this working.
-
-0) If the above works, maybe the shadow problem can be solved.
-	- If the shadow problem can be solved, then I can use a texture based rendering.
-
-0) Design the new Dynamic Line Of Sight Detector prefab.
-	- This can use the same texture as the detector.
-
-
-0) Material will need to be in the render group 
-
-==========================
-Line Of Sight Pseudo Code:
-==========================
-
-0) Shader variables:
-	- angleStep (needs used in modulo for distance from angle).
-
-if fragmentDistance < raycastDistance (X) return 1.
-
-modulo angle with angleStep
-if less than angle return the absolute value!! modulo over the angle step, else return 0
-if greater than angle return the modulo over the angle step, else return 0.
-
-These should produce fade effects.
-
-Then just to put some polish around the "point of distance"
-
-=============================================
-
-Any point (x,y) on the path of the circle is x = r * sin(θ), y = r * cos(θ).
-
-thus: (x,y) = (12*sin(115), 12*cos(115))
-
-So your point will roughly be (10.876, -5.071) (assuming the top right quadrant is x+, y+)
-
-
-[IF THERE IS AN OFFSET (WORLD SPACE)]
-
-x = cx + r * cos(a)
-y = cy + r * sin(a)
-
-Where r is the radius, cx,cy the origin, and a the angle.
-
-That's pretty easy to adapt into any language with basic trig functions. Note that most languages will use radians for the angle in trig functions, so rather than cycling through 0..360 degrees, you're cycling through 0..2PI radians.
+0) Comment for release.

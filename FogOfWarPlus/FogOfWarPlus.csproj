@@ -29,6 +29,12 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>FogOfWarUnitShader.xksl</DependentUpon>
     </Compile>
+    <Compile Update="Effects\FogOfWarLineOfSightShader.cs">
+      <DesignTime>True</DesignTime>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FogOfWarLineOfSightShader.xksl</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
@@ -46,6 +52,10 @@
     <None Update="Effects\FogOfWarUnitShader.xksl">
       <Generator>XenkoShaderKeyGenerator</Generator>
       <LastGenOutput>FogOfWarUnitShader.cs</LastGenOutput>
+    </None>
+    <None Update="Effects\FogOfWarLineOfSightShader.xksl">
+      <Generator>XenkoShaderKeyGenerator</Generator>
+      <LastGenOutput>FogOfWarLineOfSightShader.cs</LastGenOutput>
     </None>
   </ItemGroup>
 </Project>
