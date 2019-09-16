@@ -3243,3 +3243,14 @@ EffectName: FXAAShaderEffect
 UsedParameters:
     FXAAEffect.GreenAsLumaKey: 0
     FXAAEffect.QualityKey: 14
+---
+!EffectCompileRequest
+EffectName: CoCMapBlurEffect
+UsedParameters:
+    DepthAwareDirectionalBlur.Count: 10
+---
+!EffectCompileRequest
+EffectName: DepthAwareDirectionalBlurEffect
+UsedParameters:
+    DepthAwareDirectionalBlur.Count: 6
+    DepthAwareDirectionalBlur.TotalTap: 11

@@ -210,6 +210,7 @@ SharedRenderers:
             ResolvePassResolution: Full
             DepthResolution: Half
         DepthOfField:
+            Enabled: false
             MaxBokehSize: 0.12
             DOFAreas: {X: 0.5, Y: 6.0, Z: 50.0, W: 200.0}
         BrightFilter:
@@ -222,6 +223,7 @@ SharedRenderers:
             SigmaRatio: 3.0
             Distortion: {X: 1.0, Y: 1.0}
             Afterimage:
+                Enabled: false
                 FadeOutSpeed: 0.75
                 Sensitivity: 0.001
         LightStreak:
