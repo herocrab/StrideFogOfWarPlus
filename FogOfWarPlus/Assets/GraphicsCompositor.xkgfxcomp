@@ -210,19 +210,20 @@ SharedRenderers:
             ResolvePassResolution: Full
             DepthResolution: Half
         DepthOfField:
-            Enabled: false
+            MaxBokehSize: 0.12
             DOFAreas: {X: 0.5, Y: 6.0, Z: 50.0, W: 200.0}
         BrightFilter:
             Threshold: 0.0001
             Steepness: 10.0
             Color: {R: 1.0, G: 1.0, B: 1.0}
         Bloom:
-            Radius: 20.0
-            Amount: 20.0
-            SigmaRatio: 6.0
+            Radius: 5.0
+            Amount: 1.0
+            SigmaRatio: 3.0
             Distortion: {X: 1.0, Y: 1.0}
             Afterimage:
                 FadeOutSpeed: 0.75
+                Sensitivity: 0.001
         LightStreak:
             Enabled: false
             Attenuation: 0.6

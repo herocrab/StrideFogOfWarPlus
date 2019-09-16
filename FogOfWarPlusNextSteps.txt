@@ -1,5 +1,6 @@
 0) Stabilization
-	- Interpolation, somehow.
+	- Interpolation, somehow
+	- Could make this .5 degrees
 
 0) Optimize performance
 	- Use the profiling tool that profan linked.

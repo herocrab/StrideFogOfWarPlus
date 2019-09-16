@@ -6,6 +6,7 @@ using Xenko.Rendering;
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable ConvertToConstant.Global
 // ReSharper disable FieldCanBeMadeReadOnly.Global
+// ReSharper disable UnassignedField.Global
 
 namespace FogOfWarPlus
 {
@@ -16,9 +17,10 @@ namespace FogOfWarPlus
         public class FogOfWarSubscriber : SyncScript
         {
             // If you change these in game studio, zero them out here
+            public float DetectDistance;
+
             public float AlphaFadeOut = .1f;
             public float CameraRange = 30f;
-            public float DetectDistance = 16f;
             public float DetectFade = 1.45f;
             public float DetectZeroThreshold = .01f;
             public byte AlphaDelay = 6;

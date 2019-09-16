@@ -1,6 +1,7 @@
 ﻿using Xenko.Core.Mathematics;
 using Xenko.Input;
 using Xenko.Engine;
+using Xenko.Games;
 using Xenko.Physics;
 
 namespace FogOfWarPlus
@@ -8,11 +9,12 @@ namespace FogOfWarPlus
     public class PlayerController : SyncScript
     {
         private CharacterComponent character;
-        private const float Speed = 5f;
+        private const float Speed = 5.5f;
 
         public override void Start()
         {
             character = Entity.Get<CharacterComponent>();
+            ((GameBase) Game).IsDrawDesynchronized = true;
         }
 
         public override void Update()

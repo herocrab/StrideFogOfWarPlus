@@ -3237,3 +3237,9 @@ UsedParameters:
             ClassName: LightSimpleAmbient
         - !ShaderClassSource
             ClassName: EnvironmentLight
+---
+!EffectCompileRequest
+EffectName: FXAAShaderEffect
+UsedParameters:
+    FXAAEffect.GreenAsLumaKey: 0
+    FXAAEffect.QualityKey: 14

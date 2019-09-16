@@ -27,9 +27,9 @@ Hierarchy:
                     c4dcd86c29b24bee0a7f7e7ad773bba1: !FogOfWarPlus.FogOfWarPlus.FogOfWarSubscriber,FogOfWarPlus
                         Id: 69631492-5fe5-4e75-9440-8c0deb736424
                         Priority: 1
+                        DetectDistance: 12.0
                         AlphaFadeOut: 0.1
                         CameraRange: 30.0
-                        DetectDistance: 9.5
                         DetectFade: 1.45
                         DetectZeroThreshold: 0.01
                         AlphaDelay: 6
