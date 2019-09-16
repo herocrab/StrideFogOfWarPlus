@@ -7,23 +7,18 @@
         cbuffer PerMaterial
         {
             stage float Slices[360];
-            stage float VisionCounterBloom;
+            stage float VisionRadius;
             static const float PI = 3.14159265f;
         }
 
         override float4 Compute() 
         {
-            // TODO optimize
             var angle = (round(atan2(streams.ShaderPos.z, streams.ShaderPos.x) * (180 / PI)) + 360) % 360;
             var distance = sqrt(pow(streams.ShaderPos.x, 2) + pow(streams.ShaderPos.z, 2));
 
-            if (Slices[angle] + VisionCounterBloom <= distance) {
+            if (Slices[angle] <= distance) {
                 return float4(0, 0, 0, 0);
             }
-
-            //if (angle > 0 && angle < 270) {
-            //    return float4(1, 0, 0, 0);
-            //}
 
             return float4(1, 0, 0, 0);
         }

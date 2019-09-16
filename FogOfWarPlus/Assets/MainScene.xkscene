@@ -82,7 +82,7 @@ Hierarchy:
                     89eea88a9367653c6cc1c1566908172f: !FogOfWarPlus.FogOfWarDetectorLineOfSight,FogOfWarPlus
                         Id: 1368851f-7e48-4631-842b-028ebb6cce7f
                         VisionRadius: 12.0
-                        VisionCounterBloom: 0.0
+                        VisionCounterBloom: 0.5
             Base:
                 BasePartAsset: 8ee9361a-7d35-4cce-8736-e02aeea0af68:FogOfWarPlus/DetectorLineOfSightPrefab
                 BasePartId: 5c638087-e2b8-4993-bbe9-7eff48ba26c0

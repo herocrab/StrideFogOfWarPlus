@@ -51,7 +51,7 @@ namespace FogOfWarPlus
             staticResultRecycler = new SortedDictionary<float, HitResult>();
             subscriberResultRecycler = new SortedDictionary<float, HitResult>();
 
-            shaderParams?.Set(FogOfWarLineOfSightShaderKeys.VisionCounterBloom, VisionCounterBloom);
+            shaderParams?.Set(FogOfWarLineOfSightShaderKeys.VisionRadius, VisionRadius);
         }
 
         private void UpdateVisionField()
@@ -87,7 +87,7 @@ namespace FogOfWarPlus
 
                 if (isDetectorMoved) {
                     if (staticResultRecycler.Any()) {
-                        visionSlices[i] = staticResultRecycler.First().Key;
+                        visionSlices[i] = staticResultRecycler.First().Key - VisionCounterBloom;
                     }
                     else {
                         visionSlices[i] = VisionRadius;

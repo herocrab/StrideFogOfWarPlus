@@ -19,6 +19,6 @@ namespace FogOfWarPlus
     public static partial class FogOfWarLineOfSightShaderKeys
     {
         public static readonly ValueParameterKey<float> Slices = ParameterKeys.NewValue<float>();
-        public static readonly ValueParameterKey<float> VisionCounterBloom = ParameterKeys.NewValue<float>();
+        public static readonly ValueParameterKey<float> VisionRadius = ParameterKeys.NewValue<float>();
     }
 }
