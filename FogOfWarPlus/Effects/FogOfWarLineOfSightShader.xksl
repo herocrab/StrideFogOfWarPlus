@@ -17,11 +17,11 @@
             var angle = (round(atan2(streams.ShaderPos.z - DetectorPos.z, streams.ShaderPos.x - DetectorPos.x) 
                 * (180 / PI)) + 360) % 360;
 
-            var distance = sqrt(pow(DetectorPos.x - streams.ShaderPos.x, 2) + pow(DetectorPos.z - streams.ShaderPos.z, 2));
+            var shaderDistance = sqrt(pow(DetectorPos.x - streams.ShaderPos.x, 2) + pow(DetectorPos.z - streams.ShaderPos.z, 2));
 
-            if (Slices[angle] <= distance) {
+            if (shaderDistance >= Slices[angle]) {
                 return float4(0, 0, 0, 0);
-            }
+            } 
 
             return float4(1, 0, 0, 0);
         }
