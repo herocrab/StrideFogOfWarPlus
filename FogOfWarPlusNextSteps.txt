@@ -1,6 +1,9 @@
-0) Stabilization
-	- Interpolation, somehow
-	- Could make this .5 degrees
+0) Normal out distances on everything
+
+0) Covert to using World Space on Shader.
+
+
+0) Add a 2 or 3 line fade blend.
 
 0) Optimize performance
 	- Use the profiling tool that profan linked.
@@ -8,3 +11,11 @@
 
 
 0) Comment for release.
+
+
+
+
+
+
+
+d

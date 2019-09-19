@@ -105,6 +105,7 @@ namespace FogOfWarPlus
                 return;
             }
 
+            shaderParams?.Set(FogOfWarLineOfSightShaderKeys.DetectorPos, sourcePosRecycler);
             shaderParams?.Set(FogOfWarLineOfSightShaderKeys.Slices, visionSlices);
             prevSourcePosRecycler = sourcePosRecycler;
         }

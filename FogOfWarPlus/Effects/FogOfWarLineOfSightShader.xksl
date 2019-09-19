@@ -1,20 +1,23 @@
 ﻿namespace FogOfWarPlus
 {
-    shader FogOfWarLineOfSightShader : ComputeColor, ShaderBase, Texturing
+    shader FogOfWarLineOfSightShader : ComputeColor, ShaderBase, Texturing, PositionStream4
     {
-        stream float4 ShaderPos : POSITION;
+        stream float4 ShaderPos : POSITION_WS;
 
         cbuffer PerMaterial
         {
             stage float Slices[360];
             stage float VisionRadius;
+            stage float3 DetectorPos;
             static const float PI = 3.14159265f;
         }
 
         override float4 Compute() 
         {
-            var angle = (round(atan2(streams.ShaderPos.z, streams.ShaderPos.x) * (180 / PI)) + 360) % 360;
-            var distance = sqrt(pow(streams.ShaderPos.x, 2) + pow(streams.ShaderPos.z, 2));
+            var angle = (round(atan2(streams.ShaderPos.z - DetectorPos.z, streams.ShaderPos.x - DetectorPos.x) 
+                * (180 / PI)) + 360) % 360;
+
+            var distance = sqrt(pow(DetectorPos.x - streams.ShaderPos.x, 2) + pow(DetectorPos.z - streams.ShaderPos.z, 2));
 
             if (Slices[angle] <= distance) {
                 return float4(0, 0, 0, 0);

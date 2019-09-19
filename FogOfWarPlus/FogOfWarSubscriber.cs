@@ -18,10 +18,10 @@ namespace FogOfWarPlus
         {
             // If you change these in game studio, zero them out here
             public float DetectDistance;
+            public float DetectFade;
 
             public float AlphaFadeOut = .1f;
             public float CameraRange = 30f;
-            public float DetectFade = 1.45f;
             public float DetectZeroThreshold = .01f;
             public byte AlphaDelay = 6;
 

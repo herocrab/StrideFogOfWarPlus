@@ -20,5 +20,6 @@ namespace FogOfWarPlus
     {
         public static readonly ValueParameterKey<float> Slices = ParameterKeys.NewValue<float>();
         public static readonly ValueParameterKey<float> VisionRadius = ParameterKeys.NewValue<float>();
+        public static readonly ValueParameterKey<Vector3> DetectorPos = ParameterKeys.NewValue<Vector3>();
     }
 }
