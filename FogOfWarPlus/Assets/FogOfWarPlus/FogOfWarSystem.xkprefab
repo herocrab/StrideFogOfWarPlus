@@ -109,3 +109,9 @@ Hierarchy:
                     61035fbc1becaf51844aaa2ceb56e914: !FogOfWarPlus.FogOfWarSystem,FogOfWarPlus
                         Id: f39790b1-38cf-485f-998a-ae5f9c32da1a
                         FogOpacity: 0.9
+                        DetectDistance: 10.0
+                        DetectFade: 1.0
+                        AlphaFadeOut: 0.1
+                        CameraRange: 30.0
+                        DetectZeroThreshold: 0.01
+                        AlphaDelay: 6

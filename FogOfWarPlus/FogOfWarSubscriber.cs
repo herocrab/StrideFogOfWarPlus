@@ -1,3 +1,21 @@
+/* Copyright (c) 2019 Jeremy Buck (jarmo@netcodez.com) http://github.com/devjarmo 
+ 
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software
+and associated documentation files (the "Software"), to deal in the Software without
+restriction, including without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom
+the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or
+substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE AND NON-INFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,
+TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+*/
 using System;
 using System.Collections.Generic;
 using Xenko.Core.Mathematics;
@@ -16,27 +34,21 @@ namespace FogOfWarPlus
     {
         public class FogOfWarSubscriber : SyncScript
         {
-            // If you change these in game studio, zero them out here
-            public float DetectDistance;
-            public float DetectFade;
-
-            public float AlphaFadeOut = .1f;
-            public float CameraRange = 30f;
-            public float DetectZeroThreshold = .01f;
-            public byte AlphaDelay = 6;
-
             internal string Name;
-
             private ModelComponent model;
             private ParameterCollection shaderParams;
             private float alpha;
             private float closestDetectorDistance;
-            private float closestLineOfSightDetectorDistance;
             private float detectorDistanceAlpha;
             private Vector3 worldPosRecycler;
             private float distanceRecycler;
             private byte alphaDelayCounter;
-            private bool isSubscriberSeen;
+            private float detectDistance;
+            private float detectFade;
+            private float alphaFadeOut;
+            private float cameraRange;
+            private float detectZeroThreshold;
+            private byte alphaDelay;
 
             private static Vector3 cameraWorldPos = Vector3.Zero;
             private static readonly (bool, Vector3)[] DetectorWorldPos = new (bool, Vector3)[25];
@@ -44,11 +56,18 @@ namespace FogOfWarPlus
             public override void Start()
             {
                 Name = Entity.Name;
-                closestLineOfSightDetectorDistance = float.MaxValue;
                 model = Entity.Get<ModelComponent>();
                 shaderParams = model?.GetMaterial(0)?.Passes[0]?.Parameters;
                 shaderParams?.Set(FogOfWarUnitShaderKeys.Alpha, 0f);
-                Services.GetService<FogOfWarSystem>().AddSubscriber(this);
+
+                var fogOfWarSystem = Services.GetService<FogOfWarSystem>();
+                detectDistance = fogOfWarSystem.DetectDistance;
+                detectFade = fogOfWarSystem.DetectFade;
+                alphaFadeOut = fogOfWarSystem.AlphaFadeOut;
+                cameraRange = fogOfWarSystem.CameraRange;
+                detectZeroThreshold = fogOfWarSystem.DetectZeroThreshold;
+                alphaDelay = fogOfWarSystem.AlphaDelay;
+                fogOfWarSystem.AddSubscriber(this);
             }
 
             public override void Update()
@@ -59,13 +78,13 @@ namespace FogOfWarPlus
             private void UpdateAlphaAndShadow()
             {
                 // Delay rendering, cleans up shader artifacts
-                if (alphaDelayCounter < AlphaDelay) {
+                if (alphaDelayCounter < alphaDelay) {
                     alphaDelayCounter++;
                     return;
                 }
 
                 // Enable the model, resolves visibility issues at load
-                if (!model.Enabled && alpha > DetectZeroThreshold) {
+                if (!model.Enabled && alpha > detectZeroThreshold) {
                     model.Enabled = true;
                 }
 
@@ -73,7 +92,7 @@ namespace FogOfWarPlus
                 closestDetectorDistance = float.MaxValue;
 
                 // Do not calculate alphas for off screen entities, this *could* use physics on GPU side
-                if (Vector3.Distance(worldPosRecycler, cameraWorldPos) > CameraRange)
+                if (Vector3.Distance(worldPosRecycler, cameraWorldPos) > cameraRange)
                 {
                     if (alpha >= 0) {
                         shaderParams?.Set(FogOfWarUnitShaderKeys.Alpha, 0f);
@@ -81,16 +100,6 @@ namespace FogOfWarPlus
                         alpha = 0;
                         return;
                     }
-                }
-
-                // Set the closest distance for line of sight detectors
-                if (isSubscriberSeen) {
-                    closestDetectorDistance = closestLineOfSightDetectorDistance;
-                    detectorDistanceAlpha = DistanceAlpha(closestDetectorDistance);
-                    isSubscriberSeen = false;
-                }
-                else {
-                    closestLineOfSightDetectorDistance = float.MaxValue;
                 }
 
                 /* Not the most efficient n(n-1)/2; depends on detector distance, uses a shortcut */
@@ -105,7 +114,7 @@ namespace FogOfWarPlus
                         detectorDistanceAlpha = DistanceAlpha(closestDetectorDistance);
 
                         // Shortcut fully visible units, stop iterating
-                        if (Math.Abs(detectorDistanceAlpha - 1) < DetectZeroThreshold) {
+                        if (Math.Abs(detectorDistanceAlpha - 1) < detectZeroThreshold) {
                             detectorDistanceAlpha = 1;
                             break;
                         }
@@ -113,22 +122,12 @@ namespace FogOfWarPlus
                 }
 
                 // Default alpha fade out when not detected
-                if (Math.Abs(detectorDistanceAlpha) <= DetectZeroThreshold && alpha > DetectZeroThreshold) {
-                    detectorDistanceAlpha = alpha - AlphaFadeOut;
+                if (Math.Abs(detectorDistanceAlpha) <= detectZeroThreshold && alpha > detectZeroThreshold) {
+                    detectorDistanceAlpha = alpha - alphaFadeOut;
                 }
 
                 shaderParams?.Set(FogOfWarUnitShaderKeys.Alpha, detectorDistanceAlpha);
                 alpha = detectorDistanceAlpha;
-            }
-
-            internal void UpdateAlphaLineOfSight(Vector3 sourcePos)
-            {
-                distanceRecycler = Vector3.Distance(worldPosRecycler, sourcePos);
-                if (distanceRecycler < closestLineOfSightDetectorDistance) {
-                    closestLineOfSightDetectorDistance = distanceRecycler;
-                }
-
-                isSubscriberSeen = true;
             }
 
             internal static void UpdateWorld(Vector3 cameraPos, IReadOnlyList<Vector3> detectorWorldPos)
@@ -150,12 +149,12 @@ namespace FogOfWarPlus
 
             private float DistanceAlpha(float distance)
             {
-                if (distance < DetectDistance) {
+                if (distance < detectDistance) {
                     return 1;
                 }
 
-                if (distance < DetectDistance + DetectFade) {
-                    return (DetectFade - (distance - DetectDistance)) / DetectFade;
+                if (distance < detectDistance + detectFade) {
+                    return (detectFade - (distance - detectDistance)) / detectFade;
                 }
 
                 return 0;

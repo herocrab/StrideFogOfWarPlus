@@ -29,12 +29,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>FogOfWarUnitShader.xksl</DependentUpon>
     </Compile>
-    <Compile Update="Effects\FogOfWarLineOfSightShader.cs">
-      <DesignTime>True</DesignTime>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>FogOfWarLineOfSightShader.xksl</DependentUpon>
-    </Compile>
   </ItemGroup>
 
   <ItemGroup>

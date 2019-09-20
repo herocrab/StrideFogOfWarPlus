@@ -27,12 +27,6 @@ Hierarchy:
                     c4dcd86c29b24bee0a7f7e7ad773bba1: !FogOfWarPlus.FogOfWarPlus.FogOfWarSubscriber,FogOfWarPlus
                         Id: 69631492-5fe5-4e75-9440-8c0deb736424
                         Priority: 1
-                        DetectDistance: 11.0
-                        DetectFade: 1.25
-                        AlphaFadeOut: 0.1
-                        CameraRange: 30.0
-                        DetectZeroThreshold: 0.01
-                        AlphaDelay: 6
                     b806552d820d84f2d553d67fb8e7aabb: !StaticColliderComponent
                         Id: d08c5324-4bb3-4dd3-bfff-2bf83c0e03ed
                         CollisionGroup: CustomFilter10

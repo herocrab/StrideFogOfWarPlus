@@ -62,32 +62,6 @@ Hierarchy:
                 BasePartId: ca9ccd48-1b6d-407a-88c0-7b83b332c0ba
                 InstanceId: 446cec0a-f870-405e-b0ea-0835b53770ef
         -   Entity:
-                Id: 2190bf6e-0572-4c69-b778-5d61fb7fb350
-                Name: LineOfSight
-                Components:
-                    2192cf97bfde3e2389343b77f4b94c57: !TransformComponent
-                        Id: 0a40d074-4112-4f05-aeb1-5d4363b8bff3
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: -0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
-                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
-                        Children: {}
-                    ff556142f3373d64bab0678f2775bdff: !ModelComponent
-                        Id: 6f9e6740-a7ec-4e9b-99dd-ac8623c731e2
-                        Enabled: false
-                        Model: dba5cfa4-b8ff-442f-9291-508d663b0b0e:FogOfWarPlus/DetectorLineOfSight
-                        RenderGroup: Group31
-                        IsShadowCaster: false
-                        Materials:
-                            929bffbb934d02de40a98aa80babb261~0: c06f7580-278b-4f8a-ac95-6d8a1e983ddc:FogOfWarPlus/DetectorLineOfSightMaterial
-                    89eea88a9367653c6cc1c1566908172f: !FogOfWarPlus.FogOfWarDetectorLineOfSight,FogOfWarPlus
-                        Id: 1368851f-7e48-4631-842b-028ebb6cce7f
-                        VisionRadius: 11.0
-                        VisionCounterBloom: 0.0
-            Base:
-                BasePartAsset: 8ee9361a-7d35-4cce-8736-e02aeea0af68:FogOfWarPlus/DetectorLineOfSightPrefab
-                BasePartId: 5c638087-e2b8-4993-bbe9-7eff48ba26c0
-                InstanceId: b2686d3e-6134-4cb5-8459-fa0e70d480c1
-        -   Entity:
                 Id: 2cd91041-9585-4fe0-9fb9-ae848cec1222
                 Name: FogOfWarLayer1
                 Components:
@@ -132,6 +106,12 @@ Hierarchy:
                     61035fbc1becaf51844aaa2ceb56e914: !FogOfWarPlus.FogOfWarSystem,FogOfWarPlus
                         Id: aa9c8000-6fdf-453c-b76d-c7de9de134d9
                         FogOpacity: 0.9
+                        DetectDistance: 10.0
+                        DetectFade: 1.0
+                        AlphaFadeOut: 0.1
+                        CameraRange: 30.0
+                        DetectZeroThreshold: 0.01
+                        AlphaDelay: 6
             Base:
                 BasePartAsset: a2a69691-a4d4-4b50-8d6c-78699dfd99a5:FogOfWarPlus/FogOfWarSystem
                 BasePartId: e48cffa3-5af4-4545-8cfa-72b5ef781a5b
@@ -494,16 +474,16 @@ Hierarchy:
                 BasePartId: 7a7ff8e8-1bfe-4d59-87a0-5c657e787093
                 InstanceId: e5f9d5ca-a335-4ce9-8766-a6d705f54f5c
         -   Entity:
-                Id: 9a527633-91fb-48c9-a9b7-f7f1151b4986
-                Name: DetectorLineOfSightPrefab
+                Id: 959aa383-6a6a-4d21-9bf9-f83bc121140f
+                Name: DetectorPrefab
                 Components:
-                    f74ed14b2abab06b21fac5e283d5ccc0: !TransformComponent
-                        Id: bcdeec0a-144a-4ef7-a8b3-87f51804e686
+                    10c37e202b8543bf55d3a498c802f781: !TransformComponent
+                        Id: f5988c79-a663-4088-b0cd-6de5bb2010ec
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
-                            fad24f632738c7f23f9dbc9689d316c7: ref!! 126732e9-d7de-4f28-8839-340464b21ef1
+                            3e1018e21adf3979b5ca2645933ae3b0: ref!! 85d3334a-3886-475c-93e4-327910eb1307
         -   Entity:
                 Id: 9b9f9546-09e8-4667-b1fb-fb3a243b947e
                 Name: FogOfWar
@@ -530,8 +510,8 @@ Hierarchy:
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
-                            d74731b924d72a72298faa7830f4246f: ref!! bcdeec0a-144a-4ef7-a8b3-87f51804e686
                             19c4d3dcc2cca449e167152a0e1f4871: ref!! 66a20cd6-2059-4336-865e-e574727f6aa0
+                            2ba5cbd1ae0993acbe393e3f8f600304: ref!! f5988c79-a663-4088-b0cd-6de5bb2010ec
                     ccf3672186bb729d63a302061b2b323e: !ModelComponent
                         Id: ff5648e3-bd9b-47d4-ae2a-438784998c08
                         Model: 1ed9a35f-cc30-49d6-8080-045e85698879:Cube
@@ -558,21 +538,6 @@ Hierarchy:
                                 Size: {X: 1.0, Y: 1.0, Z: 1.0}
                                 LocalOffset: {X: 0.0, Y: 0.0, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
-        -   Entity:
-                Id: a6b7380c-8133-4416-8af2-24197b810107
-                Name: Detector
-                Components:
-                    de9bf9b9e37edd6ea6de1fc6cc2ce27d: !TransformComponent
-                        Id: 126732e9-d7de-4f28-8839-340464b21ef1
-                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
-                        Scale: {X: 1.1, Y: 1.1, Z: 1.1}
-                        Children:
-                            14d3cee511e6dbf05094b8fab992ed0d: ref!! 0a40d074-4112-4f05-aeb1-5d4363b8bff3
-            Base:
-                BasePartAsset: 8ee9361a-7d35-4cce-8736-e02aeea0af68:FogOfWarPlus/DetectorLineOfSightPrefab
-                BasePartId: ace40832-c748-4639-88a8-1157c8112bc0
-                InstanceId: b2686d3e-6134-4cb5-8459-fa0e70d480c1
         -   Entity:
                 Id: a90974d8-9ec8-47ff-babf-8d82b8d9640c
                 Name: Spawner
@@ -771,6 +736,34 @@ Hierarchy:
                 BasePartAsset: 8ca96e09-c0d4-4e99-92e5-bba4602529e8:Spawner
                 BasePartId: ca9ccd48-1b6d-407a-88c0-7b83b332c0ba
                 InstanceId: 5d2204e8-6bbb-4aba-978f-6051da537870
+        -   Entity:
+                Id: f557dcae-fe21-4b72-9017-0fa7784a7173
+                Name: Detector
+                Components:
+                    de9bf9b9e37edd6ea6de1fc6cc2ce27d: !TransformComponent
+                        Id: 85d3334a-3886-475c-93e4-327910eb1307
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    f3d18ad20d9fdffdb4ab07ca2b84c78d: !SpriteComponent
+                        Id: 050164af-6ccb-47c1-91c5-d36807e38f8c
+                        Enabled: false
+                        SpriteProvider: !SpriteFromTexture
+                            Texture: b47384c6-7bb3-46e8-b596-bc6526bfa0d0:FogOfWarPlus/FogOfWarCircleTexture
+                            Center: {X: 0.0, Y: 0.0}
+                        Color: {R: 1.0, G: 1.0, B: 1.0, A: 1.0}
+                        IgnoreDepth: true
+                        BlendMode: AlphaBlend
+                        Sampler: AnisotropicClamp
+                        RenderGroup: Group31
+                    1b124765ede27ca99ee3e8773e3f6edd: !FogOfWarPlus.FogOfWarDetector,FogOfWarPlus
+                        Id: 165c84a8-fa95-4211-96d0-82983b0acbf4
+                        Priority: 1
+            Base:
+                BasePartAsset: fc104e77-4a75-4d81-bfa7-dd33a63a1fa4:FogOfWarPlus/DetectorPrefab
+                BasePartId: e2af0282-36ef-4a13-9700-ff7cd542e873
+                InstanceId: 6e2a60a7-ef3e-4d58-8745-39d404008271
         -   Folder: null
             Entity:
                 Id: f61f69c9-6383-470c-9f00-dcd4f9bf70a9
