@@ -1,6 +1,6 @@
 # Xenko FogOfWarPlus Moba/Platformer (System)
 
-This is a fog of war system written for Xenko, it is constructed with the following components:
+This is a fog of war system written for Xenko, it is comprised of the following components:
 - A dual camera system, one perspective camera, one orthographic camera
 - Orthographic camera renders to a texture in an isolated render group, this is used by the fog of war shader material
 - Fog of war shader is applied as a Transparency layer on the fog of war material and returns alphas based on render texture
