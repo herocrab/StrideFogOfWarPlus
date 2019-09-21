@@ -28,5 +28,5 @@ To use:
 - Register detectors and subscribers with the fog of war system by adding the prefab to your entities
 - Modify fog of war settings on the fog of war system prefab
 
-## Xenko FogOfWarGridSystem
+## Xenko FogOfWarGrid Line of Sight System
 I am currently planning a fog of war grid system that will allow for dynamic line of sight.
