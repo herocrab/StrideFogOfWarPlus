@@ -19,8 +19,7 @@ This is a fog of war system written for Xenko, it is comprised of the following 
  [Video can be found here](https://www.youtube.com/watch?v=HPWxhYZBDSQ)
 
 **NOTE: This could be further enhanced without the use of vector distance checking by passing a map-only render texture through to a sprite
-batch draw or the back buffer and using pixels from the fog texture to draw pixels from the map-only texture (darkened or grayscale) for 
-unrevealed terrain; however I had issues separating shadows into their own pipeline in the current state and this is workable.
+batch draw or the back buffer and using pixels from the fog render texture to draw pixels from the map-only texture (darkened or grayscale) for unrevealed terrain; however I had issues separating shadows into their own pipeline in the current state and this is workable.
 
 Update runs at ~2.75-2.9ms on my system.
 
@@ -28,8 +27,6 @@ To use:
 - Explore the layout in Game Studio, the fog of war system prefab is nested under the player
 - Register detectors and subscribers with the fog of war system by adding the prefab to your entities
 - Modify fog of war settings on the fog of war system prefab
-- M
-
 
 ## Xenko FogOfWarGridSystem
 I am currently planning a fog of war grid system that will allow for dynamic line of sight.
