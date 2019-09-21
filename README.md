@@ -10,7 +10,7 @@ This is a fog of war system written for Xenko, it is comprised of the following 
 - Subscribers (enemies) register with the fog of war system leveraging services registry
 - Subscribers check distance to the camera, if within range they then check distance to registered detectors
 - Subscribers have a number of shortcuts out of n(n-1)/2 iteration, if fully visible they cease iteration.
-- Subscribres (enemy material) uses a unit shader applied as a transparency material which modifies alpha based on distance
+- Subscribers (enemy material) uses a unit shader applied as a transparency which modifies alpha values
 - Fog blending can be modified through a dedicated set of post processing effects
 - Game profiler is attached, control-shift-p, WASD to move around
 
