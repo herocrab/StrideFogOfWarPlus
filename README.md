@@ -6,8 +6,8 @@ This is a fog of war system written for Xenko, it is comprised of the following 
 - Fog of war shader is applied as a Transparency layer on the fog of war material and returns alphas
 - Fog of war is two layers for elegance, one layer is rendered with depth, the other is the final pass in the compositor
 - Fog configuration can be modified on the fog of war system prefab through game studio
-- Detectors register with the fog of war system leveraging services registry
-- Subscribers (enemies) register with the fog of war system leveraging services registry
+- Detectors register with the fog of war system leveraging services registry - just add the prefab to entity
+- Subscribers (enemies) register with the fog of war system leveraging services registry - just add prefab to entity
 - Subscribers check distance to the camera, if within range they then check distance to registered detectors
 - Subscribers have a number of shortcuts out of n(n-1)/2 iteration, if fully visible they cease iteration.
 - Subscribers (enemy material) uses a unit shader applied as a transparency which modifies alpha values
