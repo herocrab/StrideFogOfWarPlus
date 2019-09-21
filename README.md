@@ -3,7 +3,7 @@
 This is a fog of war system written for Xenko, it is comprised of the following components:
 - A dual camera system, one perspective camera, one orthographic camera
 - Orthographic camera renders to a texture in an isolated render group, this is used by the fog of war shader material
-- Fog of war shader is applied as a Transparency layer on the fog of war material and returns alphas based on render texture
+- Fog of war shader is applied as a Transparency layer on the fog of war material and returns alphas
 - Fog of war is two layers for elegance, one layer is rendered with depth, the other is the final pass in the compositor
 - Fog configuration can be modified on the fog of war system prefab through game studio
 - Detectors register with the fog of war system leveraging services registry
