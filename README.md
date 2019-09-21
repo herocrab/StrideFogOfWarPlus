@@ -1,4 +1,4 @@
-# Xenko FogOfWarPlus Moba/Platformer (System)
+# Xenko FogOfWarPlus Moba/RTS/Platformer (System)
 
 This is a fog of war system written for Xenko, it is comprised of the following components:
 - A dual camera system, one perspective camera, one orthographic camera
