@@ -15,8 +15,6 @@ This is a fog of war system written for Xenko, it is comprised of the following 
 - Game profiler is attached, control-shift-p, WASD to move around
 
  <img src="Screenshot.png">
-  
- [Video can be found here](https://www.youtube.com/watch?v=HPWxhYZBDSQ)
 
 **NOTE: This could be further enhanced without the use of vector distance checking by passing a map-only render texture through to a sprite
 batch draw or the back buffer and using pixels from the fog render texture to draw pixels from the map-only texture (darkened or grayscale) for unrevealed terrain; however I had issues separating shadows into their own pipeline with the current engine build and this is workable and grants me better options for highlight shaders, etc.
