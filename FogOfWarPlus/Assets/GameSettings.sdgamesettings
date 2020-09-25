@@ -1,15 +1,15 @@
 !GameSettingsAsset
 Id: 0c26e9f9-e695-4d85-be11-091ba335186c
-SerializedVersion: {Xenko: 3.1.0.1}
+SerializedVersion: {Stride: 3.1.0.1}
 Tags: []
 DefaultScene: 24351ff9-c930-45c4-9b8e-a48c73d4f9a4:MainScene
 GraphicsCompositor: c503abc9-f619-4491-b1b4-3d07b914ec67:GraphicsCompositor
 Defaults:
-    - !Xenko.Audio.AudioEngineSettings,Xenko.Audio
+    - !Stride.Audio.AudioEngineSettings,Stride.Audio
         HrtfSupport: false
-    - !Xenko.Assets.EditorSettings,Xenko.Assets
+    - !Stride.Assets.EditorSettings,Stride.Assets
         RenderingMode: HDR
-    - !Xenko.Navigation.NavigationSettings,Xenko.Navigation
+    - !Stride.Navigation.NavigationSettings,Stride.Navigation
         EnableDynamicNavigationMesh: false
         IncludedCollisionGroups: AllFilter
         BuildSettings:
@@ -30,21 +30,21 @@ Defaults:
                     MaxClimb: 0.25
                     MaxSlope: {Radians: 0.7853982}
                     Radius: 0.5
-    - !Xenko.Physics.PhysicsSettings,Xenko.Physics
+    - !Stride.Physics.PhysicsSettings,Stride.Physics
         Flags: ContinuousCollisionDetection
         MaxSubSteps: 1
-        FixedTimeStep: 0.0166666675
-    - !Xenko.Graphics.RenderingSettings,Xenko.Graphics
+        FixedTimeStep: 0.016666668
+    - !Stride.Graphics.RenderingSettings,Stride.Graphics
         DefaultBackBufferWidth: 1280
         DefaultBackBufferHeight: 720
         AdaptBackBufferToScreen: false
         DefaultGraphicsProfile: Level_11_0
         ColorSpace: Linear
         DisplayOrientation: LandscapeRight
-    - !Xenko.Streaming.StreamingSettings,Xenko.Rendering
+    - !Stride.Streaming.StreamingSettings,Stride.Rendering
         ManagerUpdatesInterval: 0:00:00:00.0330000
         ResourceLiveTimeout: 0:00:00:08.0000000
-    - !Xenko.Assets.Textures.TextureSettings,Xenko.Assets
+    - !Stride.Assets.Textures.TextureSettings,Stride.Assets
         TextureQuality: Normal
 Overrides: []
 PlatformFilters:
@@ -58,5 +58,5 @@ PlatformFilters:
     - ^Mali\-4
     - ^Mali\-T6
     - ^Mali\-T7
-SplashScreenTexture: d26edb11-10bd-403c-b3c2-9c7fcccf25e5:XenkoDefaultSplashScreen
+SplashScreenTexture: d26edb11-10bd-403c-b3c2-9c7fcccf25e5:StrideDefaultSplashScreen
 SplashScreenColor: {R: 0, G: 0, B: 0, A: 255}

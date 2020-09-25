@@ -1,6 +1,6 @@
 !PrefabAsset
 Id: 84c9b2e0-9435-4e17-81f7-609bd2edcec9
-SerializedVersion: {Xenko: 3.1.0.1}
+SerializedVersion: {Stride: 3.1.0.1}
 Tags: []
 Hierarchy:
     RootParts:
@@ -24,7 +24,7 @@ Hierarchy:
                     de9bf9b9e37edd6ea6de1fc6cc2ce27d: !TransformComponent
                         Id: a0d868bb-6816-44a3-9990-d86300fe374f
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}
-                        Rotation: {X: 0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
+                        Rotation: {X: 0.70710677, Y: 0.0, Z: 0.0, W: 0.70710677}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     f3d18ad20d9fdffdb4ab07ca2b84c78d: !SpriteComponent
@@ -52,7 +52,7 @@ Hierarchy:
                     431c4bc8fd74958f39ac725c05c5a205: !TransformComponent
                         Id: 30076631-d784-4339-8f97-52a5f22c3a37
                         Position: {X: 0.0, Y: 0.5, Z: 0.0}
-                        Rotation: {X: 0.0, Y: 0.9238795, Z: 0.0, W: 0.382683426}
+                        Rotation: {X: 0.0, Y: 0.9238795, Z: 0.0, W: 0.38268343}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children:
                             efaac54fdcadd163b4733f3deb4b9c6d: ref!! 1b8d34b8-698d-4372-a1ab-2738bcc8a1ee
@@ -71,6 +71,7 @@ Hierarchy:
                         CcdMotionThreshold: 0.0
                         CcdSweptSphereRadius: 0.0
                         IsTrigger: false
+                        AlwaysUpdateNaviMeshCache: false
                         ColliderShapes:
                             d62b3c448530f9ea46720fcfdf30a286: !BoxColliderShapeDesc
                                 Is2D: false

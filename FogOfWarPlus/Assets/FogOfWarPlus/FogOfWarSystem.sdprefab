@@ -1,6 +1,6 @@
 !PrefabAsset
 Id: a2a69691-a4d4-4b50-8d6c-78699dfd99a5
-SerializedVersion: {Xenko: 3.1.0.1}
+SerializedVersion: {Stride: 3.1.0.1}
 Tags: []
 Hierarchy:
     RootParts:
@@ -46,7 +46,7 @@ Hierarchy:
                     c8d814fd68fbbf1edffdfc1efe593552: !TransformComponent
                         Id: 094de098-1b44-49b3-95e4-a78dff84bed7
                         Position: {X: 0.0, Y: 150.0, Z: 0.0}
-                        Rotation: {X: -0.707106769, Y: 0.0, Z: 0.0, W: 0.707106769}
+                        Rotation: {X: -0.70710677, Y: 0.0, Z: 0.0, W: 0.70710677}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     a38cbd675bc79e294a2e92bae8eabba6: !CameraComponent

@@ -18,8 +18,8 @@ USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 using System;
 using System.Collections.Generic;
-using Xenko.Core.Mathematics;
-using Xenko.Rendering;
+using Stride.Core.Mathematics;
+using Stride.Rendering;
 // ReSharper disable ClassNeverInstantiated.Global
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable ConvertToConstant.Global
@@ -28,7 +28,7 @@ using Xenko.Rendering;
 
 namespace FogOfWarPlus
 {
-    using Xenko.Engine;
+    using Stride.Engine;
 
     namespace FogOfWarPlus
     {

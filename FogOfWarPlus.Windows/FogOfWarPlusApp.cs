@@ -1,4 +1,4 @@
-using Xenko.Engine;
+using Stride.Engine;
 // ReSharper disable ArrangeTypeMemberModifiers
 // ReSharper disable ClassNeverInstantiated.Global
 // ReSharper disable UnusedParameter.Local

@@ -1,8 +1,8 @@
-﻿using Xenko.Core.Mathematics;
-using Xenko.Input;
-using Xenko.Engine;
-using Xenko.Games;
-using Xenko.Physics;
+using Stride.Core.Mathematics;
+using Stride.Input;
+using Stride.Engine;
+using Stride.Games;
+using Stride.Physics;
 
 namespace FogOfWarPlus
 {

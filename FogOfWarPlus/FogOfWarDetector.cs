@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2019 Jeremy Buck (jarmo@netcodez.com) http://github.com/devjarmo 
+/* Copyright (c) 2019 Jeremy Buck (jarmo@netcodez.com) http://github.com/devjarmo 
  
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software
 and associated documentation files (the "Software"), to deal in the Software without
@@ -16,8 +16,8 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR TH
 USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 */
-using Xenko.Core.Mathematics;
-using Xenko.Engine;
+using Stride.Core.Mathematics;
+using Stride.Engine;
 // ReSharper disable ClassNeverInstantiated.Global
 
 namespace FogOfWarPlus

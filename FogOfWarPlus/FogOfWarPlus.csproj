@@ -1,52 +1,18 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
-
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-
   <ItemGroup>
-    <PackageReference Include="Xenko.Engine" Version="3.1.0.1-beta02-0674" />
-
-    <PackageReference Include="Xenko.Video" Version="3.1.0.1-beta02-0674" />
-    <PackageReference Include="Xenko.Physics" Version="3.1.0.1-beta02-0674" />
-    <PackageReference Include="Xenko.Navigation" Version="3.1.0.1-beta02-0674" />
-    <PackageReference Include="Xenko.Particles" Version="3.1.0.1-beta02-0674" />
-    <PackageReference Include="Xenko.UI" Version="3.1.0.1-beta02-0674" />
-
-    <PackageReference Include="Xenko.Core.Assets.CompilerApp" Version="3.1.0.1-beta02-0674" IncludeAssets="build;buildTransitive" />
+    <PackageReference Include="Stride.Engine" Version="4.0.0.1-beta04-1265" />
+    <PackageReference Include="Stride.Video" Version="4.0.0.1-beta04-1265" />
+    <PackageReference Include="Stride.Physics" Version="4.0.0.1-beta04-1265" />
+    <PackageReference Include="Stride.Navigation" Version="4.0.0.1-beta04-1265" />
+    <PackageReference Include="Stride.Particles" Version="4.0.0.1-beta04-1265" />
+    <PackageReference Include="Stride.UI" Version="4.0.0.1-beta04-1265" />
+    <PackageReference Include="Stride.Core.Assets.CompilerApp" Version="4.0.0.1-beta04-1265" IncludeAssets="build;buildTransitive" />
   </ItemGroup>
-
+  <ItemGroup />
   <ItemGroup>
-    <Compile Update="Effects\FogOfWarPlusShader.cs">
-      <DesignTime>True</DesignTime>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>FogOfWarPlusShader.xksl</DependentUpon>
-    </Compile>
-    <Compile Update="Effects\FogOfWarUnitShader.cs">
-      <DesignTime>True</DesignTime>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>FogOfWarUnitShader.xksl</DependentUpon>
-    </Compile>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Effects\FogOfWarPlusShader.xksl">
-      <Generator>XenkoShaderKeyGenerator</Generator>
-      <LastGenOutput>FogOfWarPlusShader.cs</LastGenOutput>
-    </None>
-    <None Update="Effects\FogOfWarUnitShader.xksl">
-      <Generator>XenkoShaderKeyGenerator</Generator>
-    </None>
-    <None Update="Effects\FogOfWarPlusShader.xksl">
-      <Generator>XenkoShaderKeyGenerator</Generator>
-      <LastGenOutput>FogOfWarPlusShader.cs</LastGenOutput>
-    </None>
-    <None Update="Effects\FogOfWarUnitShader.xksl">
-      <Generator>XenkoShaderKeyGenerator</Generator>
-      <LastGenOutput>FogOfWarUnitShader.cs</LastGenOutput>
-    </None>
     <None Update="Effects\FogOfWarLineOfSightShader.xksl">
       <Generator>XenkoShaderKeyGenerator</Generator>
       <LastGenOutput>FogOfWarLineOfSightShader.cs</LastGenOutput>

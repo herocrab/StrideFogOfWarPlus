@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2019 Jeremy Buck (jarmo@netcodez.com) http://github.com/devjarmo 
+/* Copyright (c) 2019 Jeremy Buck (jarmo@netcodez.com) http://github.com/devjarmo 
  
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software
 and associated documentation files (the "Software"), to deal in the Software without
@@ -17,7 +17,7 @@ USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 */
 using System.Linq;
-using Xenko.Engine;
+using Stride.Engine;
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable UnassignedField.Global
 

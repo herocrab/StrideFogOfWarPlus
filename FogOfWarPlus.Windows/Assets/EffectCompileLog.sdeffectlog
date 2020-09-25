@@ -1,23 +1,26 @@
-﻿---
+---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceGlossinessMap
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceGlossinessMap
                                 GenericArguments: [false]
                         Compositions:
                             glossinessMap: !ShaderClassSource
@@ -25,14 +28,16 @@ UsedParameters:
                                 GenericArguments: [Material.GlossinessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceMetalness
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceMetalness
                         Compositions:
                             metalnessMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantFloatLink
                                 GenericArguments: [Material.MetalnessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -41,7 +46,8 @@ UsedParameters:
                                         GenericArguments: [false]
                                     - !ShaderMixinSource
                                         Mixins:
-                                            -   ClassName: MaterialSurfaceShadingSpecularMicrofacet
+                                            - !ShaderClassSource
+                                                ClassName: MaterialSurfaceShadingSpecularMicrofacet
                                         Compositions:
                                             environmentFunction: !ShaderClassSource
                                                 ClassName: MaterialSpecularMicrofacetEnvironmentGGXLUT
@@ -53,16 +59,21 @@ UsedParameters:
                                                 ClassName: MaterialSpecularMicrofacetNormalDistributionGGX
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 5]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -80,32 +91,35 @@ UsedParameters:
         GenericArguments: [3]
     LightSkyboxShader.LightSpecularColor.environmentLights[1]: !ShaderClassSource
         ClassName: RoughnessCubeMapEnvironmentColor
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_RENDER_TARGET_COUNT
+            -   Name: STRIDE_RENDER_TARGET_COUNT
                 Definition: 1
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceGlossinessMap
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceGlossinessMap
                                 GenericArguments: [false]
                         Compositions:
                             glossinessMap: !ShaderClassSource
@@ -113,14 +127,16 @@ UsedParameters:
                                 GenericArguments: [Material.GlossinessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceMetalness
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceMetalness
                         Compositions:
                             metalnessMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantFloatLink
                                 GenericArguments: [Material.MetalnessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -129,7 +145,8 @@ UsedParameters:
                                         GenericArguments: [false]
                                     - !ShaderMixinSource
                                         Mixins:
-                                            -   ClassName: MaterialSurfaceShadingSpecularMicrofacet
+                                            - !ShaderClassSource
+                                                ClassName: MaterialSurfaceShadingSpecularMicrofacet
                                         Compositions:
                                             environmentFunction: !ShaderClassSource
                                                 ClassName: MaterialSpecularMicrofacetEnvironmentGGXLUT
@@ -141,28 +158,33 @@ UsedParameters:
                                                 ClassName: MaterialSpecularMicrofacetNormalDistributionGGX
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceGlossinessMap
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceGlossinessMap
                                 GenericArguments: [false]
                         Compositions:
                             glossinessMap: !ShaderClassSource
@@ -170,14 +192,16 @@ UsedParameters:
                                 GenericArguments: [Material.GlossinessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceMetalness
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceMetalness
                         Compositions:
                             metalnessMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantFloatLink
                                 GenericArguments: [Material.MetalnessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -186,7 +210,8 @@ UsedParameters:
                                         GenericArguments: [false]
                                     - !ShaderMixinSource
                                         Mixins:
-                                            -   ClassName: MaterialSurfaceShadingSpecularMicrofacet
+                                            - !ShaderClassSource
+                                                ClassName: MaterialSurfaceShadingSpecularMicrofacet
                                         Compositions:
                                             environmentFunction: !ShaderClassSource
                                                 ClassName: MaterialSpecularMicrofacetEnvironmentGGXLUT
@@ -198,16 +223,21 @@ UsedParameters:
                                                 ClassName: MaterialSpecularMicrofacetNormalDistributionGGX
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 5]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -317,24 +347,27 @@ EffectName: SpriteAlphaCutoffEffect
 UsedParameters: {}
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceGlossinessMap
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceGlossinessMap
                                 GenericArguments: [false]
                         Compositions:
                             glossinessMap: !ShaderClassSource
@@ -342,14 +375,16 @@ UsedParameters:
                                 GenericArguments: [Material.GlossinessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceMetalness
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceMetalness
                         Compositions:
                             metalnessMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantFloatLink
                                 GenericArguments: [Material.MetalnessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -358,7 +393,8 @@ UsedParameters:
                                         GenericArguments: [false]
                                     - !ShaderMixinSource
                                         Mixins:
-                                            -   ClassName: MaterialSurfaceShadingSpecularMicrofacet
+                                            - !ShaderClassSource
+                                                ClassName: MaterialSurfaceShadingSpecularMicrofacet
                                         Compositions:
                                             environmentFunction: !ShaderClassSource
                                                 ClassName: MaterialSpecularMicrofacetEnvironmentGGXLUT
@@ -370,20 +406,26 @@ UsedParameters:
                                                 ClassName: MaterialSpecularMicrofacetNormalDistributionGGX
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [8]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 5]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -403,24 +445,27 @@ UsedParameters:
         ClassName: RoughnessCubeMapEnvironmentColor
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceGlossinessMap
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceGlossinessMap
                                 GenericArguments: [false]
                         Compositions:
                             glossinessMap: !ShaderClassSource
@@ -428,14 +473,16 @@ UsedParameters:
                                 GenericArguments: [Material.GlossinessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceMetalness
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceMetalness
                         Compositions:
                             metalnessMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantFloatLink
                                 GenericArguments: [Material.MetalnessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -444,7 +491,8 @@ UsedParameters:
                                         GenericArguments: [false]
                                     - !ShaderMixinSource
                                         Mixins:
-                                            -   ClassName: MaterialSurfaceShadingSpecularMicrofacet
+                                            - !ShaderClassSource
+                                                ClassName: MaterialSurfaceShadingSpecularMicrofacet
                                         Compositions:
                                             environmentFunction: !ShaderClassSource
                                                 ClassName: MaterialSpecularMicrofacetEnvironmentGGXLUT
@@ -456,20 +504,26 @@ UsedParameters:
                                                 ClassName: MaterialSpecularMicrofacetNormalDistributionGGX
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [8]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 5]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -487,11 +541,11 @@ UsedParameters:
         GenericArguments: [3]
     LightSkyboxShader.LightSpecularColor.environmentLights[1]: !ShaderClassSource
         ClassName: RoughnessCubeMapEnvironmentColor
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_RENDER_TARGET_COUNT
+            -   Name: STRIDE_RENDER_TARGET_COUNT
                 Definition: 1
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
@@ -501,24 +555,27 @@ UsedParameters:
     FXAAEffect.QualityKey: 15
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorTextureScaledOffsetDynamicSampler
                                 GenericArguments: [Material.DiffuseMap, TEXCOORD0, Material.Sampler.i0, rgba, Material.TextureScale, Material.TextureOffset]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -527,28 +584,33 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorTextureScaledOffsetDynamicSampler
                                 GenericArguments: [Material.DiffuseMap, TEXCOORD0, Material.Sampler.i0, rgba, Material.TextureScale, Material.TextureOffset]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -557,16 +619,21 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 5]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -586,24 +653,27 @@ UsedParameters:
         ClassName: RoughnessCubeMapEnvironmentColor
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorTextureScaledOffsetDynamicSampler
                                 GenericArguments: [Material.DiffuseMap, TEXCOORD0, Material.Sampler.i0, rgba, Material.TextureScale, Material.TextureOffset]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -612,16 +682,21 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 5]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -639,32 +714,35 @@ UsedParameters:
         GenericArguments: [3]
     LightSkyboxShader.LightSpecularColor.environmentLights[1]: !ShaderClassSource
         ClassName: RoughnessCubeMapEnvironmentColor
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_RENDER_TARGET_COUNT
+            -   Name: STRIDE_RENDER_TARGET_COUNT
                 Definition: 1
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorTextureScaledOffsetDynamicSampler
                                 GenericArguments: [Material.DiffuseMap, TEXCOORD0, Material.Sampler.i0, rgba, Material.TextureScale, Material.TextureOffset]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -673,20 +751,26 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [8]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 5]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -706,24 +790,27 @@ UsedParameters:
         ClassName: RoughnessCubeMapEnvironmentColor
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorTextureScaledOffsetDynamicSampler
                                 GenericArguments: [Material.DiffuseMap, TEXCOORD0, Material.Sampler.i0, rgba, Material.TextureScale, Material.TextureOffset]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -732,20 +819,26 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [8]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 5]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -763,32 +856,35 @@ UsedParameters:
         GenericArguments: [3]
     LightSkyboxShader.LightSpecularColor.environmentLights[1]: !ShaderClassSource
         ClassName: RoughnessCubeMapEnvironmentColor
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_RENDER_TARGET_COUNT
+            -   Name: STRIDE_RENDER_TARGET_COUNT
                 Definition: 1
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorTextureScaledOffsetDynamicSampler
                                 GenericArguments: [Material.DiffuseMap, TEXCOORD0, Material.Sampler.i0, rgba, Material.TextureScale, Material.TextureOffset]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -797,16 +893,21 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 5]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -826,24 +927,27 @@ UsedParameters:
         ClassName: RoughnessCubeMapEnvironmentColor
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorTextureScaledOffsetDynamicSampler
                                 GenericArguments: [Material.DiffuseMap, TEXCOORD0, Material.Sampler.i0, rgba, Material.TextureScale, Material.TextureOffset]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -852,16 +956,21 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 5]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -879,32 +988,35 @@ UsedParameters:
         GenericArguments: [3]
     LightSkyboxShader.LightSpecularColor.environmentLights[1]: !ShaderClassSource
         ClassName: RoughnessCubeMapEnvironmentColor
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_RENDER_TARGET_COUNT
+            -   Name: STRIDE_RENDER_TARGET_COUNT
                 Definition: 1
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceGlossinessMap
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceGlossinessMap
                                 GenericArguments: [false]
                         Compositions:
                             glossinessMap: !ShaderClassSource
@@ -912,14 +1024,16 @@ UsedParameters:
                                 GenericArguments: [Material.GlossinessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceMetalness
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceMetalness
                         Compositions:
                             metalnessMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantFloatLink
                                 GenericArguments: [Material.MetalnessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -928,7 +1042,8 @@ UsedParameters:
                                         GenericArguments: [false]
                                     - !ShaderMixinSource
                                         Mixins:
-                                            -   ClassName: MaterialSurfaceShadingSpecularMicrofacet
+                                            - !ShaderClassSource
+                                                ClassName: MaterialSurfaceShadingSpecularMicrofacet
                                         Compositions:
                                             environmentFunction: !ShaderClassSource
                                                 ClassName: MaterialSpecularMicrofacetEnvironmentGGXLUT
@@ -940,16 +1055,21 @@ UsedParameters:
                                                 ClassName: MaterialSpecularMicrofacetNormalDistributionGGX
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 5]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -969,24 +1089,27 @@ UsedParameters:
         ClassName: RoughnessCubeMapEnvironmentColor
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceGlossinessMap
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceGlossinessMap
                                 GenericArguments: [false]
                         Compositions:
                             glossinessMap: !ShaderClassSource
@@ -994,14 +1117,16 @@ UsedParameters:
                                 GenericArguments: [Material.GlossinessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceMetalness
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceMetalness
                         Compositions:
                             metalnessMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantFloatLink
                                 GenericArguments: [Material.MetalnessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -1010,7 +1135,8 @@ UsedParameters:
                                         GenericArguments: [false]
                                     - !ShaderMixinSource
                                         Mixins:
-                                            -   ClassName: MaterialSurfaceShadingSpecularMicrofacet
+                                            - !ShaderClassSource
+                                                ClassName: MaterialSurfaceShadingSpecularMicrofacet
                                         Compositions:
                                             environmentFunction: !ShaderClassSource
                                                 ClassName: MaterialSpecularMicrofacetEnvironmentGGXLUT
@@ -1022,16 +1148,21 @@ UsedParameters:
                                                 ClassName: MaterialSpecularMicrofacetNormalDistributionGGX
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 5]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -1049,11 +1180,11 @@ UsedParameters:
         GenericArguments: [3]
     LightSkyboxShader.LightSpecularColor.environmentLights[1]: !ShaderClassSource
         ClassName: RoughnessCubeMapEnvironmentColor
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_RENDER_TARGET_COUNT
+            -   Name: STRIDE_RENDER_TARGET_COUNT
                 Definition: 1
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
@@ -1110,24 +1241,27 @@ UsedParameters:
     CombineLevelsFromCoC.LevelCount: 4
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -1136,28 +1270,33 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -1166,16 +1305,21 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 5]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -1195,24 +1339,27 @@ UsedParameters:
         ClassName: RoughnessCubeMapEnvironmentColor
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -1221,16 +1368,21 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 5]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -1248,29 +1400,32 @@ UsedParameters:
         GenericArguments: [3]
     LightSkyboxShader.LightSpecularColor.environmentLights[1]: !ShaderClassSource
         ClassName: RoughnessCubeMapEnvironmentColor
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_RENDER_TARGET_COUNT
+            -   Name: STRIDE_RENDER_TARGET_COUNT
                 Definition: 1
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderMixinSource
                                 Mixins:
-                                    -   ClassName: FogOfWarPlusShader
+                                    - !ShaderClassSource
+                                        ClassName: FogOfWarPlusShader
                                 Compositions:
                                     Fog: !ShaderClassSource
                                         ClassName: ComputeColorTextureScaledOffsetDynamicSampler
@@ -1280,7 +1435,8 @@ UsedParameters:
                                         GenericArguments: [Material.DiffuseMap, TEXCOORD0, Material.Sampler.i0, rgba, Material.TextureScale, Material.TextureOffset]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -1289,16 +1445,21 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 5]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -1318,21 +1479,24 @@ UsedParameters:
         ClassName: RoughnessCubeMapEnvironmentColor
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderMixinSource
                                 Mixins:
-                                    -   ClassName: FogOfWarPlusShader
+                                    - !ShaderClassSource
+                                        ClassName: FogOfWarPlusShader
                                 Compositions:
                                     Fog: !ShaderClassSource
                                         ClassName: ComputeColorTextureScaledOffsetDynamicSampler
@@ -1342,7 +1506,8 @@ UsedParameters:
                                         GenericArguments: [Material.DiffuseMap, TEXCOORD0, Material.Sampler.i0, rgba, Material.TextureScale, Material.TextureOffset]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -1351,16 +1516,21 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 5]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -1378,32 +1548,35 @@ UsedParameters:
         GenericArguments: [3]
     LightSkyboxShader.LightSpecularColor.environmentLights[1]: !ShaderClassSource
         ClassName: RoughnessCubeMapEnvironmentColor
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_RENDER_TARGET_COUNT
+            -   Name: STRIDE_RENDER_TARGET_COUNT
                 Definition: 1
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -1412,24 +1585,32 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -1449,24 +1630,27 @@ UsedParameters:
         ClassName: RoughnessCubeMapEnvironmentColor
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceGlossinessMap
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceGlossinessMap
                                 GenericArguments: [false]
                         Compositions:
                             glossinessMap: !ShaderClassSource
@@ -1474,14 +1658,16 @@ UsedParameters:
                                 GenericArguments: [Material.GlossinessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceMetalness
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceMetalness
                         Compositions:
                             metalnessMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantFloatLink
                                 GenericArguments: [Material.MetalnessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -1490,7 +1676,8 @@ UsedParameters:
                                         GenericArguments: [false]
                                     - !ShaderMixinSource
                                         Mixins:
-                                            -   ClassName: MaterialSurfaceShadingSpecularMicrofacet
+                                            - !ShaderClassSource
+                                                ClassName: MaterialSurfaceShadingSpecularMicrofacet
                                         Compositions:
                                             environmentFunction: !ShaderClassSource
                                                 ClassName: MaterialSpecularMicrofacetEnvironmentGGXLUT
@@ -1502,24 +1689,32 @@ UsedParameters:
                                                 ClassName: MaterialSpecularMicrofacetNormalDistributionGGX
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -1537,32 +1732,35 @@ UsedParameters:
         GenericArguments: [3]
     LightSkyboxShader.LightSpecularColor.environmentLights[1]: !ShaderClassSource
         ClassName: RoughnessCubeMapEnvironmentColor
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_RENDER_TARGET_COUNT
+            -   Name: STRIDE_RENDER_TARGET_COUNT
                 Definition: 1
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorTextureScaledOffsetDynamicSampler
                                 GenericArguments: [Material.DiffuseMap, TEXCOORD0, Material.Sampler.i0, rgba, Material.TextureScale, Material.TextureOffset]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -1571,24 +1769,32 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -1608,24 +1814,27 @@ UsedParameters:
         ClassName: RoughnessCubeMapEnvironmentColor
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorTextureScaledOffsetDynamicSampler
                                 GenericArguments: [Material.DiffuseMap, TEXCOORD0, Material.Sampler.i0, rgba, Material.TextureScale, Material.TextureOffset]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -1634,24 +1843,32 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -1669,32 +1886,35 @@ UsedParameters:
         GenericArguments: [3]
     LightSkyboxShader.LightSpecularColor.environmentLights[1]: !ShaderClassSource
         ClassName: RoughnessCubeMapEnvironmentColor
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_RENDER_TARGET_COUNT
+            -   Name: STRIDE_RENDER_TARGET_COUNT
                 Definition: 1
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -1703,24 +1923,32 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -1738,44 +1966,49 @@ UsedParameters:
         GenericArguments: [3]
     LightSkyboxShader.LightSpecularColor.environmentLights[1]: !ShaderClassSource
         ClassName: RoughnessCubeMapEnvironmentColor
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_RENDER_TARGET_COUNT
+            -   Name: STRIDE_RENDER_TARGET_COUNT
                 Definition: 1
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matDiffuseSpecularAlphaBlend, r]
                         Compositions:
                             computeColorSource: !ShaderMixinSource
                                 Mixins:
-                                    -   ClassName: FogOfWarPlusShader
+                                    - !ShaderClassSource
+                                        ClassName: FogOfWarPlusShader
                                 Compositions:
                                     Fog: !ShaderClassSource
                                         ClassName: ComputeColorTextureScaledOffsetDynamicSampler
                                         GenericArguments: [Material.DiffuseSpecularAlphaBlendMap, TEXCOORD0, Material.Sampler.i0, g, Material.TextureScale, Material.TextureOffset]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matAlphaBlendColor, rgb]
                         Compositions:
                             computeColorSource: !ShaderClassSource
@@ -1783,7 +2016,8 @@ UsedParameters:
                                 GenericArguments: [Material.AlphaBlendColorValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -1794,25 +2028,33 @@ UsedParameters:
                         ClassName: MaterialSurfaceDiffuseSpecularAlphaBlendColor
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Material.UsePixelShaderWithDepthPass: true
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -1830,30 +2072,33 @@ UsedParameters:
         GenericArguments: [3]
     LightSkyboxShader.LightSpecularColor.environmentLights[1]: !ShaderClassSource
         ClassName: RoughnessCubeMapEnvironmentColor
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceGlossinessMap
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceGlossinessMap
                                 GenericArguments: [false]
                         Compositions:
                             glossinessMap: !ShaderClassSource
@@ -1861,14 +2106,16 @@ UsedParameters:
                                 GenericArguments: [Material.GlossinessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceMetalness
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceMetalness
                         Compositions:
                             metalnessMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantFloatLink
                                 GenericArguments: [Material.MetalnessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -1877,7 +2124,8 @@ UsedParameters:
                                         GenericArguments: [false]
                                     - !ShaderMixinSource
                                         Mixins:
-                                            -   ClassName: MaterialSurfaceShadingSpecularMicrofacet
+                                            - !ShaderClassSource
+                                                ClassName: MaterialSurfaceShadingSpecularMicrofacet
                                         Compositions:
                                             environmentFunction: !ShaderClassSource
                                                 ClassName: MaterialSpecularMicrofacetEnvironmentGGXLUT
@@ -1889,24 +2137,32 @@ UsedParameters:
                                                 ClassName: MaterialSpecularMicrofacetNormalDistributionGGX
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -2196,24 +2452,27 @@ UsedParameters:
         - !LuminanceToChannelTransform {}
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceGlossinessMap
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceGlossinessMap
                                 GenericArguments: [false]
                         Compositions:
                             glossinessMap: !ShaderClassSource
@@ -2221,25 +2480,29 @@ UsedParameters:
                                 GenericArguments: [Material.GlossinessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceMetalness
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceMetalness
                         Compositions:
                             metalnessMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantFloatLink
                                 GenericArguments: [Material.MetalnessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matDiffuseSpecularAlphaBlend, rg]
                         Compositions:
                             computeColorSource: !ShaderMixinSource
                                 Mixins:
-                                    -   ClassName: ComputeColorMaterialAlphaBlend
+                                    - !ShaderClassSource
+                                        ClassName: ComputeColorMaterialAlphaBlend
                                 Compositions:
                                     color: !ShaderClassSource
                                         ClassName: FogOfWarUnitShader
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matAlphaBlendColor, rgb]
                         Compositions:
                             computeColorSource: !ShaderClassSource
@@ -2247,7 +2510,8 @@ UsedParameters:
                                 GenericArguments: [Material.AlphaBlendColorValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -2256,7 +2520,8 @@ UsedParameters:
                                         GenericArguments: [false]
                                     - !ShaderMixinSource
                                         Mixins:
-                                            -   ClassName: MaterialSurfaceShadingSpecularMicrofacet
+                                            - !ShaderClassSource
+                                                ClassName: MaterialSurfaceShadingSpecularMicrofacet
                                         Compositions:
                                             environmentFunction: !ShaderClassSource
                                                 ClassName: MaterialSpecularMicrofacetEnvironmentGGXLUT
@@ -2270,29 +2535,34 @@ UsedParameters:
                         ClassName: MaterialSurfaceDiffuseSpecularAlphaBlendColor
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Material.UsePixelShaderWithDepthPass: true
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceGlossinessMap
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceGlossinessMap
                                 GenericArguments: [false]
                         Compositions:
                             glossinessMap: !ShaderClassSource
@@ -2300,25 +2570,29 @@ UsedParameters:
                                 GenericArguments: [Material.GlossinessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceMetalness
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceMetalness
                         Compositions:
                             metalnessMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantFloatLink
                                 GenericArguments: [Material.MetalnessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matDiffuseSpecularAlphaBlend, rg]
                         Compositions:
                             computeColorSource: !ShaderMixinSource
                                 Mixins:
-                                    -   ClassName: ComputeColorMaterialAlphaBlend
+                                    - !ShaderClassSource
+                                        ClassName: ComputeColorMaterialAlphaBlend
                                 Compositions:
                                     color: !ShaderClassSource
                                         ClassName: FogOfWarUnitShader
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matAlphaBlendColor, rgb]
                         Compositions:
                             computeColorSource: !ShaderClassSource
@@ -2326,7 +2600,8 @@ UsedParameters:
                                 GenericArguments: [Material.AlphaBlendColorValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -2335,7 +2610,8 @@ UsedParameters:
                                         GenericArguments: [false]
                                     - !ShaderMixinSource
                                         Mixins:
-                                            -   ClassName: MaterialSurfaceShadingSpecularMicrofacet
+                                            - !ShaderClassSource
+                                                ClassName: MaterialSurfaceShadingSpecularMicrofacet
                                         Compositions:
                                             environmentFunction: !ShaderClassSource
                                                 ClassName: MaterialSpecularMicrofacetEnvironmentGGXLUT
@@ -2349,25 +2625,33 @@ UsedParameters:
                         ClassName: MaterialSurfaceDiffuseSpecularAlphaBlendColor
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Material.UsePixelShaderWithDepthPass: true
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -2385,30 +2669,33 @@ UsedParameters:
         GenericArguments: [3]
     LightSkyboxShader.LightSpecularColor.environmentLights[1]: !ShaderClassSource
         ClassName: RoughnessCubeMapEnvironmentColor
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceGlossinessMap
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceGlossinessMap
                                 GenericArguments: [false]
                         Compositions:
                             glossinessMap: !ShaderClassSource
@@ -2416,21 +2703,24 @@ UsedParameters:
                                 GenericArguments: [Material.GlossinessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceMetalness
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceMetalness
                         Compositions:
                             metalnessMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantFloatLink
                                 GenericArguments: [Material.MetalnessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matDiffuseSpecularAlphaBlend, r]
                         Compositions:
                             computeColorSource: !ShaderClassSource
                                 ClassName: FogOfWarUnitShader
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matAlphaBlendColor, rgb]
                         Compositions:
                             computeColorSource: !ShaderClassSource
@@ -2438,7 +2728,8 @@ UsedParameters:
                                 GenericArguments: [Material.AlphaBlendColorValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -2447,7 +2738,8 @@ UsedParameters:
                                         GenericArguments: [false]
                                     - !ShaderMixinSource
                                         Mixins:
-                                            -   ClassName: MaterialSurfaceShadingSpecularMicrofacet
+                                            - !ShaderClassSource
+                                                ClassName: MaterialSurfaceShadingSpecularMicrofacet
                                         Compositions:
                                             environmentFunction: !ShaderClassSource
                                                 ClassName: MaterialSpecularMicrofacetEnvironmentGGXLUT
@@ -2461,25 +2753,33 @@ UsedParameters:
                         ClassName: MaterialSurfaceDiffuseSpecularAlphaBlendColor
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Material.UsePixelShaderWithDepthPass: true
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -2497,30 +2797,33 @@ UsedParameters:
         GenericArguments: [3]
     LightSkyboxShader.LightSpecularColor.environmentLights[1]: !ShaderClassSource
         ClassName: RoughnessCubeMapEnvironmentColor
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceGlossinessMap
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceGlossinessMap
                                 GenericArguments: [false]
                         Compositions:
                             glossinessMap: !ShaderClassSource
@@ -2528,21 +2831,24 @@ UsedParameters:
                                 GenericArguments: [Material.GlossinessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceMetalness
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceMetalness
                         Compositions:
                             metalnessMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantFloatLink
                                 GenericArguments: [Material.MetalnessValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matDiffuseSpecularAlphaBlend, r]
                         Compositions:
                             computeColorSource: !ShaderClassSource
                                 ClassName: FogOfWarUnitShader
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matAlphaBlendColor, rgb]
                         Compositions:
                             computeColorSource: !ShaderClassSource
@@ -2550,7 +2856,8 @@ UsedParameters:
                                 GenericArguments: [Material.AlphaBlendColorValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -2559,7 +2866,8 @@ UsedParameters:
                                         GenericArguments: [false]
                                     - !ShaderMixinSource
                                         Mixins:
-                                            -   ClassName: MaterialSurfaceShadingSpecularMicrofacet
+                                            - !ShaderClassSource
+                                                ClassName: MaterialSurfaceShadingSpecularMicrofacet
                                         Compositions:
                                             environmentFunction: !ShaderClassSource
                                                 ClassName: MaterialSpecularMicrofacetEnvironmentGGXLUT
@@ -2573,29 +2881,34 @@ UsedParameters:
                         ClassName: MaterialSurfaceDiffuseSpecularAlphaBlendColor
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Material.UsePixelShaderWithDepthPass: true
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -2604,24 +2917,32 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -2632,39 +2953,43 @@ UsedParameters:
             ClassName: LightSimpleAmbient
         - !ShaderClassSource
             ClassName: EnvironmentLight
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_RENDER_TARGET_COUNT
+            -   Name: STRIDE_RENDER_TARGET_COUNT
                 Definition: 1
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matDiffuseSpecularAlphaBlend, r]
                         Compositions:
                             computeColorSource: !ShaderClassSource
                                 ClassName: FogOfWarUnitShader
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matAlphaBlendColor, rgb]
                         Compositions:
                             computeColorSource: !ShaderClassSource
@@ -2672,7 +2997,8 @@ UsedParameters:
                                 GenericArguments: [Material.AlphaBlendColorValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -2683,41 +3009,48 @@ UsedParameters:
                         ClassName: MaterialSurfaceDiffuseSpecularAlphaBlendColor
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Material.UsePixelShaderWithDepthPass: true
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matDiffuseSpecularAlphaBlend, r]
                         Compositions:
                             computeColorSource: !ShaderMixinSource
                                 Mixins:
-                                    -   ClassName: FogOfWarPlusShader
+                                    - !ShaderClassSource
+                                        ClassName: FogOfWarPlusShader
                                 Compositions:
                                     Fog: !ShaderClassSource
                                         ClassName: ComputeColorTextureScaledOffsetDynamicSampler
                                         GenericArguments: [Material.DiffuseSpecularAlphaBlendMap, TEXCOORD0, Material.Sampler.i0, g, Material.TextureScale, Material.TextureOffset]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matAlphaBlendColor, rgb]
                         Compositions:
                             computeColorSource: !ShaderClassSource
@@ -2725,7 +3058,8 @@ UsedParameters:
                                 GenericArguments: [Material.AlphaBlendColorValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -2736,25 +3070,33 @@ UsedParameters:
                         ClassName: MaterialSurfaceDiffuseSpecularAlphaBlendColor
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Material.UsePixelShaderWithDepthPass: true
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -2765,37 +3107,41 @@ UsedParameters:
             ClassName: LightSimpleAmbient
         - !ShaderClassSource
             ClassName: EnvironmentLight
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matDiffuseSpecularAlphaBlend, r]
                         Compositions:
                             computeColorSource: !ShaderClassSource
                                 ClassName: FogOfWarUnitShader
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matAlphaBlendColor, rgb]
                         Compositions:
                             computeColorSource: !ShaderClassSource
@@ -2803,7 +3149,8 @@ UsedParameters:
                                 GenericArguments: [Material.AlphaBlendColorValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -2814,25 +3161,33 @@ UsedParameters:
                         ClassName: MaterialSurfaceDiffuseSpecularAlphaBlendColor
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Material.UsePixelShaderWithDepthPass: true
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -2843,30 +3198,33 @@ UsedParameters:
             ClassName: LightSimpleAmbient
         - !ShaderClassSource
             ClassName: EnvironmentLight
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -2875,24 +3233,32 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -2905,31 +3271,35 @@ UsedParameters:
             ClassName: EnvironmentLight
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorTextureScaledOffsetDynamicSampler
                                 GenericArguments: [Material.DiffuseMap, TEXCOORD0, Material.Sampler.i0, rgba, Material.TextureScale, Material.TextureOffset]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matDiffuseSpecularAlphaBlend, r]
                         Compositions:
                             computeColorSource: !ShaderClassSource
                                 ClassName: FogOfWarLineOfSightShader
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matAlphaBlendColor, rgb]
                         Compositions:
                             computeColorSource: !ShaderClassSource
@@ -2937,7 +3307,8 @@ UsedParameters:
                                 GenericArguments: [Material.AlphaBlendColorValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -2948,25 +3319,33 @@ UsedParameters:
                         ClassName: MaterialSurfaceDiffuseSpecularAlphaBlendColor
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Material.UsePixelShaderWithDepthPass: true
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -2977,9 +3356,9 @@ UsedParameters:
             ClassName: LightSimpleAmbient
         - !ShaderClassSource
             ClassName: EnvironmentLight
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
@@ -2995,31 +3374,35 @@ UsedParameters:
     GaussianBlur.Count: 13
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorConstantColorLink
                                 GenericArguments: [Material.DiffuseValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matDiffuseSpecularAlphaBlend, r]
                         Compositions:
                             computeColorSource: !ShaderClassSource
                                 ClassName: FogOfWarLineOfSightShader
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceSetStreamFromComputeColor
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceSetStreamFromComputeColor
                                 GenericArguments: [matAlphaBlendColor, rgb]
                         Compositions:
                             computeColorSource: !ShaderClassSource
@@ -3027,7 +3410,8 @@ UsedParameters:
                                 GenericArguments: [Material.AlphaBlendColorValue]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -3038,25 +3422,33 @@ UsedParameters:
                         ClassName: MaterialSurfaceDiffuseSpecularAlphaBlendColor
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Material.UsePixelShaderWithDepthPass: true
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -3067,9 +3459,9 @@ UsedParameters:
             ClassName: LightSimpleAmbient
         - !ShaderClassSource
             ClassName: EnvironmentLight
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
@@ -3121,24 +3513,27 @@ UsedParameters:
     GaussianBlur.Count: 2
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect
+EffectName: StrideForwardShadingEffect
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorTextureScaledOffsetDynamicSampler
                                 GenericArguments: [Material.DiffuseMap, TEXCOORD0, Material.Sampler.i0, rgba, Material.TextureScale, Material.TextureOffset]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -3147,24 +3542,32 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup
@@ -3175,32 +3578,35 @@ UsedParameters:
             ClassName: LightSimpleAmbient
         - !ShaderClassSource
             ClassName: EnvironmentLight
-    XenkoEffectBase.RenderTargetExtensions: !ShaderMixinSource
+    StrideEffectBase.RenderTargetExtensions: !ShaderMixinSource
         Macros:
-            -   Name: XENKO_RENDER_TARGET_COUNT
+            -   Name: STRIDE_RENDER_TARGET_COUNT
                 Definition: 1
-            -   Name: XENKO_MULTISAMPLE_COUNT
+            -   Name: STRIDE_MULTISAMPLE_COUNT
                 Definition: 1
 ---
 !EffectCompileRequest
-EffectName: XenkoForwardShadingEffect.ShadowMapCaster
+EffectName: StrideForwardShadingEffect.ShadowMapCaster
 UsedParameters:
     Material.PixelStageSurfaceShaders: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialSurfaceArray
+            - !ShaderClassSource
+                ClassName: MaterialSurfaceArray
         Compositions:
             layers: !ShaderArraySource
                 Values:
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceDiffuse
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceDiffuse
                         Compositions:
                             diffuseMap: !ShaderClassSource
                                 ClassName: ComputeColorTextureScaledOffsetDynamicSampler
                                 GenericArguments: [Material.DiffuseMap, TEXCOORD0, Material.Sampler.i0, rgba, Material.TextureScale, Material.TextureOffset]
                     - !ShaderMixinSource
                         Mixins:
-                            -   ClassName: MaterialSurfaceLightingAndShading
+                            - !ShaderClassSource
+                                ClassName: MaterialSurfaceLightingAndShading
                         Compositions:
                             surfaces: !ShaderArraySource
                                 Values:
@@ -3209,24 +3615,32 @@ UsedParameters:
                                         GenericArguments: [false]
     Material.PixelStageStreamInitializer: !ShaderMixinSource
         Mixins:
-            -   ClassName: MaterialStream
-            -   ClassName: MaterialPixelShadingStream
+            - !ShaderClassSource
+                ClassName: MaterialStream
+            - !ShaderClassSource
+                ClassName: MaterialPixelShadingStream
     Lighting.DirectLightGroups:
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [1, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderMixinSource
             Mixins:
-                -   ClassName: LightDirectionalGroup
+                - !ShaderClassSource
+                    ClassName: LightDirectionalGroup
                     GenericArguments: [1]
-                -   ClassName: ShadowMapReceiverDirectional
+                - !ShaderClassSource
+                    ClassName: ShadowMapReceiverDirectional
                     GenericArguments: [4, 1, true, true, false, false]
-                -   ClassName: ShadowMapFilterPcf
+                - !ShaderClassSource
+                    ClassName: ShadowMapFilterPcf
                     GenericArguments: [PerView.Lighting, 3]
         - !ShaderClassSource
             ClassName: LightClusteredPointGroup

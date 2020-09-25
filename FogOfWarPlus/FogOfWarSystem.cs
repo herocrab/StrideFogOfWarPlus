@@ -1,4 +1,4 @@
-﻿/* Copyright (c) 2019 Jeremy Buck (jarmo@netcodez.com) http://github.com/devjarmo 
+/* Copyright (c) 2019 Jeremy Buck (jarmo@netcodez.com) http://github.com/devjarmo 
  
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software
 and associated documentation files (the "Software"), to deal in the Software without
@@ -19,7 +19,8 @@ USE OR OTHER DEALINGS IN THE SOFTWARE.
 using System.Collections.Generic;
 using System.Linq;
 using FogOfWarPlus.FogOfWarPlus;
-using Xenko.Engine;
+using Stride.Core.Diagnostics;
+using Stride.Engine;
 // ReSharper disable MemberCanBePrivate.Global
 // ReSharper disable UnassignedField.Global
 
@@ -57,12 +58,14 @@ namespace FogOfWarPlus
             }
 
             fogSubscribers.Add(subscriber.Name, subscriber);
+            Log.Debug($"Subscriber {subscriber.Name} has been added to the fog of war system.");
         }
 
         public void RemoveSubscriber(FogOfWarSubscriber subscriber)
         {
             if (fogSubscribers.ContainsKey(subscriber.Name)) {
                 fogSubscribers.Remove(subscriber.Name);
+                Log.Debug($"Subscriber {subscriber.Name} has been removed from the fog of war system.");
             }
         }
 
@@ -73,23 +76,28 @@ namespace FogOfWarPlus
             }
 
             fogDetectors.Add(detector.Name, detector);
+            Log.Debug($"Detector {detector.Name} has been added to the fog of war system.");
         }
 
         public void RemoveDetector(FogOfWarDetector detector)
         {
             if (fogDetectors.ContainsKey(detector.Name)) {
                 fogDetectors.Remove(detector.Name);
+                Log.Debug($"Detector {detector.Name} has been removed from the fog of war system.");
             }
         }
 
         private void UpdateFogOfWarSystem()
         {
-            Entity.Transform.GetWorldTransformation(out var worldPos, out _, out _);
+            //Entity.Transform.GetWorldTransformation(out var worldPos, out _, out _);
+            var worldPos = Entity.Transform.WorldMatrix.TranslationVector;
             FogOfWarSubscriber.UpdateWorld(worldPos, fogDetectors.Select(a => a.Value.Pos).ToList());
         }
 
         private void InitializeFogOfWar()
         {
+            Log.ActivateLog(LogMessageType.Debug);
+
             fogDetectors = new Dictionary<string, FogOfWarDetector>();
             fogSubscribers = new Dictionary<string, FogOfWarSubscriber>();
 

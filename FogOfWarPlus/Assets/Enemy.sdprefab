@@ -1,6 +1,6 @@
 !PrefabAsset
 Id: 9b210d7a-201b-4f11-b9d1-1244082dc9b3
-SerializedVersion: {Xenko: 3.1.0.1}
+SerializedVersion: {Stride: 3.1.0.1}
 Tags: []
 Hierarchy:
     RootParts:
@@ -37,6 +37,7 @@ Hierarchy:
                         CcdMotionThreshold: 0.0
                         CcdSweptSphereRadius: 0.0
                         IsTrigger: false
+                        AlwaysUpdateNaviMeshCache: false
                         ColliderShapes:
                             3c3b97f72ce72c85f55c9d559a07b796: !BoxColliderShapeDesc
                                 Is2D: false
