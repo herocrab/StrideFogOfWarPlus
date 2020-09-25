@@ -92,7 +92,7 @@ namespace FogOfWarPlus
                 closestDetectorDistance = float.MaxValue;
 
                 // Do not calculate alphas for off screen entities, this *could* use physics on GPU side
-                if (Vector3.Distance(worldPosRecycler, cameraWorldPos) > cameraRange)
+                if (Vector3.DistanceSquared(worldPosRecycler, cameraWorldPos) > cameraRange * cameraRange)
                 {
                     if (alpha >= 0) {
                         shaderParams?.Set(FogOfWarUnitShaderKeys.Alpha, 0f);
@@ -108,10 +108,10 @@ namespace FogOfWarPlus
                         continue;
                     }
                     
-                    distanceRecycler = Vector3.Distance(worldPosRecycler, DetectorWorldPos[j].Item2);
-                    if (distanceRecycler < closestDetectorDistance) {
+                    distanceRecycler = Vector3.DistanceSquared(worldPosRecycler, DetectorWorldPos[j].Item2);
+                    if (distanceRecycler < closestDetectorDistance * closestDetectorDistance) {
                         closestDetectorDistance = distanceRecycler;
-                        detectorDistanceAlpha = DistanceAlpha(closestDetectorDistance);
+                        detectorDistanceAlpha = DistanceAlpha((float)Math.Sqrt(closestDetectorDistance));
 
                         // Shortcut fully visible units, stop iterating
                         if (Math.Abs(detectorDistanceAlpha - 1) < detectZeroThreshold) {
