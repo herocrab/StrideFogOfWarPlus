@@ -14,14 +14,16 @@ This is a fog of war system written for Stride, it is comprised of the following
 - Fog blending can be modified through a dedicated set of post processing effects
 - Game profiler is attached, control-shift-p to disable, WASD to move around
 
- <img src="Screenshot.png">
+ <img src="Screenshot1.png">
 
-Update runs at ~2.75-2.9ms on my system.
+Update runs at ~2.5ms on my system.
 
 To use:
 - Explore the layout in Game Studio, the fog of war system prefab is nested under the player
 - Register detectors and subscribers with the fog of war system by adding the prefab to your entities
 - Modify fog of war settings on the fog of war system prefab
+
+ <img src="Screenshot2.png">
 
 ## Xenko FogOfWarGrid Line of Sight System
 I am currently planning a fog of war grid system that will allow for dynamic line of sight.
