@@ -25,5 +25,4 @@ To use:
 
  <img src="Screenshot2.png">
 
-## Xenko FogOfWarGrid Line of Sight System
-I am currently planning a fog of war grid system that will allow for dynamic line of sight.
+## Note: You may need to clean the build, and use Stride VSX plugin to clean intermediate assets in Stride, then build the game from Game Studio to get the shader to recompile.
