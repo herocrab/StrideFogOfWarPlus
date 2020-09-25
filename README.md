@@ -20,7 +20,7 @@ Update runs at ~2.5ms on my system.
 
 To use:
 - Explore the layout in Game Studio, the fog of war system prefab is nested under the player
-- Register detectors and subscribers with the fog of war system by adding the prefab to your entities
+- Register detectors and subscribers with the fog of war system by adding the corresponding prefab to your entities
 - Modify fog of war settings on the fog of war system prefab
 
  <img src="Screenshot2.png">
