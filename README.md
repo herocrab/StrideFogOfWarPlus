@@ -14,7 +14,7 @@ This is a fog of war system written for Stride, it is comprised of the following
 - Fog blending can be modified through a dedicated set of post processing effects
 - Game profiler is attached, control-shift-p to disable, WASD to move around
 
-#### In theory you could do this without needing the enemy shaders and distance checking, if you could render only the map with no units. Unfortunately I have spent many cycles trying to do this and the issue is, I can't work out how to remove shadows from the units. It's not as easy as a simple render group to render texture pass, shadows are handled in their own render stage.
+#### In theory you could do this without needing the enemy shaders and distance checking, if you could render only the map with no units then you could just opt for simple mask tricks. Unfortunately I have spent many cycles trying to do this and the issue is, I can't work out how to remove shadows from the units. It's not as easy as a simple render group to render texture pass, shadows are handled in their own render stage.
 
  <img src="Screenshot1.png">
 
