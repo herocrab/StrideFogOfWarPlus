@@ -27,4 +27,4 @@ To use:
 
  <img src="Screenshot2.png">
 
-### Note: You may need to clean the build, and use Stride VSX plugin to clean intermediate assets in Stride, then build the game from Game Studio to get the shader to recompile.
+#### Note: You may need to clean the build, and use Stride VSX plugin to clean intermediate assets in Stride, then build the game from Game Studio to get the shader to recompile.
