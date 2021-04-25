@@ -14,11 +14,11 @@ This is a fog of war system written for Stride, it is comprised of the following
 - Fog blending can be modified through a dedicated set of post processing effects
 - Game profiler is attached, control-shift-p to disable, WASD to move around
 
-#### In theory you could do this without needing the enemy shaders and distance checking, if you could render only the map with no units then you could just opt for simple mask tricks. Unfortunately I have spent many cycles trying to do this and the issue is, I can't work out how to remove shadows from the units. It's not as easy as a simple render group to render texture pass, shadows are handled in their own render stage.
+NOTE: In theory you could do this without needing the enemy shaders and distance checking, if you could render only the map with no units then you could just opt for simple mask or XOR. Unfortunately I have spent  cycles trying to do this and the issue is, I can't work out how to remove shadows from the units. Shadows are handled in their own render stage in what seams to be RenderGroup0. It may be possible using a custom root render feature.
 
  <img src="Screenshot1.png">
 
-Update runs at ~2.5ms on my system.
+Update runs at ~2.5ms on my system with a GTX 1050ti.
 
 To use:
 - Explore the layout in Game Studio, the fog of war system prefab is nested under the player
@@ -27,4 +27,4 @@ To use:
 
  <img src="Screenshot2.png">
 
-#### Note: You may need to clean the build, and use Stride VSX plugin to clean intermediate assets in Stride, then build the game from Game Studio to get the shader to recompile.
+NOTE: You may need to clean the build, and use Stride VSX plugin to clean intermediate assets in Stride, then build the game from Game Studio to get the shader to recompile.
